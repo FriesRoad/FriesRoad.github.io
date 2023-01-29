@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>主题测试</title>
+      <link href="/2023/01/29/zhu-ti-ce-shi/"/>
+      <url>/2023/01/29/zhu-ti-ce-shi/</url>
+      
+        <content type="html"><![CDATA[<p>​矮行星它们的特点是外幔和表面由冰冻的水和气体元素组成的一些低熔点的化合物组成，有的其中混杂着的一些由重元素化合物组成的岩石质的矿物质，厚度占星体半径的比例相对较大，但所占星体相对质量却不大，内部可能有一个岩石质占主要物质组成部分的核心，占星体质量的绝大部分，星体体积和总质量不大，平均密度较小，一些大行星的卫星也具有这种类似冰矮星的结构，像木卫二、三、四，土卫一、六等。对于行星级的冰矮星来讲，最大的是冥王星，直径2370±20公里，最小的卡戎，直径约800公里左右。像谷神星这样的距太阳较近的行星，表面的冰物质主要是水，而冥王星和卡戎的表面冰物质主要是水和熔点更低的甲烷、氮、一氧化碳等物质。过去曾将这些矮行星算作小行星中的一类，直到2006年才将它们从一般小行星中分离出来，划作单独的一类，称为矮行星，并把冥王星和冥卫一归入其中。<br>​矮行星的这种星体结构和它产生的地处太阳系外围的低温环境和自身的质量有关，一方面，太阳的温度不足以将它们的由气体元素组成的低熔点物质驱散，另一方面，它们自身原始质量较小，星体本身不能将氢氦等较轻的轻元素气体束缚住。<br>​但星体收缩产生的热量也不能将较重一些的气体元素组成的化合物如水和碳氢化合物等完全驱散，而会保留下一部分，同时它的足够的引力又使它足可以形成分层的物质结构，使较轻的物质浮于较重的由重元素组成的岩石质物质的表面，并随着星体以后的冷却，在表面上凝固下来，因此，会形成具有这种物质结构的星体。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 测试文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>路遥第一篇测试</title>
       <link href="/2023/01/29/lu-yao-di-yi-pian-ce-shi/"/>
       <url>/2023/01/29/lu-yao-di-yi-pian-ce-shi/</url>
@@ -11,6 +38,20 @@
         <content type="html"><![CDATA[<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><p>正文正文</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> statis <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"路遥第一篇测试"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="标题二-1"><a href="#标题二-1" class="headerlink" title="标题二"></a>标题二</h2>]]></content>
       
       
+      <categories>
+          
+          <category> 测试文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -24,6 +65,20 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> 测试文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+            <tag> hello word </tag>
+            
+        </tags>
       
     </entry>
     
