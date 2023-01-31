@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VMware实现WinXP安装</title>
+      <link href="/2023/01/31/vmware-shi-xian-winxp-an-zhuang/"/>
+      <url>/2023/01/31/vmware-shi-xian-winxp-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-安装VMware虚拟机"><a href="#1-安装VMware虚拟机" class="headerlink" title="1.安装VMware虚拟机"></a>1.安装VMware虚拟机</h3><p><strong>VMware下载地址：</strong><a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">下载 VMware Workstation Pro | CN</a></p><h3 id="2-Windows-XP系统镜像下载"><a href="#2-Windows-XP系统镜像下载" class="headerlink" title="2.Windows XP系统镜像下载"></a>2.Windows XP系统镜像下载</h3><p><strong>Windows XP下载地址</strong>：<a href="https://msdn.itellyou.cn/">下载Windows XP系统镜像</a></p><p>点击进入MSDN官方连接，找到Windows XP如下图所示版本，展开详情后复制ed2k链接到迅雷，即可开始下载。</p><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131162006430.png" alt="image-20230131162006430"></p><h3 id="3-创建Windows-XP虚拟机"><a href="#3-创建Windows-XP虚拟机" class="headerlink" title="3.创建Windows XP虚拟机"></a>3.创建Windows XP虚拟机</h3><ol><li>新建虚拟机</li><li>选择自定义安装</li><li>默认最高版本下一步</li><li>选择刚刚下载的光盘iso映像文件，下一步</li><li>密钥不填，下一步，选择是</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164051973.png" alt="image-20230131164051973"></p><ol start="6"><li>这是虚拟机安装名称与路径，下一步</li><li>默认处理器，内存，网络类型，I/O控制器类型，虚拟磁盘类型，下一步</li><li>默认选择创建新磁盘，下一步</li><li>磁盘大小可设置小一些，稍后虚拟机磁盘选择与本地共享</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164322224.png" alt="image-20230131164322224"></p><ol start="10"><li>下一步，完成安装并启动虚拟机</li></ol><h3 id="4-等待虚拟机完成安装"><a href="#4-等待虚拟机完成安装" class="headerlink" title="4.等待虚拟机完成安装"></a>4.等待虚拟机完成安装</h3><ol><li>等待安装完成</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164458233.png" alt="image-20230131164458233"></p><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164640086.png" alt="image-20230131164640086"></p><ol start="2"><li>无视错误，确定并下一步</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164928194.png" alt="image-20230131164928194"></p><ol start="3"><li>选择否并下一步</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131164954350.png" alt="image-20230131164954350"></p><ol start="4"><li>确定，并自动进入系统，安装VMware桌面适应工具</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131165404846.png" alt="image-20230131165404846"></p><ol start="5"><li>成功</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131165617266.png" alt="image-20230131165617266"></p><h3 id="5-创建本机与虚拟机的共享文件夹"><a href="#5-创建本机与虚拟机的共享文件夹" class="headerlink" title="5.创建本机与虚拟机的共享文件夹"></a>5.创建本机与虚拟机的共享文件夹</h3><ol><li>编辑虚拟机设置</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131165731778.png" alt="image-20230131165731778"></p><ol start="2"><li>共享文件夹，改为总是启用</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131165929576.png" alt="image-20230131165929576"></p><ol start="3"><li>设置本机共享资源文件夹</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131170057715.png" alt="image-20230131170057715"></p><ol start="4"><li>重启此虚拟机</li><li>右键我的电脑，选择映射网络驱动器</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131170248364.png" alt="image-20230131170248364"></p><ol start="6"><li>选择刚刚设置的文件夹</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131170731993.png" alt="image-20230131170731993"></p><ol start="7"><li>点击确定完成，即可在我的电脑里找到共享文件夹了</li></ol><p><img src="/../images/VMware%E5%AE%9E%E7%8E%B0WinXP%E5%AE%89%E8%A3%85/image-20230131170832073.png" alt="image-20230131170832073"></p><p>之后在share文件夹里的内容就可以和该虚拟机共享</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> winxp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux安装并部署Tomcat</title>
       <link href="/2023/01/31/linux-an-zhuang-bing-bu-shu-tomcat/"/>
       <url>/2023/01/31/linux-an-zhuang-bing-bu-shu-tomcat/</url>
@@ -188,7 +213,7 @@
       
       <categories>
           
-          <category> 测试文档 </category>
+          <category> 文档资料 </category>
           
       </categories>
       
