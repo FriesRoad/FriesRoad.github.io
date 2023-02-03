@@ -379,7 +379,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-02
+                    2023-02-03
                 </div>
                 
 
@@ -425,9 +425,9 @@
 <li>能够完成SqlSessionFactory工具类的抽取</li>
 </ul>
 </blockquote>
-<h2 id="1，Request和Response的概述"><a href="#1，Request和Response的概述" class="headerlink" title="1，Request和Response的概述"></a>1，Request和Response的概述</h2><p>==Request是请求对象，Response是响应对象。==这两个对象在我们使用Servlet的时候有看到：<img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628735216156.png" alt="1628735216156"></p>
+<h2 id="1，Request和Response的概述"><a href="#1，Request和Response的概述" class="headerlink" title="1，Request和Response的概述"></a>1，Request和Response的概述</h2><p>==Request是请求对象，Response是响应对象。==这两个对象在我们使用Servlet的时候有看到：<img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628735216156.png"></p>
 <p>此时，我们就需要思考一个问题request和response这两个参数的作用是什么?</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628735746602.png" alt="1628735746602"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628735746602.png"></p>
 <ul>
 <li>request:==获取==请求数据<ul>
 <li>浏览器会发送HTTP请求到后台服务器[Tomcat]</li>
@@ -465,7 +465,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>启动成功后就可以通过浏览器来访问，并且根据传入参数的不同就可以在页面上展示不同的内容:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628738273049.png" alt="1628738273049"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628738273049.png"></p>
 <p><strong>小结</strong></p>
 <p>在这节中，我们主要认识了下request对象和reponse对象:</p>
 <ul>
@@ -493,11 +493,11 @@
 <li>request提供了哪些API,这些API从哪里查?</li>
 </ul>
 <p>首先，我们先来看下Request的继承体系:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628740441008.png" alt="1628740441008"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628740441008.png"></p>
 <p>从上图中可以看出，ServletRequest和HttpServletRequest都是Java提供的，所以我们可以打开JavaEE提供的API文档[参考: 资料/JavaEE7-api.chm],打开后可以看到:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628741839475.png" alt="1628741839475"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628741839475.png"></p>
 <p>所以ServletRequest和HttpServletRequest是继承关系，并且两个都是接口，接口是无法创建对象，这个时候就引发了下面这个问题:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628742224589.png" alt="1628742224589"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628742224589.png"></p>
 <p>这个时候，我们就需要用到Request继承体系中的<code>RequestFacade</code>:</p>
 <ul>
 <li>该类实现了HttpServletRequest接口，也间接实现了ServletRequest接口。</li>
@@ -518,7 +518,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>启动服务器，运行访问<code>http://localhost:8080/request-demo/demo2</code>,得到运行结果:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628743040046.png" alt="1628743040046"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628743040046.png"></p>
 <p><strong>小结</strong></p>
 <ul>
 <li>Request的继承体系为ServletRequest–&gt;HttpServletRequest–&gt;RequestFacade</li>
@@ -527,7 +527,7 @@
 </ul>
 <h3 id="2-2-Request获取请求数据"><a href="#2-2-Request获取请求数据" class="headerlink" title="2.2 Request获取请求数据"></a>2.2 Request获取请求数据</h3><p>HTTP请求数据总共分为三部分内容，分别是==请求行、请求头、请求体==，对于这三部分内容的数据，分别该如何获取，首先我们先来学习请求行数据如何获取?</p>
 <h4 id="2-2-1-获取请求行数据"><a href="#2-2-1-获取请求行数据" class="headerlink" title="2.2.1 获取请求行数据"></a>2.2.1 获取请求行数据</h4><p>请求行包含三块内容，分别是<code>请求方式</code>、<code>请求资源路径</code>、<code>HTTP协议及版本</code></p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628748240075.png" alt="1628748240075"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628748240075.png"></p>
 <p>对于这三部分内容，request对象都提供了对应的API方法来获取，具体如下:</p>
 <ul>
 <li>获取请求方式: <code>GET</code></li>
@@ -584,9 +584,9 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>启动服务器，访问<code>http://localhost:8080/request-demo/req1?username=zhangsan&amp;passwrod=123</code>，获取的结果如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628762794935.png" alt="1628762794935"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628762794935.png"></p>
 <h4 id="2-2-2-获取请求头数据"><a href="#2-2-2-获取请求头数据" class="headerlink" title="2.2.2 获取请求头数据"></a>2.2.2 获取请求头数据</h4><p>对于请求头的数据，格式为<code>key: value</code>如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628768652535.png" alt="1628768652535"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628768652535.png"></p>
 <p>所以根据请求头名称获取对应值的方法为:</p>
 <pre class="line-numbers language-none"><code class="language-none">String getHeader(String name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -609,9 +609,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>重新启动服务器后，<code>http://localhost:8080/request-demo/req1?username=zhangsan&amp;passwrod=123</code>，获取的结果如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628769145524.png" alt="1628769145524"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628769145524.png"></p>
 <h4 id="2-2-3-获取请求体数据"><a href="#2-2-3-获取请求体数据" class="headerlink" title="2.2.3 获取请求体数据"></a>2.2.3 获取请求体数据</h4><p>浏览器在发送GET请求的时候是没有请求体的，所以需要把请求方式变更为POST，请求体中的数据格式如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628768665185.png" alt="1628768665185"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628768665185.png"></p>
 <p>对于请求体中的数据，Request对象提供了如下两种方式来获取其中的数据，分别是:</p>
 <ul>
 <li>获取字节输入流，如果前端发送的是字节数据，比如传递的是文件数据，则使用该方法</li>
@@ -698,9 +698,9 @@
 <ol start="4">
 <li>启动服务器，通过浏览器访问<code>http://localhost:8080/request-demo/req.html</code></li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628770516387.png" alt="1628770516387"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628770516387.png"></p>
 <p>点击<code>提交</code>按钮后，就可以在控制台看到前端所发送的请求数据</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628770585480.png" alt="1628770585480"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628770585480.png"></p>
 <p><strong>小结</strong></p>
 <p>HTTP请求数据中包含了<code>请求行</code>、<code>请求头</code>和<code>请求体</code>，针对这三部分内容，Request对象都提供了对应的API方法来获取对应的值:</p>
 <ul>
@@ -777,11 +777,11 @@
 <ul>
 <li>对于上述的代码，会存在什么问题呢?</li>
 </ul>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628776252445.png" alt="1628776252445"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628776252445.png"></p>
 <ul>
 <li>如何解决上述重复代码的问题呢?</li>
 </ul>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628776433318.png" alt="1628776433318"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628776433318.png"></p>
 <p>当然，也可以在doGet中调用doPost,在doPost中完成参数的获取和打印,另外需要注意的是，doGet和doPost方法都必须存在，不能删除任意一个。</p>
 <p>==GET请求和POST请求获取请求参数的方式不一样，在获取请求参数这块该如何实现呢?==</p>
 <p>要想实现，我们就需要==思考==:</p>
@@ -815,11 +815,11 @@
 <p>解决方案二:</p>
 <p>request对象已经将上述获取请求参数的方法进行了封装，并且request提供的方法实现的功能更强大，以后只需要调用request提供的方法即可，在request的方法中都实现了哪些操作?</p>
 <p>(1)根据不同的请求方式获取请求参数，获取的内容如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628778931277.png" alt="1628778931277"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628778931277.png"></p>
 <p>(2)把获取到的内容进行分割，内容如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628779067793.png" alt="1628779067793"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628779067793.png"></p>
 <p>(3)把分割后端数据，存入到一个Map集合中:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628779368501.png" alt="1628779368501"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628779368501.png"></p>
 <p><strong>注意</strong>:因为参数的值可能是一个，也可能有多个，所以Map的值的类型为String数组。</p>
 <p>基于上述理论，request对象为我们提供了如下方法:</p>
 <ul>
@@ -857,7 +857,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628780937599.png" alt="1628780937599"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628780937599.png"></p>
 <p>2.在Servlet代码中获取页面传递GET请求的参数值</p>
 <p> 2.1获取GET方式的所有请求参数</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -891,7 +891,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>获取的结果为:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628780965283.png" alt="1628780965283"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628780965283.png"></p>
 <p> 2.2获取GET请求参数中的爱好，结果是数组值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * request 通用方式获取请求参数
@@ -915,7 +915,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>获取的结果为:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781031437.png" alt="1628781031437"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781031437.png"></p>
 <p> 2.3获取GET请求参数中的用户名和密码，结果是单个值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * request 通用方式获取请求参数
@@ -938,7 +938,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>获取的结果为:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781176434.png" alt="1628781176434"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781176434.png"></p>
 <p>3.在Servlet代码中获取页面传递POST请求的参数值</p>
 <p> 3.1将req.html页面form表单的提交方式改成post</p>
 <p> 3.2将doGet方法中的内容复制到doPost方法中即可</p>
@@ -962,12 +962,12 @@
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-3-IDEA快速创建Servlet"><a href="#2-3-IDEA快速创建Servlet" class="headerlink" title="2.3 IDEA快速创建Servlet"></a>2.3 IDEA快速创建Servlet</h3><p>使用通用方式获取请求参数后，屏蔽了GET和POST的请求方式代码的不同，则代码可以定义如下格式:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781419752.png" alt="1628781419752"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781419752.png"></p>
 <p>由于格式固定，所以我们可以使用IDEA提供的模板来制作一个Servlet的模板，这样我们后期在创建Servlet的时候就会更高效，具体如何实现:</p>
 <p>(1)按照自己的需求，修改Servlet创建的模板内容</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781545912.png" alt="1628781545912"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628781545912.png"></p>
 <p>（2）使用servlet模板创建Servlet类</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628782117420.png" alt="1628782117420"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628782117420.png"></p>
 <h3 id="2-4-请求参数中文乱码问题"><a href="#2-4-请求参数中文乱码问题" class="headerlink" title="2.4 请求参数中文乱码问题"></a>2.4 请求参数中文乱码问题</h3><p>问题展示:</p>
 <p>(1)将req.html页面的请求方式修改为get</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
@@ -1008,13 +1008,13 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>（3）启动服务器，页面上输入中文参数</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784323297.png" alt="1628784323297"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784323297.png"></p>
 <p>（4）查看控制台打印内容</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784356157.png" alt="1628784356157"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784356157.png"></p>
 <p>（5）把req.html页面的请求方式改成post,再次发送请求和中文参数</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784425182.png" alt="1628784425182"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784425182.png"></p>
 <p>（6）查看控制台打印内容，依然为乱码</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784356157.png" alt="1628784356157"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628784356157.png"></p>
 <p>通过上面的案例，会发现，不管是GET还是POST请求，在发送的请求参数中如果有中文，在后台接收的时候，都会出现中文乱码的问题。具体该如何解决呢？</p>
 <h4 id="2-4-1-POST请求解决方案"><a href="#2-4-1-POST请求解决方案" class="headerlink" title="2.4.1 POST请求解决方案"></a>2.4.1 POST请求解决方案</h4><ul>
 <li>分析出现中文乱码的原因：<ul>
@@ -1065,7 +1065,7 @@
 <ol>
 <li>首先我们需要先分析下GET请求出现乱码的原因:</li>
 </ol>
-<p> <img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628829610823.png" alt="1628829610823"></p>
+<p> <img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628829610823.png"></p>
 <p>(1)浏览器通过HTTP协议发送请求和数据给后台服务器（Tomcat)</p>
 <p>(2)浏览器在发送HTTP的过程中会对中文数据进行URL==编码==</p>
 <p>(3)在进行URL编码的时候会采用页面<code>&lt;meta&gt;</code>标签指定的UTF-8的方式进行编码，<code>张三</code>编码后的结果为<code>%E5%BC%A0%E4%B8%89</code></p>
@@ -1083,12 +1083,12 @@
 
 <p>这个结果是如何计算的?</p>
 <p>使用<code>http://www.mytju.com/classcode/tools/encode_utf8.asp</code>，输入<code>张三</code></p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833310473.png" alt="1628833310473"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833310473.png"></p>
 <p>就可以获取张和三分别对应的10进制，然后在使用计算器，选择程序员模式，计算出对应的二进制数据结果:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833496171.png" alt="1628833496171"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833496171.png"></p>
 <p>在计算的十六进制结果中，每两位前面加一个%,就可以获取到<code>%E5%BC%A0%E4%B8%89</code>。</p>
 <p>当然你从上面所提供的网站中就已经能看到编码16进制的结果了:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833310474.png" alt="1628833310473"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628833310474.png"></p>
 <p>但是对于上面的计算过程，如果没有工具，纯手工计算的话，相对来说还是比较复杂的，我们也不需要进行手动计算，在Java中已经为我们提供了编码和解码的API工具类可以让我们更快速的进行编码和解码:</p>
 <p>编码:</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>URLEncoder</span><span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">"需要被编码的内容"</span><span class="token punctuation">,</span><span class="token string">"字符集(UTF-8)"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1122,7 +1122,7 @@
 <ol start="2">
 <li>清楚了出现乱码的原因，接下来我们就需要想办法进行解决</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628846824194.png" alt="1628846824194"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628846824194.png"></p>
 <p>从上图可以看住，</p>
 <ul>
 <li><p>在进行编码和解码的时候，不管使用的是哪个字符集，他们对应的<code>%E5%BC%A0%E4%B8%89</code>是一致的</p>
@@ -1164,7 +1164,7 @@
 
 其实打印出来的是十进制数据，我们只需要使用计算机换算下就能得到他们的对应关系，如下图:
 
-![1628849231208](../images/JavaWeb知识笔记——Request-Response/1628849231208.png)
+![](../images/JavaWeb知识笔记——Request-Response/1628849231208.png)
 
 至此对于GET请求中文乱码的解决方案，我们就已经分析完了，最后在代码中去实现下:
 
@@ -1236,7 +1236,7 @@ public class RequestDemo4 extends HttpServlet {
 <h3 id="2-5-Request请求转发"><a href="#2-5-Request请求转发" class="headerlink" title="2.5 Request请求转发"></a>2.5 Request请求转发</h3><ol>
 <li>==请求转发(forward):一种在服务器内部的资源跳转方式。==</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628851404283.png" alt="1628851404283"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628851404283.png"></p>
 <p>(1)浏览器发送请求给服务器，服务器中对应的资源A接收到请求</p>
 <p>(2)资源A处理完请求后将请求发给资源B</p>
 <p>(3)资源B处理完后将结果响应给浏览器</p>
@@ -1247,7 +1247,7 @@ public class RequestDemo4 extends HttpServlet {
 <pre class="line-numbers language-none"><code class="language-none">req.getRequestDispatcher("资源B路径").forward(req,resp);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>具体如何来使用，我们先来看下需求:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628854783523.png" alt="1628854783523"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628854783523.png"></p>
 <p>针对上述需求，具体的实现步骤为:</p>
 <blockquote>
 <p>1.创建一个RequestDemo5类，接收/req5的请求，在doGet方法中打印<code>demo5</code></p>
@@ -1311,7 +1311,7 @@ public class RequestDemo4 extends HttpServlet {
 
 <p>(4)启动测试</p>
 <p>访问<code>http://localhost:8080/request-demo/req5</code>,就可以在控制台看到如下内容:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628855192876.png" alt="1628855192876"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628855192876.png"></p>
 <p>说明请求已经转发到了<code>/req6</code></p>
 <ol start="3">
 <li>请求转发资源间共享数据:使用Request对象</li>
@@ -1334,7 +1334,7 @@ public class RequestDemo4 extends HttpServlet {
 <pre class="line-numbers language-none"><code class="language-none">void removeAttribute(String name);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>接着上个需求来:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628856995417.png" alt="1628856995417"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628856995417.png"></p>
 <blockquote>
 <p>1.在RequestDemo5的doGet方法中转发请求之前，将数据存入request域对象中</p>
 <p>2.在RequestDemo6的doGet方法从request域对象中获取数据，并将数据打印到控制台</p>
@@ -1382,7 +1382,7 @@ public class RequestDemo4 extends HttpServlet {
 
 <p>(3)启动测试</p>
 <p>访问<code>http://localhost:8080/request-demo/req5</code>,就可以在控制台看到如下内容:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857213364.png" alt="1628857213364"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857213364.png"></p>
 <p>此时就可以实现在转发多个资源之间共享数据。</p>
 <ol start="4">
 <li>请求转发的特点</li>
@@ -1390,7 +1390,7 @@ public class RequestDemo4 extends HttpServlet {
 <ul>
 <li><p>浏览器地址栏路径不发生变化</p>
 <p>虽然后台从<code>/req5</code>转发到<code>/req6</code>,但是浏览器的地址一直是<code>/req5</code>,未发生变化</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857365153.png" alt="1628857365153"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857365153.png"></p>
 </li>
 <li><p>只能转发到当前服务器的内部资源</p>
 <p>不能从一个服务器通过转发访问另一台服务器</p>
@@ -1400,7 +1400,7 @@ public class RequestDemo4 extends HttpServlet {
 </li>
 </ul>
 <h2 id="3，Response对象"><a href="#3，Response对象" class="headerlink" title="3，Response对象"></a>3，Response对象</h2><p>前面讲解完Request对象，接下来我们回到刚开始的那张图:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857632899.png" alt="1628857632899"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628857632899.png"></p>
 <ul>
 <li>Request:使用request对象来==获取==请求数据</li>
 <li>Response:使用response对象来==设置==响应数据</li>
@@ -1418,21 +1418,21 @@ public class RequestDemo4 extends HttpServlet {
 <ol>
 <li>响应行</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628858926498.png" alt="1628858926498"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628858926498.png"></p>
 <p>对于响应头，比较常用的就是设置响应状态码:</p>
 <pre class="line-numbers language-none"><code class="language-none">void setStatus(int sc);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="2">
 <li>响应头</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859051368.png" alt="1628859051368"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859051368.png"></p>
 <p>设置响应头键值对：</p>
 <pre class="line-numbers language-none"><code class="language-none">void setHeader(String name,String value);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="3">
 <li>响应体</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859268095.png" alt="1628859268095"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859268095.png"></p>
 <p>对于响应体，是通过字符、字节输出流的方式往浏览器写，</p>
 <p>获取字符输出流:</p>
 <pre class="line-numbers language-none"><code class="language-none">PrintWriter getWriter();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1444,7 +1444,7 @@ public class RequestDemo4 extends HttpServlet {
 <h3 id="3-2-Respones请求重定向"><a href="#3-2-Respones请求重定向" class="headerlink" title="3.2 Respones请求重定向"></a>3.2 Respones请求重定向</h3><ol>
 <li>==Response重定向(redirect):一种资源跳转方式。==</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859860279.png" alt="1628859860279"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628859860279.png"></p>
 <p>(1)浏览器发送请求给服务器，服务器中对应的资源A接收到请求</p>
 <p>(2)资源A现在无法处理该请求，就会给浏览器响应一个302的状态码+location的一个访问资源B的路径</p>
 <p>(3)浏览器接收到响应状态码为302就会重新发送请求到location对应的访问地址去访问资源B</p>
@@ -1456,7 +1456,7 @@ public class RequestDemo4 extends HttpServlet {
 resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>具体如何来使用，我们先来看下需求:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861030429.png" alt="1628861030429"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861030429.png"></p>
 <p>针对上述需求，具体的实现步骤为:</p>
 <blockquote>
 <p>1.创建一个ResponseDemo1类，接收/resp1的请求，在doGet方法中打印<code>resp1....</code></p>
@@ -1515,7 +1515,7 @@ resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" cla
 
 <p>(4)启动测试</p>
 <p>访问<code>http://localhost:8080/request-demo/resp1</code>,就可以在控制台看到如下内容:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861404699.png" alt="1628861404699"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861404699.png"></p>
 <p>说明<code>/resp1</code>和<code>/resp2</code>都被访问到了。到这重定向就已经完成了。</p>
 <p>虽然功能已经实现，但是从设置重定向的两行代码来看，会发现除了重定向的地址不一样，其他的内容都是一模一样，所以request对象给我们提供了简化的编写方式为:</p>
 <pre class="line-numbers language-none"><code class="language-none">resposne.sendRedirect("/request-demo/resp2")<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1542,7 +1542,7 @@ resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" cla
 <ul>
 <li><p>浏览器地址栏路径发送变化</p>
 <p>当进行重定向访问的时候，由于是由浏览器发送的两次请求，所以地址会发生变化</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861893130.png" alt="1628861893130"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628861893130.png"></p>
 </li>
 <li><p>可以重定向到任何位置的资源(服务内容、外部均可)</p>
 <p>因为第一次响应结果中包含了浏览器下次要跳转的路径，所以这个路径是可以任意位置资源。</p>
@@ -1552,12 +1552,12 @@ resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" cla
 </li>
 </ul>
 <p>介绍完==请求重定向==和==请求转发==以后，接下来需要把这两个放在一块对比下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628862170296.png" alt="1628862170296"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628862170296.png"></p>
 <p>以后到底用哪个，还是需要根据具体的业务来决定。</p>
 <h3 id="3-3-路径问题"><a href="#3-3-路径问题" class="headerlink" title="3.3 路径问题"></a>3.3 路径问题</h3><ol>
 <li>问题1：转发的时候路径上没有加<code>/request-demo</code>而重定向加了，那么到底什么时候需要加，什么时候不需要加呢?</li>
 </ol>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628862652700.png" alt="1628862652700"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628862652700.png"></p>
 <p>其实判断的依据很简单，只需要记住下面的规则即可:</p>
 <ul>
 <li>浏览器使用:需要加虚拟目录(项目访问路径)</li>
@@ -1631,7 +1631,7 @@ resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" cla
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628863905362.png" alt="1628863905362"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628863905362.png"></p>
 <ol start="2">
 <li>返回一串html字符串，并且能被浏览器解析</li>
 </ol>
@@ -1640,7 +1640,7 @@ resp.setHeader("location","资源B的访问路径");<span aria-hidden="true" cla
 response.setHeader("content-type","text/html");
 writer.write("&lt;h1&gt;aaa&lt;/h1&gt;");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864140820.png" alt="1628864140820"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864140820.png"></p>
 <p>==注意:==一次请求响应结束后，response对象就会被销毁掉，所以不要手动关闭流。</p>
 <ol start="3">
 <li>返回一个中文的字符串<code>你好</code>，需要注意设置响应数据的编码为<code>utf-8</code></li>
@@ -1649,7 +1649,7 @@ writer.write("&lt;h1&gt;aaa&lt;/h1&gt;");<span aria-hidden="true" class="line-nu
 response.setContentType("text/html;charset=utf-8");
 writer.write("你好");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864390263.png" alt="1628864390263"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864390263.png"></p>
 <h3 id="3-3-Response响应字节数据"><a href="#3-3-Response响应字节数据" class="headerlink" title="3.3 Response响应字节数据"></a>3.3 Response响应字节数据</h3><p>要想将字节数据写回到浏览器，我们需要两个步骤:</p>
 <ul>
 <li><p>通过Response对象获取字节输出流：ServletOutputStream outputStream = resp.getOutputStream();</p>
@@ -1687,7 +1687,7 @@ writer.write("你好");<span aria-hidden="true" class="line-numbers-rows"><span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864883564.png" alt="1628864883564"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628864883564.png"></p>
 <p>上述代码中，对于流的copy的代码还是比较复杂的，所以我们可以使用别人提供好的方法来简化代码的开发，具体的步骤是:</p>
 <p>(1)pom.xml添加依赖</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
@@ -1725,7 +1725,7 @@ IOUtils.copy(fis,os);<span aria-hidden="true" class="line-numbers-rows"><span></
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="4，用户注册登录案例"><a href="#4，用户注册登录案例" class="headerlink" title="4，用户注册登录案例"></a>4，用户注册登录案例</h2><p>接下来我们通过两个比较常见的案例，一个是==注册==，一个是==登录==来对今天学习的内容进行一个实战演练，首先来实现用户登录。</p>
-<h3 id="4-1-用户登录"><a href="#4-1-用户登录" class="headerlink" title="4.1 用户登录"></a>4.1 用户登录</h3><h4 id="4-1-1-需求分析"><a href="#4-1-1-需求分析" class="headerlink" title="4.1.1 需求分析"></a>4.1.1 需求分析</h4><p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628865728305.png" alt="1628865728305"></p>
+<h3 id="4-1-用户登录"><a href="#4-1-用户登录" class="headerlink" title="4.1 用户登录"></a>4.1 用户登录</h3><h4 id="4-1-1-需求分析"><a href="#4-1-1-需求分析" class="headerlink" title="4.1.1 需求分析"></a>4.1.1 需求分析</h4><p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628865728305.png"></p>
 <ol>
 <li>用户在登录页面输入用户名和密码，提交请求给LoginServlet</li>
 <li>在LoginServlet中接收请求和数据[用户名和密码]</li>
@@ -1739,14 +1739,14 @@ IOUtils.copy(fis,os);<span aria-hidden="true" class="line-numbers-rows"><span></
 <li>复制资料中的静态页面到项目的webapp目录下</li>
 </ol>
 <p>参考<code>资料\1. 登陆注册案例\1. 静态页面</code>,拷贝完效果如下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866248169.png" alt="1628866248169"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866248169.png"></p>
 <ol start="2">
 <li>创建db1数据库，创建tb_user表，创建User实体类</li>
 </ol>
 <p>2.1 将<code>资料\1. 登陆注册案例\2. MyBatis环境\tb_user.sql</code>中的sql语句执行下:</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866403891.png" alt="1628866403891"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866403891.png"></p>
 <p> 2.2 将<code>资料\1. 登陆注册案例\2. MyBatis环境\User.java</code>拷贝到com.itheima.pojo</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866560738.png" alt="1628866560738"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628866560738.png"></p>
 <ol start="3">
 <li>在项目的pom.xml导入Mybatis和Mysql驱动坐标</li>
 </ol>
@@ -1805,7 +1805,7 @@ IOUtils.copy(fis,os);<span aria-hidden="true" class="line-numbers-rows"><span></
 
 <p>4.3 将<code>资料\1. 登陆注册案例\2. MyBatis环境\UserMapper.xml</code>拷贝到resources目录下</p>
 <p>==注意：在resources下创建UserMapper.xml的目录时，要使用/分割==</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867237329.png" alt="1628867237329"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867237329.png"></p>
 <p>至此我们所需要的环境就都已经准备好了，具体该如何实现?</p>
 <h4 id="4-1-3-代码实现"><a href="#4-1-3-代码实现" class="headerlink" title="4.1.3 代码实现"></a>4.1.3 代码实现</h4><ol>
 <li>在UserMapper接口中提供一个根据用户名和密码查询用户对象的方法</li>
@@ -1901,11 +1901,11 @@ IOUtils.copy(fis,os);<span aria-hidden="true" class="line-numbers-rows"><span></
 <li>启动服务器测试</li>
 </ol>
 <p>4.1 如果用户名和密码输入错误，则</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867761245.png" alt="1628867761245"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867761245.png"></p>
 <p>4.2 如果用户名和密码输入正确，则</p>
-<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867801708.png" alt="1628867801708"></p>
+<p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867801708.png"></p>
 <p>至此用户的登录功能就已经完成了~</p>
-<h3 id="4-2-用户注册"><a href="#4-2-用户注册" class="headerlink" title="4.2 用户注册"></a>4.2 用户注册</h3><h4 id="4-2-1-需求分析"><a href="#4-2-1-需求分析" class="headerlink" title="4.2.1 需求分析"></a>4.2.1 需求分析</h4><p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867904783.png" alt="1628867904783"></p>
+<h3 id="4-2-用户注册"><a href="#4-2-用户注册" class="headerlink" title="4.2 用户注册"></a>4.2 用户注册</h3><h4 id="4-2-1-需求分析"><a href="#4-2-1-需求分析" class="headerlink" title="4.2.1 需求分析"></a>4.2.1 需求分析</h4><p><img src="/../images/JavaWeb%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Request-Response/1628867904783.png"></p>
 <ol>
 <li>用户在注册页面输入用户名和密码，提交请求给RegisterServlet</li>
 <li>在RegisterServlet中接收请求和数据[用户名和密码]</li>

@@ -379,7 +379,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-02
+                    2023-02-03
                 </div>
                 
 
@@ -427,9 +427,9 @@
 <li>掌握Servlet的使用和相关配置</li>
 </ul>
 </blockquote>
-<h2 id="1，Web概述"><a href="#1，Web概述" class="headerlink" title="1，Web概述"></a>1，Web概述</h2><h3 id="1-1-Web和JavaWeb的概念"><a href="#1-1-Web和JavaWeb的概念" class="headerlink" title="1.1 Web和JavaWeb的概念"></a>1.1 Web和JavaWeb的概念</h3><p>==Web是全球广域网，也称为万维网(www)，能够通过浏览器访问的网站。==<br>在我们日常的生活中，经常会使用浏览器去访问<code>百度</code>、<code>京东</code>、<code>传智官网</code>等这些网站，这些网站统称为Web网站。如下就是通过浏览器访问传智官网的界面:<br><img src="/../images/HTTP-Tomcat-Servlet/1627031023395.png" alt="1627031023395"><br>我们知道了什么是Web，那么JavaWeb又是什么呢？顾名思义==JavaWeb就是用Java技术来解决相关web互联网领域的技术栈。==<br>等学习完JavaWeb之后，同学们就可以使用Java语言开发我们上述所说的网站。而国内很多大型网站公司也是首选Java语言来解决web互联网相关的问题。那都有哪些公司的系统是使用Java语言的呢?<br> <img src="/../images/HTTP-Tomcat-Servlet/20210717183958532.png"><br>使用Java语言开发互联网系统是有很多技术栈需要大家了解，具体都有哪些呢?</p>
+<h2 id="1，Web概述"><a href="#1，Web概述" class="headerlink" title="1，Web概述"></a>1，Web概述</h2><h3 id="1-1-Web和JavaWeb的概念"><a href="#1-1-Web和JavaWeb的概念" class="headerlink" title="1.1 Web和JavaWeb的概念"></a>1.1 Web和JavaWeb的概念</h3><p>==Web是全球广域网，也称为万维网(www)，能够通过浏览器访问的网站。==<br>在我们日常的生活中，经常会使用浏览器去访问<code>百度</code>、<code>京东</code>、<code>传智官网</code>等这些网站，这些网站统称为Web网站。如下就是通过浏览器访问传智官网的界面:<br><img src="/../images/HTTP-Tomcat-Servlet/1627031023395.png"><br>我们知道了什么是Web，那么JavaWeb又是什么呢？顾名思义==JavaWeb就是用Java技术来解决相关web互联网领域的技术栈。==<br>等学习完JavaWeb之后，同学们就可以使用Java语言开发我们上述所说的网站。而国内很多大型网站公司也是首选Java语言来解决web互联网相关的问题。那都有哪些公司的系统是使用Java语言的呢?<br> <img src="/../images/HTTP-Tomcat-Servlet/20210717183958532.png"><br>使用Java语言开发互联网系统是有很多技术栈需要大家了解，具体都有哪些呢?</p>
 <h3 id="1-2-JavaWeb技术栈"><a href="#1-2-JavaWeb技术栈" class="headerlink" title="1.2 JavaWeb技术栈"></a>1.2 JavaWeb技术栈</h3><p>了解JavaWeb技术栈之前，有一个很重要的概念要介绍。</p>
-<h4 id="1-2-1-B-x2F-S架构"><a href="#1-2-1-B-x2F-S架构" class="headerlink" title="1.2.1 B/S架构"></a>1.2.1 B/S架构</h4><p>什么是B/S架构?<br>B/S 架构：Browser/Server，浏览器/服务器 架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可。大家可以通过下面这张图来回想下我们平常的上网过程:<br><img src="/../images/HTTP-Tomcat-Servlet/1627031933553.png" alt="1627031933553"></p>
+<h4 id="1-2-1-B-x2F-S架构"><a href="#1-2-1-B-x2F-S架构" class="headerlink" title="1.2.1 B/S架构"></a>1.2.1 B/S架构</h4><p>什么是B/S架构?<br>B/S 架构：Browser/Server，浏览器/服务器 架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可。大家可以通过下面这张图来回想下我们平常的上网过程:<br><img src="/../images/HTTP-Tomcat-Servlet/1627031933553.png"></p>
 <ul>
 <li>打开浏览器访问百度首页，输入要搜索的内容，点击回车或百度一下，就可以获取和搜索相关的内容</li>
 <li>思考下搜索的内容并不在我们自己的点上，那么这些内容从何而来？答案很明显是从百度服务器返回给我们的</li>
@@ -439,16 +439,16 @@
 <h4 id="1-2-2-静态资源"><a href="#1-2-2-静态资源" class="headerlink" title="1.2.2 静态资源"></a>1.2.2 静态资源</h4><ul>
 <li>静态资源主要包含HTML、CSS、JavaScript、图片等，主要负责页面的展示。</li>
 <li>我们之前已经学过前端网页制作<code>三剑客</code>(HTML+CSS+JavaScript),使用这些技术我们就可以制作出效果比较丰富的网页，将来展现给用户。但是由于做出来的这些内容都是静态的，这就会导致所有的人看到的内容将是一模一样。</li>
-<li>在日常上网的过程中，我们除了看到这些好看的页面以外，还会碰到很多动态内容，比如我们常见的百度登录效果:<br><img src="/../images/HTTP-Tomcat-Servlet/1627037814180.png" alt="1627037814180"><br><code>张三</code>登录以后在网页的右上角看到的是 <code>张三</code>，而<code>李四</code>登录以后看到的则是<code>李四</code>。所以不同的用户访问相同的资源看到的内容大多数是不一样的，要想实现这样的效果，光靠静态资源是无法实现的。</li>
+<li>在日常上网的过程中，我们除了看到这些好看的页面以外，还会碰到很多动态内容，比如我们常见的百度登录效果:<br><img src="/../images/HTTP-Tomcat-Servlet/1627037814180.png"><br><code>张三</code>登录以后在网页的右上角看到的是 <code>张三</code>，而<code>李四</code>登录以后看到的则是<code>李四</code>。所以不同的用户访问相同的资源看到的内容大多数是不一样的，要想实现这样的效果，光靠静态资源是无法实现的。</li>
 </ul>
 <h4 id="1-2-3-动态资源"><a href="#1-2-3-动态资源" class="headerlink" title="1.2.3 动态资源"></a>1.2.3 动态资源</h4><ul>
 <li>动态资源主要包含Servlet、JSP等，主要用来负责逻辑处理。</li>
 <li>动态资源处理完逻辑后会把得到的结果交给静态资源来进行展示，动态资源和静态资源要结合一起使用。</li>
-<li>动态资源虽然可以处理逻辑，但是当用户来登录百度的时候，就需要输入<code>用户名</code>和<code>密码</code>,这个时候我们就又需要解决的一个问题是，用户在注册的时候填入的用户名和密码、以及我们经常会访问到一些数据列表的内容展示(如下图所示)，这些数据都存储在哪里?我们需要的时候又是从哪里来取呢?<br><img src="/../images/HTTP-Tomcat-Servlet/1627038674340.png" alt="1627038674340"></li>
+<li>动态资源虽然可以处理逻辑，但是当用户来登录百度的时候，就需要输入<code>用户名</code>和<code>密码</code>,这个时候我们就又需要解决的一个问题是，用户在注册的时候填入的用户名和密码、以及我们经常会访问到一些数据列表的内容展示(如下图所示)，这些数据都存储在哪里?我们需要的时候又是从哪里来取呢?<br><img src="/../images/HTTP-Tomcat-Servlet/1627038674340.png"></li>
 </ul>
 <h4 id="1-2-4-数据库"><a href="#1-2-4-数据库" class="headerlink" title="1.2.4 数据库"></a>1.2.4 数据库</h4><ul>
 <li>数据库主要负责存储数据。</li>
-<li>整个Web的访问过程就如下图所示:<br><img src="/../images/HTTP-Tomcat-Servlet/1627039320220.png" alt="1627039320220"><br>(1)浏览器发送一个请求到服务端，去请求所需要的相关资源;<br>(2)资源分为动态资源和静态资源,动态资源可以是使用Java代码按照Servlet和JSP的规范编写的内容;<br>(3)在Java代码可以进行业务处理也可以从数据库中读取数据;<br>(4)拿到数据后，把数据交给HTML页面进行展示,再结合CSS和JavaScript使展示效果更好;<br>(5)服务端将静态资源响应给浏览器;<br>(6)浏览器将这些资源进行解析;<br>(7)解析后将效果展示在浏览器，用户就可以看到最终的结果。<br>在整个Web的访问过程中，会设计到很多技术，这些技术有已经学习过的，也有还未涉及到的内容，都有哪些还没有涉及到呢?</li>
+<li>整个Web的访问过程就如下图所示:<br><img src="/../images/HTTP-Tomcat-Servlet/1627039320220.png"><br>(1)浏览器发送一个请求到服务端，去请求所需要的相关资源;<br>(2)资源分为动态资源和静态资源,动态资源可以是使用Java代码按照Servlet和JSP的规范编写的内容;<br>(3)在Java代码可以进行业务处理也可以从数据库中读取数据;<br>(4)拿到数据后，把数据交给HTML页面进行展示,再结合CSS和JavaScript使展示效果更好;<br>(5)服务端将静态资源响应给浏览器;<br>(6)浏览器将这些资源进行解析;<br>(7)解析后将效果展示在浏览器，用户就可以看到最终的结果。<br>在整个Web的访问过程中，会设计到很多技术，这些技术有已经学习过的，也有还未涉及到的内容，都有哪些还没有涉及到呢?</li>
 </ul>
 <h4 id="1-2-5-HTTP协议"><a href="#1-2-5-HTTP协议" class="headerlink" title="1.2.5 HTTP协议"></a>1.2.5 HTTP协议</h4><ul>
 <li>HTTP协议:主要定义通信规则</li>
@@ -460,7 +460,7 @@
 <li>Web服务器软件有很多，我们课程中将学习的是目前最为常用的==Tomcat==服务器</li>
 </ul>
 <p>到这为止，关于JavaWeb中用到的技术栈我们就介绍完了，这里面就只有HTTP协议、Servlet、JSP以及Tomcat这些知识是没有学习过的，所以整个Web核心主要就是来学习这些技术。</p>
-<h3 id="1-3-Web核心课程安排"><a href="#1-3-Web核心课程安排" class="headerlink" title="1.3 Web核心课程安排"></a>1.3 Web核心课程安排</h3><p><img src="/../images/HTTP-Tomcat-Servlet/1627043194238.png" alt="1627043194238"></p>
+<h3 id="1-3-Web核心课程安排"><a href="#1-3-Web核心课程安排" class="headerlink" title="1.3 Web核心课程安排"></a>1.3 Web核心课程安排</h3><p><img src="/../images/HTTP-Tomcat-Servlet/1627043194238.png"></p>
 <p>整个Web核心，我们总共有六天的学习内容，分别是:</p>
 <ul>
 <li>第一天：HTTP、Tomcat、Servlet</li>
@@ -484,7 +484,7 @@
 <li>数据传输的规则指的是请求数据和响应数据需要按照指定的格式进行传输。</li>
 <li>如果想知道具体的格式，可以打开浏览器，点击<code>F12</code>打开开发者工具，点击<code>Network</code>来查看某一次请求的请求数据和响应数据具体的格式内容，如下图所示:</li>
 </ul>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627046235092.png" alt="1627046235092"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627046235092.png"></p>
 <blockquote>
 <p>注意:在浏览器中如果看不到上述内容，需要清除浏览器的浏览数据。chrome浏览器可以使用ctrl+shift+Del进行清除。</p>
 </blockquote>
@@ -514,7 +514,7 @@
 </li>
 </ul>
 <h3 id="2-2-请求数据格式"><a href="#2-2-请求数据格式" class="headerlink" title="2.2 请求数据格式"></a>2.2 请求数据格式</h3><h4 id="2-2-1-格式介绍"><a href="#2-2-1-格式介绍" class="headerlink" title="2.2.1 格式介绍"></a>2.2.1 格式介绍</h4><p>请求数据总共分为三部分内容，分别是==请求行==、==请求头==、==请求体==</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627050004221.png" alt="1627050004221"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627050004221.png"></p>
 <ul>
 <li><p>请求行: HTTP请求中的第一行数据，请求行包含三块内容，分别是 GET[请求方式] /[请求URL路径] HTTP/1.1[HTTP协议及版本]</p>
 <p>请求方式有七种,最常用的是GET和POST</p>
@@ -536,7 +536,7 @@ Accept-Encoding：表示浏览器可以支持的压缩类型，例如gzip, defla
 </ul>
 </li>
 <li><p>请求体: POST请求的最后一部分，存储请求参数</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627050930378.png" alt="1627050930378"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627050930378.png"></p>
 <p>如上图红线框的内容就是请求体的内容，请求体和请求头之间是有一个空行隔开。此时浏览器发送的是POST请求，为什么不能使用GET呢?这时就需要回顾GET和POST两个请求之间的区别了:</p>
 <ul>
 <li>GET请求请求参数在请求行中，没有请求体，POST请求请求参数在请求体中</li>
@@ -545,11 +545,11 @@ Accept-Encoding：表示浏览器可以支持的压缩类型，例如gzip, defla
 </li>
 </ul>
 <h4 id="2-2-2-实例演示"><a href="#2-2-2-实例演示" class="headerlink" title="2.2.2 实例演示"></a>2.2.2 实例演示</h4><p>把 <code>代码\http</code> 拷贝到IDEA的工作目录中，比如<code>D:\workspace\web</code>目录，</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627278511902.png" alt="1627278511902"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627278511902.png"></p>
 <p>使用IDEA打开</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627278583127.png" alt="1627278583127"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627278583127.png"></p>
 <p>打开后，可以点击项目中的<code>html\19-表单验证.html</code>，使用浏览器打开，通过修改页面中form表单的method属性来测试GET请求和POST请求的参数携带方式。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627278725007.png" alt="1627278725007"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627278725007.png"></p>
 <p><strong>小结</strong>:</p>
 <ol>
 <li><p>请求数据中包含三部分内容，分别是请求行、请求头和请求体</p>
@@ -558,7 +558,7 @@ Accept-Encoding：表示浏览器可以支持的压缩类型，例如gzip, defla
 </li>
 </ol>
 <h3 id="2-3-响应数据格式"><a href="#2-3-响应数据格式" class="headerlink" title="2.3 响应数据格式"></a>2.3 响应数据格式</h3><h4 id="2-3-1-格式介绍"><a href="#2-3-1-格式介绍" class="headerlink" title="2.3.1 格式介绍"></a>2.3.1 格式介绍</h4><p>响应数据总共分为三部分内容，分别是==响应行==、==响应头==、==响应体==</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627053710214.png" alt="1627053710214"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627053710214.png"></p>
 <ul>
 <li><p>响应行：响应数据的第一行,响应行包含三块内容，分别是 HTTP/1.1[HTTP协议及版本] 200[响应状态码] ok[状态码的描述]</p>
 </li>
@@ -683,7 +683,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </li>
 </ol>
 <h2 id="3-Tomcat"><a href="#3-Tomcat" class="headerlink" title="3, Tomcat"></a>3, Tomcat</h2><h3 id="3-1-简介"><a href="#3-1-简介" class="headerlink" title="3.1 简介"></a>3.1 简介</h3><h4 id="3-1-1-什么是Web服务器"><a href="#3-1-1-什么是Web服务器" class="headerlink" title="3.1.1 什么是Web服务器"></a>3.1.1 什么是Web服务器</h4><p>Web服务器是一个应用程序（==软件==），对HTTP协议的操作进行封装，使得程序员不必直接对协议进行操作，让Web开发更加便捷。主要功能是”提供网上信息浏览服务”。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627058356051.png" alt="1627058356051"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627058356051.png"></p>
 <p> Web服务器是安装在服务器端的一款软件，将来我们把自己写的Web项目部署到Web Tomcat服务器软件中，当Web服务器软件启动后，部署在Web服务器软件中的页面就可以直接通过浏览器来访问了。</p>
 <p><strong>Web服务器软件使用步骤</strong></p>
 <ul>
@@ -693,7 +693,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <li>启动Web服务器使用浏览器访问对应的资源</li>
 </ul>
 <p>上述内容在演示的时候，使用的是Apache下的Tomcat软件，至于Tomcat软件如何使用，后面会详细的讲到。而对于Web服务器来说，实现的方案有很多，Tomcat只是其中的一种，而除了Tomcat以外，还有很多优秀的Web服务器，比如:</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627060368806.png" alt="1627060368806"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627060368806.png"></p>
 <p>Tomcat就是一款软件，我们主要是以学习如何去使用为主。具体我们会从以下这些方向去学习:</p>
 <ol>
 <li><p>简介: 初步认识下Tomcat</p>
@@ -720,7 +720,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </li>
 </ul>
 <p><strong>Tomcat的LOGO</strong></p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627176045795.png" alt="1627176045795"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627176045795.png"></p>
 <p><strong>小结</strong></p>
 <p>通过这一节的学习，我们需要掌握以下内容:</p>
 <ol>
@@ -735,7 +735,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </ol>
 <h3 id="3-2-基本使用"><a href="#3-2-基本使用" class="headerlink" title="3.2 基本使用"></a>3.2 基本使用</h3><p>Tomcat总共分两部分学习，先来学习Tomcat的基本使用，包括Tomcat的==下载、安装、卸载、启动和关闭==。</p>
 <h4 id="3-2-1-下载"><a href="#3-2-1-下载" class="headerlink" title="3.2.1 下载"></a>3.2.1 下载</h4><p>直接从官网下载</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627178001030.png" alt="1627178001030"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627178001030.png"></p>
 <p>大家可以自行下载，也可以直接使用资料中已经下载好的资源，</p>
 <p>Tomcat的软件程序  资料/2. Tomcat/apache-tomcat-8.5.68-windows-x64.zip</p>
 <p>Tomcat的源码	资料/2. Tomcat/tomcat源码/apache-tomcat-8.5.68-src.zip</p>
@@ -745,7 +745,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <p>==注意==，Tomcat在解压缩的时候，解压所在的目录可以任意，但最好解压到一个不包含中文和空格的目录，因为后期在部署项目的时候，如果路径有中文或者空格可能会导致程序部署失败。</p>
 </li>
 <li><p>打开<code>apache-tomcat-8.5.68</code>目录就能看到如下目录结构，每个目录中包含的内容需要认识下,</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627178815892.png" alt="1627178815892"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627178815892.png"></p>
 <p>bin:目录下有两类文件，一种是以<code>.bat</code>结尾的，是Windows系统的可执行文件，一种是以<code>.sh</code>结尾的，是Linux系统的可执行文件。</p>
 <p>webapps:就是以后项目部署的目录</p>
 <p>到此，Tomcat的安装就已经完成。</p>
@@ -753,11 +753,11 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </ul>
 <h4 id="3-2-3-卸载"><a href="#3-2-3-卸载" class="headerlink" title="3.2.3 卸载"></a>3.2.3 卸载</h4><p>卸载比较简单，可以直接删除目录即可</p>
 <h4 id="3-2-4-启动"><a href="#3-2-4-启动" class="headerlink" title="3.2.4 启动"></a>3.2.4 启动</h4><p>双击: bin\startup.bat</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627179006011.png" alt="1627179006011"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627179006011.png"></p>
 <p>启动后，通过浏览器访问 <code>http://localhost:8080</code>能看到Apache Tomcat的内容就说明Tomcat已经启动成功。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627199957728.png" alt="1627199957728"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627199957728.png"></p>
 <p>==注意==: 启动的过程中，控制台有中文乱码，需要修改conf/logging.prooperties</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627199827589.png" alt="1627199827589"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627199827589.png"></p>
 <h4 id="3-2-5-关闭"><a href="#3-2-5-关闭" class="headerlink" title="3.2.5 关闭"></a>3.2.5 关闭</h4><p>关闭有三种方式 </p>
 <ul>
 <li>直接x掉运行窗口:强制关闭[不建议]</li>
@@ -768,26 +768,26 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <ul>
 <li>Tomcat默认的端口是8080，要想修改Tomcat启动的端口号，需要修改 conf/server.xml</li>
 </ul>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627200509883.png" alt="1627200509883"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627200509883.png"></p>
 <blockquote>
 <p>注: HTTP协议默认端口号为80，如果将Tomcat端口号改为80，则将来访问Tomcat时，将不用输入端口号。</p>
 </blockquote>
 <p><strong>启动时可能出现的错误</strong></p>
 <ul>
 <li><p>Tomcat的端口号取值范围是0-65535之间任意未被占用的端口，如果设置的端口号被占用，启动的时候就会包如下的错误</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627200780590.png" alt="1627200780590"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627200780590.png"></p>
 </li>
 <li><p>Tomcat启动的时候，启动窗口一闪而过: 需要检查JAVA_HOME环境变量是否正确配置</p>
 </li>
 </ul>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627201248802.png" alt="1627201248802"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627201248802.png"></p>
 <h4 id="3-2-7-部署"><a href="#3-2-7-部署" class="headerlink" title="3.2.7 部署"></a>3.2.7 部署</h4><ul>
 <li><p>Tomcat部署项目： 将项目放置到webapps目录下，即部署完成。</p>
 <ul>
 <li><p>将 <code>资料/2. Tomcat/hello</code> 目录拷贝到Tomcat的webapps目录下</p>
 </li>
 <li><p>通过浏览器访问<code>http://localhost/hello/a.html</code>，能看到下面的内容就说明项目已经部署成功。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627201572748.png" alt="1627201572748"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627201572748.png"></p>
 <p>但是呢随着项目的增大，项目中的资源也会越来越多，项目在拷贝的过程中也会越来越费时间，该如何解决呢?</p>
 </li>
 </ul>
@@ -799,7 +799,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <li><p>Tomcat检测到war包后会自动完成解压缩，在webapps目录下就会多一个haha目录</p>
 </li>
 <li><p>通过浏览器访问<code>http://localhost/haha/a.html</code>，能看到下面的内容就说明项目已经部署成功。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627201868752.png" alt="1627201868752"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627201868752.png"></p>
 </li>
 </ul>
 </li>
@@ -810,10 +810,10 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <h4 id="3-3-1-Web项目结构"><a href="#3-3-1-Web项目结构" class="headerlink" title="3.3.1 Web项目结构"></a>3.3.1 Web项目结构</h4><p>Web项目的结构分为:开发中的项目和开发完可以部署的Web项目,这两种项目的结构是不一样的，我们一个个来介绍下:</p>
 <ul>
 <li><p>Maven Web项目结构: 开发中的项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627202865978.png" alt="1627202865978"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627202865978.png"></p>
 </li>
 <li><p>开发完成部署的Web项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627202903750.png" alt="1627202903750"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627202903750.png"></p>
 <ul>
 <li>开发项目通过执行Maven打包命令==package==,可以获取到部署的Web项目目录</li>
 <li>编译后的Java字节码文件和resources的资源文件，会被放到WEB-INF下的classes目录下</li>
@@ -834,19 +834,19 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </blockquote>
 <ol>
 <li><p>创建Maven项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627227574092.png" alt="1627227574092"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627227574092.png"></p>
 </li>
 <li><p>选择使用Web项目骨架</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627227650406.png" alt="1627227650406"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627227650406.png"></p>
 </li>
 <li><p>输入Maven项目坐标创建项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627228065007.png" alt="1627228065007"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627228065007.png"></p>
 </li>
 <li><p>确认Maven相关的配置信息后，完成项目创建</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627228413280.png" alt="1627228413280"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627228413280.png"></p>
 </li>
 <li><p>删除pom.xml中多余内容，只留下面的这些内容，注意打包方式 jar和war的区别</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627228584625.png" alt="1627228584625"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627228584625.png"></p>
 </li>
 <li><p>补齐Maven Web项目缺失的目录结构，默认没有java和resources目录，需要手动完成创建补齐，最终的目录结果如下</p>
 <p><img src="/../images/HTTP-Tomcat-Servlet/1627228673162.png"></p>
@@ -864,22 +864,22 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </blockquote>
 <ol>
 <li><p>创建Maven项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229111549.png" alt="1627229111549"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229111549.png"></p>
 </li>
 <li><p>选择不使用Web项目骨架</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229137316.png" alt="1627229137316"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229137316.png"></p>
 </li>
 <li><p>输入Maven项目坐标创建项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229371251.png" alt="1627229371251"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229371251.png"></p>
 </li>
 <li><p>在pom.xml设置打包方式为war,默认是不写代表打包方式为jar</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229428161.png" alt="1627229428161"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229428161.png"></p>
 </li>
 <li><p>补齐Maven Web项目缺失webapp的目录结构</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229584134.png" alt="1627229584134"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229584134.png"></p>
 </li>
 <li><p>补齐Maven Web项目缺失WEB-INF/web.xml的目录结构</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229676800.png" alt="1627229676800"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229676800.png"></p>
 </li>
 <li><p>补充完后，最终的项目结构如下:</p>
 <p><img src="/../images/HTTP-Tomcat-Servlet/1627229478030.png" alt="1627229478030"></p>
@@ -889,11 +889,11 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <p><strong>小结</strong></p>
 <p>1.掌握Maven Web项目的目录结构</p>
 <p>2.掌握使用骨架的方式创建Maven Web项目</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627204022604.png" alt="1627204022604"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627204022604.png"></p>
 <blockquote>
 <p>3.掌握不使用骨架的方式创建Maven Web项目</p>
 </blockquote>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627204076090.png" alt="1627204076090"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627204076090.png"></p>
 <h3 id="3-4-IDEA使用Tomcat"><a href="#3-4-IDEA使用Tomcat" class="headerlink" title="3.4 IDEA使用Tomcat"></a>3.4 IDEA使用Tomcat</h3><ul>
 <li>Maven Web项目创建成功后，通过Maven的package命令可以将项目打包成war包，将war文件拷贝到Tomcat的webapps目录下，启动Tomcat就可以将项目部署成功，然后通过浏览器进行访问即可。</li>
 <li>然而我们在开发的过程中，项目中的内容会经常发生变化，如果按照上面这种方式来部署测试，是非常不方便的</li>
@@ -903,16 +903,16 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <h4 id="3-4-1-集成本地Tomcat"><a href="#3-4-1-集成本地Tomcat" class="headerlink" title="3.4.1 集成本地Tomcat"></a>3.4.1 集成本地Tomcat</h4><p>目标: 将刚才本地安装好的Tomcat8集成到IDEA中，完成项目部署，具体的实现步骤</p>
 <ol>
 <li><p>打开添加本地Tomcat的面板</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627229992900.png" alt="1627229992900"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627229992900.png"></p>
 </li>
 <li><p>指定本地Tomcat的具体路径</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627230313062.png" alt="1627230313062"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627230313062.png"></p>
 </li>
 <li><p>修改Tomcat的名称，此步骤可以不改，只是让名字看起来更有意义，HTTP port中的端口也可以进行修改，比如把8080改成80</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627230366658.png" alt="1627230366658"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627230366658.png"></p>
 </li>
 <li><p>将开发项目部署项目到Tomcat中</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627230913259.png" alt="1627230913259"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627230913259.png"></p>
 <p>扩展内容： xxx.war和 xxx.war exploded这两种部署项目模式的区别?</p>
 <ul>
 <li><p>war模式是将WEB工程打成war包，把war包发布到Tomcat服务器上</p>
@@ -928,17 +928,17 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 </ul>
 </li>
 <li><p>部署成功后，就可以启动项目，为了能更好的看到启动的效果，可以在webapp目录下添加a.html页面</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627233265351.png" alt="1627233265351"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627233265351.png"></p>
 </li>
 <li><p>启动成功后，可以通过浏览器进行访问测试</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627232743706.png" alt="1627232743706"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627232743706.png"></p>
 </li>
 <li><p>最终的注意事项</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627232916624.png" alt="1627232916624"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627232916624.png"></p>
 </li>
 </ol>
 <p>至此，IDEA中集成本地Tomcat进行项目部署的内容我们就介绍完了，整体步骤如下，大家需要按照流程进行部署操作练习。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627205657117.png" alt="1627205657117"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627205657117.png"></p>
 <h4 id="3-4-2-Tomcat-Maven插件"><a href="#3-4-2-Tomcat-Maven插件" class="headerlink" title="3.4.2 Tomcat Maven插件"></a>3.4.2 Tomcat Maven插件</h4><p>在IDEA中使用本地Tomcat进行项目部署，相对来说步骤比较繁琐，所以我们需要一种更简便的方式来替换它，那就是直接使用Maven中的Tomcat插件来部署项目，具体的实现步骤，只需要两步，分别是:</p>
 <ol>
 <li><p>在pom.xml中添加Tomcat插件</p>
@@ -956,12 +956,12 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <li><p>使用Maven Helper插件快速启动项目，选中项目，右键–&gt;Run Maven –&gt; tomcat7:run</p>
 </li>
 </ol>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627233963315.png" alt="1627233963315"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627233963315.png"></p>
 <p>==注意:==</p>
 <ul>
 <li>如果选中项目并右键点击后，看不到Run Maven和Debug Maven，这个时候就需要在IDEA中下载Maven Helper插件，具体的操作方式为: File –&gt; Settings –&gt; Plugins –&gt; Maven Helper —&gt; Install,安装完后按照提示重启IDEA，就可以看到了。</li>
 </ul>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627234184076.png" alt="1627234184076"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627234184076.png"></p>
 <ul>
 <li>Maven Tomcat插件目前只有Tomcat7版本，没有更高的版本可以使用</li>
 <li>使用Maven Tomcat插件，要想修改Tomcat的端口和访问路径，可以直接修改pom.xml</li>
@@ -989,14 +989,14 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 
 <p><strong>小结</strong></p>
 <p>通过这一节的学习，大家要掌握在IDEA中使用Tomcat的两种方式，集成本地Tomcat和使用Maven的Tomcat插件。后者更简单，推荐大家使用，但是如果对于Tomcat的版本有比较高的要求，要在Tomcat7以上，这个时候就只能用前者了。</p>
-<h2 id="4，-Servlet"><a href="#4，-Servlet" class="headerlink" title="4， Servlet"></a>4， Servlet</h2><h3 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1 简介"></a>4.1 简介</h3><p><img src="/../images/HTTP-Tomcat-Servlet/1627234763207.png" alt="1627234763207"></p>
+<h2 id="4，-Servlet"><a href="#4，-Servlet" class="headerlink" title="4， Servlet"></a>4， Servlet</h2><h3 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1 简介"></a>4.1 简介</h3><p><img src="/../images/HTTP-Tomcat-Servlet/1627234763207.png"></p>
 <ul>
 <li><p>Servlet是JavaWeb最为核心的内容，它是Java提供的一门==动态==web资源开发技术。</p>
 </li>
 <li><p>使用Servlet就可以实现，根据不同的登录用户在页面上动态显示不同内容。</p>
 </li>
 <li><p>Servlet是JavaEE规范之一，其实就是一个接口，将来我们需要定义Servlet类实现Servlet接口，并由web服务器运行Servlet</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627234972853.png" alt="1627234972853"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627234972853.png"></p>
 </li>
 </ul>
 <p>介绍完Servlet是什么以后，接下来我们就按照<code>快速入门</code>-&gt;<code>执行流程</code>-&gt;<code>生命周期</code>-&gt;<code>体系结构</code>-&gt;<code>urlPattern配置</code>-&gt;<code>XML配置</code>的学习步骤，一步步完成对Servlet的知识学习，首选我们来通过一个入门案例来快速把Servlet用起来。</p>
@@ -1063,7 +1063,7 @@ Cache-Control：指示客户端应如何缓存，例如max-age=300表示可以�
 <p>至此，Servlet的入门案例就已经完成，大家可以按照上面的步骤进行练习了。</p>
 <h3 id="4-3-执行流程"><a href="#4-3-执行流程" class="headerlink" title="4.3 执行流程"></a>4.3 执行流程</h3><p>Servlet程序已经能正常运行，但是我们需要思考个问题: 我们并没有创建ServletDemo1类的对象，也没有调用对象中的service方法，为什么在控制台就打印了<code>servlet hello world~</code>这句话呢?</p>
 <p>要想回答上述问题，我们就需要对Servlet的执行流程进行一个学习。</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627236923139.png" alt="1627236923139"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627236923139.png"></p>
 <ul>
 <li>浏览器发出<code>http://localhost:8080/web-demo/demo1</code>请求，从请求中可以解析出三部分内容，分别是<code>localhost:8080</code>、<code>web-demo</code>、<code>demo1</code><ul>
 <li>根据<code>localhost:8080</code>可以找到要访问的Tomcat Web服务器</li>
@@ -1171,7 +1171,7 @@ loadOnstartup的取值有两类情况
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>==注意:如何才能让Servlet中的destroy方法被执行？==</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627239292226.png" alt="1627239292226"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627239292226.png"></p>
 </li>
 </ul>
 <p>在Terminal命令行中，先使用<code>mvn tomcat7:run</code>启动，然后再使用<code>ctrl+c</code>关闭tomcat</p>
@@ -1284,7 +1284,7 @@ loadOnstartup的取值有两类情况
 <p>getServletInfo()和getServletConfig()这两个方法使用的不是很多，大家了解下。</p>
 <h3 id="4-6-体系结构"><a href="#4-6-体系结构" class="headerlink" title="4.6 体系结构"></a>4.6 体系结构</h3><p>通过上面的学习，我们知道要想编写一个Servlet就必须要实现Servlet接口，重写接口中的5个方法，虽然已经能完成要求，但是编写起来还是比较麻烦的，因为我们更关注的其实只有service方法，那有没有更简单方式来创建Servlet呢?</p>
 <p>要想解决上面的问题，我们需要先对Servlet的体系结构进行下了解:</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627240593506.png" alt="1627240593506"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627240593506.png"></p>
 <p>因为我们将来开发B/S架构的web项目，都是针对HTTP协议，所以我们自定义Servlet,会通过继承==HttpServlet==</p>
 <p>具体的编写格式如下:</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span><span class="token string">"/demo4"</span><span class="token punctuation">)</span>
@@ -1623,14 +1623,14 @@ loadOnstartup的取值有两类情况
 <ol>
 <li>如果路径配置的不是扩展名，那么在路径的前面就必须要加<code>/</code>否则会报错</li>
 </ol>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627274483755.png" alt="1627274483755"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627274483755.png"></p>
 <ol start="2">
 <li>如果路径配置的是<code>*.do</code>,那么在*.do的前面不能加<code>/</code>,否则会报错</li>
 </ol>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627274368245.png" alt="1627274368245"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627274368245.png"></p>
 </li>
 <li><p>任意匹配</p>
-<p><img src="/../images/HTTP-Tomcat-Servlet/1627273201370.png" alt="1627273201370"></p>
+<p><img src="/../images/HTTP-Tomcat-Servlet/1627273201370.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>web</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">ServletRequest</span></span><span class="token punctuation">;</span>
