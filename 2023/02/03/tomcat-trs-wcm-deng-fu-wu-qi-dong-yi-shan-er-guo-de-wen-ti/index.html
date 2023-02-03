@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="更新v0.91, luyao&#39;s home">
-    <meta name="description" content="更新日志">
+    <meta name="keywords" content="tomcat、trs-wcm等服务启动一闪而过的问题, luyao&#39;s home">
+    <meta name="description" content="Unrecognized option:--add-opens=java.base/java.lang=ALL-UNNAMED；Error：Could not create the Java Virtual Machine. Error:A Fatal exception has occurred">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>更新v0.91 | luyao&#39;s home</title>
+    <title>tomcat、trs-wcm等服务启动一闪而过的问题 | luyao&#39;s home</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">更新v0.91</h1>
+                    <h1 class="description center-align post-title">tomcat、trs-wcm等服务启动一闪而过的问题</h1>
                 </div>
             </div>
         </div>
@@ -339,14 +339,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%97%A5%E5%BF%97/">
-                                <span class="chip bg-color">日志</span>
+                            <a href="/tags/tomcat/">
+                                <span class="chip bg-color">tomcat</span>
+                            </a>
+                        
+                            <a href="/tags/server%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">server服务</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98/" class="post-category">
+                                难点问题
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -355,28 +368,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-30
+                    2023-02-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-30
+                    2023-02-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    33
+                    671
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -399,11 +412,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><p>文章插入图片</p>
-<p>logo设计更改</p>
-<p>主题色设计更改</p>
-<p>菜单栏优化</p>
-<p>优化文章模板</p>
+                <p><strong>故障描述：启动tomcat一闪而过，无法启动包括tomcat服务在内的各种命令行服务</strong></p>
+<h3 id="一、常见解决方案"><a href="#一、常见解决方案" class="headerlink" title="一、常见解决方案"></a>一、常见解决方案</h3><ol>
+<li>这个原因是因为在安装JDK的时候在C:\Windows\System32生成的java.exe、javaw.exe、javaws.exe这个3个引起的；把这3个运行文件删除掉就可以了。</li>
+<li>说电脑配置差。主要是因为jvm无法无法向系统申请到想要的内存，将VM Options那里写上java虚拟机参数（我的设为-Xmx512m）。</li>
+<li>jdk的环境变量如path配置出问题。</li>
+<li>以前装过低版本的JDK,如JDK8之类的。可以通过删除%JAVA_HOME%\jre\lib下的ext文件夹解决。</li>
+</ol>
+<p><strong>以上方式都不适用于我的问题，解决思路从tomcat运行原理入手。</strong></p>
+<h3 id="二、原理分析"><a href="#二、原理分析" class="headerlink" title="二、原理分析"></a>二、原理分析</h3><h4 id="1-首先确定jdk与tomcat环境变量"><a href="#1-首先确定jdk与tomcat环境变量" class="headerlink" title="1. 首先确定jdk与tomcat环境变量"></a>1. 首先确定jdk与tomcat环境变量</h4><p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203152513199.png" alt="环境变量"></p>
+<h4 id="2-环境变量没有问题，进入tomcat目录"><a href="#2-环境变量没有问题，进入tomcat目录" class="headerlink" title="2. 环境变量没有问题，进入tomcat目录"></a>2. 环境变量没有问题，进入tomcat目录</h4><p>tomcat目录下有如下三个bat文件，一般通过start.up启动tomcat流程是：startup —&gt; catalina —&gt; setclasspath —&gt; catalina。如果这三个bat文件里有一个出现错误的话，就是启动失败。</p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203153153160.png" alt="tomcat目录"></p>
+<h3 id="三、解决办法"><a href="#三、解决办法" class="headerlink" title="三、解决办法"></a>三、解决办法</h3><h4 id="1-首先调出错误信息"><a href="#1-首先调出错误信息" class="headerlink" title="1. 首先调出错误信息"></a>1. 首先调出错误信息</h4><p>修改tomcat中bin目录下的启动文件startup.bin</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">//将原文：
+call “%EXECUTABLE%” start %CMD_LINE_ARGS%
+:end
+//修改为：
+call “%EXECUTABLE%” run %CMD_LINE_ARGS%
+:end
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改完成后保存并启动tomcat。</p>
+<p>这样在命令行下，运行startup.bat文件，这样程序就不会一闪而过，而会将启动不起来的原因打印到窗口上。</p>
+<p>在命令行下启动tomcat的方法读者应该都很清楚，大体就是：cmd启动命令行窗口→通过cd命令到tomcat的bin目录下→运行startup.bat。</p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203153629933.png" alt="错误日志"></p>
+<p><strong>大体可以理解为</strong>:</p>
+<p>因为程序请求不到足够的内存就启动不了vm，导致程序退出。试试申请足够的内存就可以了。</p>
+<h4 id="2-设置内存"><a href="#2-设置内存" class="headerlink" title="2. 设置内存"></a>2. 设置内存</h4><p>在catalina.bat中 找到Execute The Requested Command下面的set JAVA OPTS。</p>
+<p>把这一句替换为：set JAVA OPTS=%JAVA OPTS% -server -Xms800m-Xmx800m -XX:MaxNewSize=256m。</p>
+<p>再次启动startup.bat会看到已经启动成功了(记得把之前修改的内run、pause还原回去)。</p>
+<h4 id="3-此时注意到报错信息还有"><a href="#3-此时注意到报错信息还有" class="headerlink" title="3. 此时注意到报错信息还有"></a>3. 此时注意到报错信息还有</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">Using CATALINA_OPTS: ""
+Unrecognized option: --add-opens=java.base/java.lang=ALL-UNNAMED<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>发现是tomcat在启动配置tomcat的时候使用了更高版本的jre，因此导致高版本的JDK信息写入到了tomcat启动文件中，包括TRS-WCM等服务都是tomcat7版本，因此无法启动</p>
+<p><strong>解决方法有</strong>：更新到最高版本jdk或者降低tomcat版本。</p>
+<p>这里我选择<strong>完全卸载</strong>tomcat10.1，重新启动tomcat，问题解决并成功访问8080</p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203155010599.png" alt="tomcat服务"></p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203155033808.png" alt="tomcat官网"></p>
+<p>同样，内置tomcat7的wcm也可成功启动服务</p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203155137694.png" alt="wcm服务"></p>
+<p><img src="/../images/tomcat%E3%80%81trs-wcm%E7%AD%89%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/image-20230203155154190.png" alt="wcm登录"></p>
 
                 
             </div>
@@ -430,7 +478,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://friesroad.github.io/2023/01/30/geng-xin-v0.91/">https://friesroad.github.io/2023/01/30/geng-xin-v0.91/</a>
+                    <a href="https://friesroad.github.io/2023/02/03/tomcat-trs-wcm-deng-fu-wu-qi-dong-yi-shan-er-guo-de-wen-ti/">https://friesroad.github.io/2023/02/03/tomcat-trs-wcm-deng-fu-wu-qi-dong-yi-shan-er-guo-de-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -468,8 +516,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%97%A5%E5%BF%97/">
-                                    <span class="chip bg-color">日志</span>
+                                <a href="/tags/tomcat/">
+                                    <span class="chip bg-color">tomcat</span>
+                                </a>
+                            
+                                <a href="/tags/server%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">server服务</span>
                                 </a>
                             
                         </div>
@@ -547,7 +599,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2023-01-30T10-27-17',
+        id: '2023-02-03T15-57-48',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -575,50 +627,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/30/java-ji-chu-zhi-shi-bi-ji-er/">
+                <a href="/2023/02/03/tomcat-trs-wcm-deng-fu-wu-qi-dong-yi-shan-er-guo-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="JAVA基础知识笔记（二）">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="tomcat、trs-wcm等服务启动一闪而过的问题">
                         
-                        <span class="card-title">JAVA基础知识笔记（二）</span>
+                        <span class="card-title">tomcat、trs-wcm等服务启动一闪而过的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            框架 + 微服务 + 中间件
+                            Unrecognized option:--add-opens=java.base/java.lang=ALL-UNNAMED；Error：Could not create the Java Virtual Machine. Error:A Fatal exception has occurred
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98/" class="post-category">
+                                    难点问题
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/tomcat/">
+                        <span class="chip bg-color">tomcat</span>
                     </a>
                     
-                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">系统笔记</span>
+                    <a href="/tags/server%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">server服务</span>
                     </a>
                     
                 </div>
@@ -632,31 +686,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/30/java-ji-chu-zhi-shi-bi-ji-yi/">
+                <a href="/2023/02/02/bei-bu-ji-rou-qun-yu-xun-lian-fang-fa-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JAVA基础知识笔记（一）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="背部肌肉群与训练方法记录">
                         
-                        <span class="card-title">JAVA基础知识笔记（一）</span>
+                        <span class="card-title">背部肌肉群与训练方法记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JAVA基础 + WEB
+                            默认摘要
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" class="post-category">
+                                    一些想法
                                 </a>
                             
                             
@@ -666,12 +720,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">系统笔记</span>
+                    <a href="/tags/%E5%81%A5%E8%BA%AB/">
+                        <span class="chip bg-color">健身</span>
                     </a>
                     
                 </div>
