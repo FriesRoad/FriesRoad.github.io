@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>数据库乱码的解决办法与思路</title>
+      <link href="/2023/02/07/shu-ju-ku-luan-ma-de-jie-jue-ban-fa-yu-si-lu/"/>
+      <url>/2023/02/07/shu-ju-ku-luan-ma-de-jie-jue-ban-fa-yu-si-lu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="MySQL乱码的几种原因"><a href="#MySQL乱码的几种原因" class="headerlink" title="MySQL乱码的几种原因"></a>MySQL乱码的几种原因</h3><p><strong>MySQL之所以会乱码，无非是以下几种原因：</strong></p><ol><li><p>存进数据库之前就乱码</p></li><li><p>在存进数据库过程中乱码</p></li><li><p>存进数据库后乱码</p></li></ol><p>想知道在哪里出现乱码很简单，在后台打印一下就知道了。</p><h3 id="解决MySQL乱码的方法"><a href="#解决MySQL乱码的方法" class="headerlink" title="解决MySQL乱码的方法"></a>解决MySQL乱码的方法</h3><p>既然知道问题出在哪里，那解决方法也很简单：</p><ol><li><p>jsp设置编码是utf-8，保证传到后台的是utf-8的编码</p></li><li><p>将传到后台的请求的参数转为utf-8的编码。至于使用哪种方法，可以使用spring的拦截器，也可以自己写一个，也可以手动转换。</p></li><li><p>在数据库连接上加这么一段jdbc:mysql://localhost:3306/test？useUnicode=true&amp;characterEncoding=utf-8，保证传输过程是utf-8的。</p></li><li><p>设置数据库的编码为utf-8，在my.ini设置或者在Config设置也行，注意的是my.ini里default-character-set要改两处地方</p></li><li><p>url或者easyui乱码，可以试一下将tomcat的server.xml中的</p></li></ol><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8080<span class="token punctuation">"</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>HTTP/1.1<span class="token punctuation">"</span></span>               <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20000<span class="token punctuation">"</span></span>               <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8443<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>​改为</p><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8080<span class="token punctuation">"</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>HTTP/1.1<span class="token punctuation">"</span></span>               <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20000<span class="token punctuation">"</span></span>               <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8443<span class="token punctuation">"</span></span> <span class="token attr-name">URIEncoding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>要保证不乱码，首先要做到编码要统一，其他问题都好找出来。</p><p>转载自：<a href="https://www.cnblogs.com/ginponson/p/4310033.html">MySQL乱码的几种原因</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaWeb知识笔记——JSP</title>
       <link href="/2023/02/06/javaweb-zhi-shi-bi-ji-jsp/"/>
       <url>/2023/02/06/javaweb-zhi-shi-bi-ji-jsp/</url>
