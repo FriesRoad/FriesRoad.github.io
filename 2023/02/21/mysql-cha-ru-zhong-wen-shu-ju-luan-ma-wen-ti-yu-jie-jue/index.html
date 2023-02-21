@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归档: 2023/2, luyao&#39;s home">
-    <meta name="description" content="欢迎参观我的博客,期待您留下宝贵的建议~">
+    <meta name="keywords" content="mysql插入中文数据乱码问题与解决, luyao&#39;s home">
+    <meta name="description" content="mysql插入中文数据显示???乱码。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归档: 2023/2 | luyao&#39;s home</title>
+    <title>mysql插入中文数据乱码问题与解决 | luyao&#39;s home</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -306,305 +306,584 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                路遥的个人博客
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">mysql插入中文数据乱码问题与解决</h1>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%B9%B1%E7%A0%81/">
+                                <span class="chip bg-color">乱码</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98/" class="post-category">
+                                难点问题
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-02-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-02-21
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    460
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="一、mysql存储乱码解决思路"><a href="#一、mysql存储乱码解决思路" class="headerlink" title="一、mysql存储乱码解决思路"></a>一、mysql存储乱码解决思路</h3><ol>
+<li>更改乱码所在表的字符集为utf8</li>
+<li>更改数据库字符集为utf8</li>
+<li>在MySQL配置文件my.ini或my.cnf中更改字符集为utf8</li>
+</ol>
+<h3 id="二、my-ini文件目录"><a href="#二、my-ini文件目录" class="headerlink" title="二、my.ini文件目录"></a>二、my.ini文件目录</h3><p>mysql中文显示乱码或者问号是因为选用的编码不对或者编码不一致造成的，windows系统中可通过修改my.ini配置文件规定数据库编码。windows配置目录如下图：</p>
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221111907602.png" alt="my.ini目录"></p>
+<p>原来的配置文件名为my-default.ini，剪切到桌面修改文件名为my.ini并重新上传到目录文件。</p>
+<p><strong>注：mysql5.7以上版本没有my.ini配置文件</strong></p>
+<h3 id="三、修改my-ini文件"><a href="#三、修改my-ini文件" class="headerlink" title="三、修改my.ini文件"></a>三、修改my.ini文件</h3><h4 id="1、规定-mydqld-和-client-字段属性如下图"><a href="#1、规定-mydqld-和-client-字段属性如下图" class="headerlink" title="1、规定 [mydqld] 和 [client] 字段属性如下图"></a>1、规定 [mydqld] 和 [client] 字段属性如下图</h4><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221112312352.png" alt="修改后的编码"></p>
+<h4 id="2、修改MySQL的数据目录下的my-ini配置文件"><a href="#2、修改MySQL的数据目录下的my-ini配置文件" class="headerlink" title="2、修改MySQL的数据目录下的my.ini配置文件"></a>2、修改MySQL的数据目录下的my.ini配置文件</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">[mysql]
+default-character-set=utf8 #默认字符集
+...
+[mysqld] # 大概在76行左右，在其下添加
+...
+character-set-server=utf8
+collation-server=utf8_general_ci<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221151046059.png" alt="数据目录下配置"></p>
+<h4 id="3、解注释并规定-basedit-和-datadir-的路径"><a href="#3、解注释并规定-basedit-和-datadir-的路径" class="headerlink" title="3、解注释并规定 basedit 和 datadir 的路径"></a>3、解注释并规定 basedit 和 datadir 的路径</h4><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221142318410.png" alt="修改后的路径"></p>
+<h4 id="4、basedir-与-datadir-的作用"><a href="#4、basedir-与-datadir-的作用" class="headerlink" title="4、basedir 与 datadir 的作用"></a>4、basedir 与 datadir 的作用</h4><p>在 MySQL 的配置文件 my.ini 或者 my.cnf 文件中</p>
+<ul>
+<li><strong>basedir</strong>：该参数指定了安装 MySQL 的安装路径，填写全路径可以解决相对路径所造成的问题。</li>
+<li>datadir：该参数指定了 MySQL 的数据库文件放在什么路径下。数据库文件即我们常说的 MySQL data 文件。</li>
+</ul>
+<h3 id="四、重启mysql并查看编码格式"><a href="#四、重启mysql并查看编码格式" class="headerlink" title="四、重启mysql并查看编码格式"></a>四、重启mysql并查看编码格式</h3><ol>
+<li>计算机—右键—管理—服务和应用程序—服务—mysql服务重启</li>
+<li>或者用命令行 <code>net stop mysql</code>和<code>net start mysql</code>重启</li>
+<li>继续命令行输入<code>mysql -u root -p</code>获得密码命令行，并输入密码</li>
+</ol>
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221143548323.png" alt="连接数据库"></p>
+<ol start="4">
+<li>输入<code>show variables like 'char%';</code>显示编码格式</li>
+</ol>
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221150645821.png" alt="配置编码格式结果"></p>
+<ol start="5">
+<li>如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。</li>
+</ol>
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221151426384.png" alt="trs数据库同步中文到mysql数据库成功"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">路遥</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://friesroad.github.io/2023/02/21/mysql-cha-ru-zhong-wen-shu-ju-luan-ma-wen-ti-yu-jie-jue/">https://friesroad.github.io/2023/02/21/mysql-cha-ru-zhong-wen-shu-ju-luan-ma-wen-ti-yu-jie-jue/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">路遥</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%B9%B1%E7%A0%81/">
+                                    <span class="chip bg-color">乱码</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2023-02-21T11-09-02',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/02/21/mysql-cha-ru-zhong-wen-shu-ju-luan-ma-wen-ti-yu-jie-jue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="mysql插入中文数据乱码问题与解决">
+                        
+                        <span class="card-title">mysql插入中文数据乱码问题与解决</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            mysql插入中文数据显示???乱码。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98/" class="post-category">
+                                    难点问题
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B9%B1%E7%A0%81/">
+                        <span class="chip bg-color">乱码</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/02/08/space-engine-tai-kong-lu-xing-yin-he-xi-yu-ren-ma-zuo-a/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Space-Engine太空旅行--银河系与人马座A*">
+                        
+                        <span class="card-title">Space-Engine太空旅行--银河系与人马座A*</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            银河系中心，人马座中心黑洞
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" class="post-category">
+                                    一些想法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Space-Engine/">
+                        <span class="chip bg-color">Space Engine</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E5%BA%93/">
+                        <span class="chip bg-color">图库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('10')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: luyao&#39;s home<br />'
+            + '文章作者: 路遥<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
     </div>
 </div>
 
-<main class="content">
+<!-- TOC 悬浮按钮. -->
 
-    
-    <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
 
-    
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
-    let option = {
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2022-02-21", "2023-02-21"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                color: '#196127',
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'cn',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'cn',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2022-02-21", 0], ["2022-02-22", 0], ["2022-02-23", 0], ["2022-02-24", 0], ["2022-02-25", 0], ["2022-02-26", 0], ["2022-02-27", 0], ["2022-02-28", 0], ["2022-03-01", 0], ["2022-03-02", 0], ["2022-03-03", 0], ["2022-03-04", 0], ["2022-03-05", 0], ["2022-03-06", 0], ["2022-03-07", 0], ["2022-03-08", 0], ["2022-03-09", 0], ["2022-03-10", 0], ["2022-03-11", 0], ["2022-03-12", 0], ["2022-03-13", 0], ["2022-03-14", 0], ["2022-03-15", 0], ["2022-03-16", 0], ["2022-03-17", 0], ["2022-03-18", 0], ["2022-03-19", 0], ["2022-03-20", 0], ["2022-03-21", 0], ["2022-03-22", 0], ["2022-03-23", 0], ["2022-03-24", 0], ["2022-03-25", 0], ["2022-03-26", 0], ["2022-03-27", 0], ["2022-03-28", 0], ["2022-03-29", 0], ["2022-03-30", 0], ["2022-03-31", 0], ["2022-04-01", 0], ["2022-04-02", 0], ["2022-04-03", 0], ["2022-04-04", 0], ["2022-04-05", 0], ["2022-04-06", 0], ["2022-04-07", 0], ["2022-04-08", 0], ["2022-04-09", 0], ["2022-04-10", 0], ["2022-04-11", 0], ["2022-04-12", 0], ["2022-04-13", 0], ["2022-04-14", 0], ["2022-04-15", 0], ["2022-04-16", 0], ["2022-04-17", 0], ["2022-04-18", 0], ["2022-04-19", 0], ["2022-04-20", 0], ["2022-04-21", 0], ["2022-04-22", 0], ["2022-04-23", 0], ["2022-04-24", 0], ["2022-04-25", 0], ["2022-04-26", 0], ["2022-04-27", 0], ["2022-04-28", 0], ["2022-04-29", 0], ["2022-04-30", 0], ["2022-05-01", 0], ["2022-05-02", 0], ["2022-05-03", 0], ["2022-05-04", 0], ["2022-05-05", 0], ["2022-05-06", 0], ["2022-05-07", 0], ["2022-05-08", 0], ["2022-05-09", 0], ["2022-05-10", 0], ["2022-05-11", 0], ["2022-05-12", 0], ["2022-05-13", 0], ["2022-05-14", 0], ["2022-05-15", 0], ["2022-05-16", 0], ["2022-05-17", 0], ["2022-05-18", 0], ["2022-05-19", 0], ["2022-05-20", 0], ["2022-05-21", 0], ["2022-05-22", 0], ["2022-05-23", 0], ["2022-05-24", 0], ["2022-05-25", 0], ["2022-05-26", 0], ["2022-05-27", 0], ["2022-05-28", 0], ["2022-05-29", 0], ["2022-05-30", 0], ["2022-05-31", 0], ["2022-06-01", 0], ["2022-06-02", 0], ["2022-06-03", 0], ["2022-06-04", 0], ["2022-06-05", 0], ["2022-06-06", 0], ["2022-06-07", 0], ["2022-06-08", 0], ["2022-06-09", 0], ["2022-06-10", 0], ["2022-06-11", 0], ["2022-06-12", 0], ["2022-06-13", 0], ["2022-06-14", 0], ["2022-06-15", 0], ["2022-06-16", 0], ["2022-06-17", 0], ["2022-06-18", 0], ["2022-06-19", 0], ["2022-06-20", 0], ["2022-06-21", 0], ["2022-06-22", 0], ["2022-06-23", 0], ["2022-06-24", 0], ["2022-06-25", 0], ["2022-06-26", 0], ["2022-06-27", 0], ["2022-06-28", 0], ["2022-06-29", 0], ["2022-06-30", 0], ["2022-07-01", 0], ["2022-07-02", 0], ["2022-07-03", 0], ["2022-07-04", 0], ["2022-07-05", 0], ["2022-07-06", 0], ["2022-07-07", 0], ["2022-07-08", 0], ["2022-07-09", 0], ["2022-07-10", 0], ["2022-07-11", 0], ["2022-07-12", 0], ["2022-07-13", 0], ["2022-07-14", 0], ["2022-07-15", 0], ["2022-07-16", 0], ["2022-07-17", 0], ["2022-07-18", 0], ["2022-07-19", 0], ["2022-07-20", 0], ["2022-07-21", 0], ["2022-07-22", 0], ["2022-07-23", 0], ["2022-07-24", 0], ["2022-07-25", 0], ["2022-07-26", 0], ["2022-07-27", 0], ["2022-07-28", 0], ["2022-07-29", 0], ["2022-07-30", 0], ["2022-07-31", 0], ["2022-08-01", 0], ["2022-08-02", 0], ["2022-08-03", 0], ["2022-08-04", 0], ["2022-08-05", 0], ["2022-08-06", 0], ["2022-08-07", 0], ["2022-08-08", 0], ["2022-08-09", 0], ["2022-08-10", 0], ["2022-08-11", 0], ["2022-08-12", 0], ["2022-08-13", 0], ["2022-08-14", 0], ["2022-08-15", 0], ["2022-08-16", 0], ["2022-08-17", 0], ["2022-08-18", 0], ["2022-08-19", 0], ["2022-08-20", 0], ["2022-08-21", 0], ["2022-08-22", 0], ["2022-08-23", 0], ["2022-08-24", 0], ["2022-08-25", 0], ["2022-08-26", 0], ["2022-08-27", 0], ["2022-08-28", 0], ["2022-08-29", 0], ["2022-08-30", 0], ["2022-08-31", 0], ["2022-09-01", 0], ["2022-09-02", 0], ["2022-09-03", 0], ["2022-09-04", 0], ["2022-09-05", 0], ["2022-09-06", 0], ["2022-09-07", 0], ["2022-09-08", 0], ["2022-09-09", 0], ["2022-09-10", 0], ["2022-09-11", 0], ["2022-09-12", 0], ["2022-09-13", 0], ["2022-09-14", 0], ["2022-09-15", 0], ["2022-09-16", 0], ["2022-09-17", 0], ["2022-09-18", 0], ["2022-09-19", 0], ["2022-09-20", 0], ["2022-09-21", 0], ["2022-09-22", 0], ["2022-09-23", 0], ["2022-09-24", 0], ["2022-09-25", 0], ["2022-09-26", 0], ["2022-09-27", 0], ["2022-09-28", 0], ["2022-09-29", 0], ["2022-09-30", 0], ["2022-10-01", 0], ["2022-10-02", 0], ["2022-10-03", 0], ["2022-10-04", 0], ["2022-10-05", 0], ["2022-10-06", 0], ["2022-10-07", 0], ["2022-10-08", 0], ["2022-10-09", 0], ["2022-10-10", 0], ["2022-10-11", 0], ["2022-10-12", 0], ["2022-10-13", 0], ["2022-10-14", 0], ["2022-10-15", 0], ["2022-10-16", 0], ["2022-10-17", 0], ["2022-10-18", 0], ["2022-10-19", 0], ["2022-10-20", 0], ["2022-10-21", 0], ["2022-10-22", 0], ["2022-10-23", 0], ["2022-10-24", 0], ["2022-10-25", 0], ["2022-10-26", 0], ["2022-10-27", 0], ["2022-10-28", 0], ["2022-10-29", 0], ["2022-10-30", 0], ["2022-10-31", 0], ["2022-11-01", 0], ["2022-11-02", 0], ["2022-11-03", 0], ["2022-11-04", 0], ["2022-11-05", 0], ["2022-11-06", 0], ["2022-11-07", 0], ["2022-11-08", 0], ["2022-11-09", 0], ["2022-11-10", 0], ["2022-11-11", 0], ["2022-11-12", 0], ["2022-11-13", 0], ["2022-11-14", 0], ["2022-11-15", 0], ["2022-11-16", 0], ["2022-11-17", 0], ["2022-11-18", 0], ["2022-11-19", 0], ["2022-11-20", 0], ["2022-11-21", 0], ["2022-11-22", 0], ["2022-11-23", 0], ["2022-11-24", 0], ["2022-11-25", 0], ["2022-11-26", 0], ["2022-11-27", 0], ["2022-11-28", 0], ["2022-11-29", 0], ["2022-11-30", 0], ["2022-12-01", 0], ["2022-12-02", 0], ["2022-12-03", 0], ["2022-12-04", 0], ["2022-12-05", 0], ["2022-12-06", 0], ["2022-12-07", 0], ["2022-12-08", 0], ["2022-12-09", 0], ["2022-12-10", 0], ["2022-12-11", 0], ["2022-12-12", 0], ["2022-12-13", 0], ["2022-12-14", 0], ["2022-12-15", 0], ["2022-12-16", 0], ["2022-12-17", 0], ["2022-12-18", 0], ["2022-12-19", 0], ["2022-12-20", 0], ["2022-12-21", 0], ["2022-12-22", 0], ["2022-12-23", 0], ["2022-12-24", 0], ["2022-12-25", 0], ["2022-12-26", 0], ["2022-12-27", 0], ["2022-12-28", 0], ["2022-12-29", 0], ["2022-12-30", 0], ["2022-12-31", 0], ["2023-01-01", 0], ["2023-01-02", 0], ["2023-01-03", 0], ["2023-01-04", 0], ["2023-01-05", 0], ["2023-01-06", 0], ["2023-01-07", 0], ["2023-01-08", 0], ["2023-01-09", 0], ["2023-01-10", 0], ["2023-01-11", 0], ["2023-01-12", 0], ["2023-01-13", 0], ["2023-01-14", 0], ["2023-01-15", 0], ["2023-01-16", 0], ["2023-01-17", 0], ["2023-01-18", 0], ["2023-01-19", 0], ["2023-01-20", 0], ["2023-01-21", 0], ["2023-01-22", 0], ["2023-01-23", 0], ["2023-01-24", 0], ["2023-01-25", 0], ["2023-01-26", 0], ["2023-01-27", 0], ["2023-01-28", 0], ["2023-01-29", 1], ["2023-01-30", 6], ["2023-01-31", 3], ["2023-02-01", 2], ["2023-02-02", 4], ["2023-02-03", 2], ["2023-02-04", 0], ["2023-02-05", 0], ["2023-02-06", 1], ["2023-02-07", 1], ["2023-02-08", 1], ["2023-02-09", 0], ["2023-02-10", 0], ["2023-02-11", 0], ["2023-02-12", 0], ["2023-02-13", 0], ["2023-02-14", 0], ["2023-02-15", 0], ["2023-02-16", 0], ["2023-02-17", 0], ["2023-02-18", 0], ["2023-02-19", 0], ["2023-02-20", 0], ["2023-02-21", 1]]
-        }]
+        });
 
-    };
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
 
-    myChart.setOption(option);
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
 </script>
 
     
-
-    
-
-    <div id="cd-timeline" class="container">
-        
-        <div class="cd-timeline-block">
-
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2023">2023</a>
-            </div>
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2023/02">02</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>01</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2023/02/01/xiang-ying-zhuang-tai-ma/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="响应状态码">
-                                
-                                <span class="card-title">响应状态码</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    响应状态码详解
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2023-02-01
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/JavaWeb/"><span class="chip bg-color">JavaWeb</span></a>
-                            
-                            <a href="/tags/HTTP-Tomcat-Servlet/"><span class="chip bg-color">HTTP&amp;Tomcat&amp;Servlet</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>01</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2023/02/01/vmware-shi-xian-windows3.1-an-zhuang/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="VMware实现Windows3.1安装">
-                                
-                                <span class="card-title">VMware实现Windows3.1安装</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    DOS系统起源，win3.1在当时都能做什么？查询网上较少有类似的具体的教程，在此整合成完整的教程并记录安装流程。
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2023-02-01
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E6%95%99%E7%A8%8B%E6%96%87%E7%AB%A0/" class="post-category">
-                                    教程文章
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/win3-1/"><span class="chip bg-color">win3.1</span></a>
-                            
-                            <a href="/tags/DOS/"><span class="chip bg-color">DOS</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-    </div>
 
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/archives/2023/02/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
