@@ -382,7 +382,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    460
+                    494
                 </div>
                 
 
@@ -412,7 +412,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、mysql存储乱码解决思路"><a href="#一、mysql存储乱码解决思路" class="headerlink" title="一、mysql存储乱码解决思路"></a>一、mysql存储乱码解决思路</h3><ol>
+                <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>trs同步数据库到mysql数据库，中文数据显示????乱码。或表现为数据插入乱码。</p>
+<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221152156625.png" alt="问题复现"></p>
+<h3 id="一、mysql存储乱码解决思路"><a href="#一、mysql存储乱码解决思路" class="headerlink" title="一、mysql存储乱码解决思路"></a>一、mysql存储乱码解决思路</h3><ol>
 <li>更改乱码所在表的字符集为utf8</li>
 <li>更改数据库字符集为utf8</li>
 <li>在MySQL配置文件my.ini或my.cnf中更改字符集为utf8</li>
@@ -421,8 +423,8 @@
 <p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221111907602.png" alt="my.ini目录"></p>
 <p>原来的配置文件名为my-default.ini，剪切到桌面修改文件名为my.ini并重新上传到目录文件。</p>
 <p><strong>注：mysql5.7以上版本没有my.ini配置文件</strong></p>
-<h3 id="三、修改my-ini文件"><a href="#三、修改my-ini文件" class="headerlink" title="三、修改my.ini文件"></a>三、修改my.ini文件</h3><h4 id="1、规定-mydqld-和-client-字段属性如下图"><a href="#1、规定-mydqld-和-client-字段属性如下图" class="headerlink" title="1、规定 [mydqld] 和 [client] 字段属性如下图"></a>1、规定 [mydqld] 和 [client] 字段属性如下图</h4><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221112312352.png" alt="修改后的编码"></p>
-<h4 id="2、修改MySQL的数据目录下的my-ini配置文件"><a href="#2、修改MySQL的数据目录下的my-ini配置文件" class="headerlink" title="2、修改MySQL的数据目录下的my.ini配置文件"></a>2、修改MySQL的数据目录下的my.ini配置文件</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">[mysql]
+<h3 id="三、修改my-ini文件"><a href="#三、修改my-ini文件" class="headerlink" title="三、修改my.ini文件"></a>三、修改my.ini文件</h3><h5 id="1、规定-mydqld-和-client-字段属性如下图"><a href="#1、规定-mydqld-和-client-字段属性如下图" class="headerlink" title="1、规定 [mydqld] 和 [client] 字段属性如下图"></a>1、规定 [mydqld] 和 [client] 字段属性如下图</h5><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221112312352.png" alt="修改后的编码"></p>
+<h5 id="2、修改MySQL的数据目录下的my-ini配置文件"><a href="#2、修改MySQL的数据目录下的my-ini配置文件" class="headerlink" title="2、修改MySQL的数据目录下的my.ini配置文件"></a>2、修改MySQL的数据目录下的my.ini配置文件</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">[mysql]
 default-character-set=utf8 #默认字符集
 ...
 [mysqld] # 大概在76行左右，在其下添加
@@ -431,26 +433,15 @@ character-set-server=utf8
 collation-server=utf8_general_ci<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221151046059.png" alt="数据目录下配置"></p>
-<h4 id="3、解注释并规定-basedit-和-datadir-的路径"><a href="#3、解注释并规定-basedit-和-datadir-的路径" class="headerlink" title="3、解注释并规定 basedit 和 datadir 的路径"></a>3、解注释并规定 basedit 和 datadir 的路径</h4><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221142318410.png" alt="修改后的路径"></p>
-<h4 id="4、basedir-与-datadir-的作用"><a href="#4、basedir-与-datadir-的作用" class="headerlink" title="4、basedir 与 datadir 的作用"></a>4、basedir 与 datadir 的作用</h4><p>在 MySQL 的配置文件 my.ini 或者 my.cnf 文件中</p>
+<h5 id="3、解注释并规定-basedit-和-datadir-的路径"><a href="#3、解注释并规定-basedit-和-datadir-的路径" class="headerlink" title="3、解注释并规定 basedit 和 datadir 的路径"></a>3、解注释并规定 basedit 和 datadir 的路径</h5><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221142318410.png" alt="修改后的路径"></p>
+<h5 id="4、basedir-与-datadir-的作用"><a href="#4、basedir-与-datadir-的作用" class="headerlink" title="4、basedir 与 datadir 的作用"></a>4、basedir 与 datadir 的作用</h5><p>在 MySQL 的配置文件 my.ini 或者 my.cnf 文件中</p>
 <ul>
 <li><strong>basedir</strong>：该参数指定了安装 MySQL 的安装路径，填写全路径可以解决相对路径所造成的问题。</li>
-<li>datadir：该参数指定了 MySQL 的数据库文件放在什么路径下。数据库文件即我们常说的 MySQL data 文件。</li>
+<li><strong>datadir</strong>：该参数指定了 MySQL 的数据库文件放在什么路径下。数据库文件即我们常说的 MySQL data 文件。</li>
 </ul>
-<h3 id="四、重启mysql并查看编码格式"><a href="#四、重启mysql并查看编码格式" class="headerlink" title="四、重启mysql并查看编码格式"></a>四、重启mysql并查看编码格式</h3><ol>
-<li>计算机—右键—管理—服务和应用程序—服务—mysql服务重启</li>
-<li>或者用命令行 <code>net stop mysql</code>和<code>net start mysql</code>重启</li>
-<li>继续命令行输入<code>mysql -u root -p</code>获得密码命令行，并输入密码</li>
-</ol>
-<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221143548323.png" alt="连接数据库"></p>
-<ol start="4">
-<li>输入<code>show variables like 'char%';</code>显示编码格式</li>
-</ol>
-<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221150645821.png" alt="配置编码格式结果"></p>
-<ol start="5">
-<li>如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。</li>
-</ol>
-<p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221151426384.png" alt="trs数据库同步中文到mysql数据库成功"></p>
+<h3 id="四、重启mysql并查看编码格式"><a href="#四、重启mysql并查看编码格式" class="headerlink" title="四、重启mysql并查看编码格式"></a>四、重启mysql并查看编码格式</h3><h5 id="1、计算机—右键—管理—服务和应用程序—服务—mysql服务重启"><a href="#1、计算机—右键—管理—服务和应用程序—服务—mysql服务重启" class="headerlink" title="1、计算机—右键—管理—服务和应用程序—服务—mysql服务重启"></a>1、计算机—右键—管理—服务和应用程序—服务—mysql服务重启</h5><h5 id="2、或者用命令行-net-stop-mysql和net-start-mysql重启"><a href="#2、或者用命令行-net-stop-mysql和net-start-mysql重启" class="headerlink" title="2、或者用命令行 net stop mysql和net start mysql重启"></a>2、或者用命令行 <code>net stop mysql</code>和<code>net start mysql</code>重启</h5><h5 id="3、继续命令行输入mysql-u-root-p获得密码命令行，并输入密码"><a href="#3、继续命令行输入mysql-u-root-p获得密码命令行，并输入密码" class="headerlink" title="3、继续命令行输入mysql -u root -p获得密码命令行，并输入密码"></a>3、继续命令行输入<code>mysql -u root -p</code>获得密码命令行，并输入密码</h5><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221143548323.png" alt="连接数据库"></p>
+<h5 id="4、输入show-variables-like-39-char-39-显示编码格式"><a href="#4、输入show-variables-like-39-char-39-显示编码格式" class="headerlink" title="4、输入show variables like 'char%';显示编码格式"></a>4、输入<code>show variables like 'char%';</code>显示编码格式</h5><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221150645821.png" alt="配置编码格式结果"></p>
+<h5 id="5、如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。"><a href="#5、如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。" class="headerlink" title="5、如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。"></a>5、如上图修改过之后编码为utf8，则标识成功。若仍有问题，需要单独修改数据库与表的编码格式，并重启数据库。</h5><p><img src="/../images/mysql%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230221151426384.png" alt="trs数据库同步中文到mysql数据库成功"></p>
 
                 
             </div>
@@ -957,7 +948,7 @@ collation-server=utf8_general_ci<span aria-hidden="true" class="line-numbers-row
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">64.5k</span>
+                        class="white-color">64.6k</span>
             
             
             
