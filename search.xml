@@ -4,6 +4,114 @@
   
     
     <entry>
+      <title>trs培训随笔</title>
+      <link href="/2023/03/17/trs-pei-xun-sui-bi/"/>
+      <url>/2023/03/17/trs-pei-xun-sui-bi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、DL-CKM自然语言处理引擎"><a href="#一、DL-CKM自然语言处理引擎" class="headerlink" title="一、DL-CKM自然语言处理引擎"></a>一、DL-CKM自然语言处理引擎</h3><h4 id="全栈AI能力"><a href="#全栈AI能力" class="headerlink" title="全栈AI能力"></a>全栈AI能力</h4><p>智拓（AI开发平台）；</p><p>智语（AI基础能力，自然语言处理，HTTP接口服务）；</p><p>智眼（视频图片处理，HTTP接口服务）</p><p>功能完备；跨媒体多模态AI能力；场景落地；可私有化可定制化；国产化定制融合</p><h4 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h4><p>数据集-数据处理-模型训练-模型评估——&gt;智语智眼应用</p><h5 id="数据标注："><a href="#数据标注：" class="headerlink" title="数据标注："></a>数据标注：</h5><p>定义标注标签——机器/人工标注——质量评估——&gt;形成有效数据集（文本，图像标注）</p><h5 id="算法设计管理："><a href="#算法设计管理：" class="headerlink" title="算法设计管理："></a>算法设计管理：</h5><p>提供算法设计管理功能；</p><p>支持深度算法和传统算法的管理；</p><p>支持可视化，支持输入输出标准化规范，支持参数自由配置</p><h5 id="模型开发流程："><a href="#模型开发流程：" class="headerlink" title="模型开发流程："></a>模型开发流程：</h5><p>建模——上传算法——环境配置——打包镜像</p><h4 id="AI技术服务能力（在线提供接口能力）"><a href="#AI技术服务能力（在线提供接口能力）" class="headerlink" title="AI技术服务能力（在线提供接口能力）"></a>AI技术服务能力（在线提供接口能力）</h4><h5 id="知识加工"><a href="#知识加工" class="headerlink" title="知识加工"></a>知识加工</h5><p>基础文本挖掘能力</p><h5 id="知识发现"><a href="#知识发现" class="headerlink" title="知识发现"></a>知识发现</h5><p>从文本种发现隐含价值的能力，各类模型支持根据行业特性进行定制。支持分类聚类等等</p><p>应用：新闻自动分类，舆情事件分析</p><h5 id="语言生成"><a href="#语言生成" class="headerlink" title="语言生成"></a>语言生成</h5><p>基于深度学习和知识图谱技术，利用预设算法模型实现文本自动生成</p><p>应用：问答机器人，新闻自动写作，新闻短标题形成，数据解读</p><h5 id="文字识别"><a href="#文字识别" class="headerlink" title="文字识别"></a>文字识别</h5><p>基于多种算法对不同场景内文字进行检测识别</p><p>应用：PPT文字识别，变形文字识别（手写体等）</p><h5 id="内容鉴别"><a href="#内容鉴别" class="headerlink" title="内容鉴别"></a>内容鉴别</h5><p>基于文本图像视频，对敏感信息内容自动设别</p><p>应用：文本检测，图片视频内容鉴别</p><h5 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a>图像识别</h5><p>基于深度算法，准确识别图像中包含的重要信息</p><p>应用：图像视频自动标签</p><h5 id="图像搜索"><a href="#图像搜索" class="headerlink" title="图像搜索"></a>图像搜索</h5><p>以文搜图，以图找图，以图搜视频</p><p>应用：产品外观比对，新闻图片人物搜索</p><h5 id="视频分析"><a href="#视频分析" class="headerlink" title="视频分析"></a>视频分析</h5><p>从视频种提取关键帧，实现视频搜索，内容分析等待</p><p>应用：视频分析搜索，智能拆条，视频转引追踪（检测转载情况）</p><h5 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h5><p>基于编码器和编码器架构的深度网络翻译模型，提供信雅达翻译</p><h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><p>中国邮政储蓄银行机器学习平台</p><p>南方电网人工智能平台项目</p><h3 id="二、TRS统一政务信息资源库平台"><a href="#二、TRS统一政务信息资源库平台" class="headerlink" title="二、TRS统一政务信息资源库平台"></a>二、TRS统一政务信息资源库平台</h3><p>18家省级政府网站集约化项目覆盖</p><h3 id="三、ETL海聚数据融合系统"><a href="#三、ETL海聚数据融合系统" class="headerlink" title="三、ETL海聚数据融合系统"></a>三、ETL海聚数据融合系统</h3><h4 id="ETL（extract、transfiorm、load）"><a href="#ETL（extract、transfiorm、load）" class="headerlink" title="ETL（extract、transfiorm、load）"></a>ETL（extract、transfiorm、load）</h4><p>流批一体的数据融合平台</p><p>apache flink内核的分布式数据融合平台</p><p>流数据、批数据</p><p>产品特色</p><h3 id="四、拓尔思产品体系与业务总体介绍"><a href="#四、拓尔思产品体系与业务总体介绍" class="headerlink" title="四、拓尔思产品体系与业务总体介绍"></a>四、拓尔思产品体系与业务总体介绍</h3><p>大数据——智能语义（NPL自然语言处理）——数据安全</p><p>北京成功两个研发中心，北上成广四个区域中心，31个分公司</p><h4 id="产品服务"><a href="#产品服务" class="headerlink" title="产品服务"></a>产品服务</h4><h3 id="五、数星产业大脑赋能数字化变革"><a href="#五、数星产业大脑赋能数字化变革" class="headerlink" title="五、数星产业大脑赋能数字化变革"></a>五、数星产业大脑赋能数字化变革</h3><p>科技金融：以银行为中心，以政府打造的产业环境和政策体系为基础，加强机构合作，为科技企业的发展提供</p><h3 id="六、TRS网查大数据分析云服务平台"><a href="#六、TRS网查大数据分析云服务平台" class="headerlink" title="六、TRS网查大数据分析云服务平台"></a>六、TRS网查大数据分析云服务平台</h3><p>舆情分析检测SAAS服务平台</p><p>设计理念：智汇、智库、智策</p><p><strong>智汇</strong>——全面的数据采集</p><p><strong>智库</strong>——高效的数据采集与预处理</p><p>快速的采集暑校</p><p>丰富的采集功能</p><p>高效的采集架构</p><p>智能的数据处理</p><p>采集：海贝大数据管理系统（高效存储、快速检索、数据安全）</p><p>处理：DL-CKM</p><p><strong>智策</strong>——态势感知辅助决策</p><h5 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h5><h5 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h5><p>日常检测</p><p>事件分析</p><p>信息检索</p><p>预警中心</p><p>智能报告</p><h3 id="七、融媒体平台mas"><a href="#七、融媒体平台mas" class="headerlink" title="七、融媒体平台mas"></a>七、融媒体平台mas</h3><h3 id="八、数家咨询大数据平台"><a href="#八、数家咨询大数据平台" class="headerlink" title="八、数家咨询大数据平台"></a>八、数家咨询大数据平台</h3><p>数家：专注于内容资讯的数据专家</p><p>目的：帮助用户解决数据应用的痛点</p><p>采集全网+自由信息</p><p>微服务架构模式</p><p>公文数据：政府机构，法律法规数据</p><p>数据采集维度：内容数据维度（特色菜鸡），轨迹数据维度（定向周期采集）</p><p>数据可用性保障：采集梳理，数据数量质量的保证，数据时效（按需划分）</p><p>数据清洗，数据标引：人工+机器自动 标引结合</p><p>人工采集-采集点表音——采集清洗——自动打标——二次打标——数据服务</p><p><strong>数据标引维度</strong>：基础属性维度（只是维度，基础维度），加工分析维度（语义为度）</p><h5 id="SAAS平台："><a href="#SAAS平台：" class="headerlink" title="SAAS平台："></a>SAAS平台：</h5><p>数家云资讯：各渠道内容数据进行结构化分类整合；</p><p>资讯热点：对全国各个舆论场数据进行语义聚类和热度分析；</p><p>线索发现：实时发现互联网有价值的线索和内容创作素材；</p><p><strong>应用</strong>：用户价值：线索真实，完整，有可信度</p><p>传播分析：对原创稿件的全网传播效果进行持续性的实时分析；</p><p>榜单分析：</p><p>专题分析：支持用户自定义专题并提供分析</p><p>行业资讯：针对行业用户提供资讯内容的分析</p><p>政务服务：</p><p>openAI平台特点：高精准，高时效，场景化</p><h3 id="九、TRS网脉云服务平台"><a href="#九、TRS网脉云服务平台" class="headerlink" title="九、TRS网脉云服务平台"></a>九、TRS网脉云服务平台</h3><p>用户行为分析有什么用：</p><p>掌握产品的运行状态，优化产品结构和体验，提升产品的推广效果，提高运营成效；</p><h5 id="用户行为分析应用场景"><a href="#用户行为分析应用场景" class="headerlink" title="用户行为分析应用场景"></a>用户行为分析应用场景</h5><p>个性化推荐</p><p>业务考核</p><p>投放分析</p><p>广告位分析</p><p>专题监测</p><p>文章考核</p><p>嫌犯行为追踪</p><p>检索分析</p><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>全面立体化感知用户来源、去向、行为、爱好</p><h5 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h5><p>多维度剖析</p><p>自定义报表</p><p>热图分析</p><p>实时分析</p><p>转化漏斗</p><p>全站路径</p><h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h5><p>全面的数据采集能力</p><p>强大的下钻剖析能力</p><p>全场景分析能力</p><p>细粒度的数据权限模型</p><h3 id="十、海贝大数据管理平台"><a href="#十、海贝大数据管理平台" class="headerlink" title="十、海贝大数据管理平台"></a>十、海贝大数据管理平台</h3><p>相关度排序：词频，文档频速，覆盖率</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文档资料 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+            <tag> trs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>本地navicat连接不上虚拟机MariaDB的问题与解决</title>
+      <link href="/2023/03/10/ben-di-navcat-lian-jie-bu-shang-xu-ni-ji-mariadb-de-wen-ti-yu-jie-jue/"/>
+      <url>/2023/03/10/ben-di-navcat-lian-jie-bu-shang-xu-ni-ji-mariadb-de-wen-ti-yu-jie-jue/</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>虚拟机配置MariaDB成功后，本地机navicat无法连接到虚拟机内的数据库，报错为</p><p><img src="/../images/%E6%9C%AC%E5%9C%B0navcat%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E8%99%9A%E6%8B%9F%E6%9C%BAMariaDB%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230310105841237.png" alt="错误提示"></p><h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>linux虚拟机里的MariaDB运行正常，但本地Navicat连接不上，可能是以下原因之一：</p><ol><li>网络连接问题：确保linux虚拟机和本地机器在同一网络下，并且可以相互通信。可以尝试通过ping测试连着见连接是否正常。如果连接不正常，检查网络设置和防火墙设置。</li><li>数据库配置问题：确保在navicat中输入正确的数据库连接信息。在linux虚拟机上运行的MariaDB可能需要特定的配置才能允许远程连接。可以查看MariaDB的配置文件（my.cnf）以确保已启用远程连接。</li><li>Navicat或MariaDB版本问题，如果其中一个版本过旧，可能不支持MariaDB的连接。</li></ol><p>总之，首先需要检查网络连接和数据库配置，如果这些都没问题，可以尝试升级navicat或mariaDB版本。</p><h3 id="网络问题的排查"><a href="#网络问题的排查" class="headerlink" title="网络问题的排查"></a>网络问题的排查</h3><ol><li>检查网络连接：首先，确保计算机已连接网络并可以访问目标数据库所在的服务器。可以尝试打开一个网站或ping数据库服务器来确认网络连接是否正常</li></ol><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">#本地查服务器网络ping &lt;服务器ip&gt;#服务器查本地网络 可直接ping网站ping www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li>检查防火墙设置</li><li>检查数据库服务器配置：确定数据库服务器是否正确，比如数据库服务是否已经启动、数据库服务端口是否正确等等。</li><li>检查数据库用户权限：确认连接数据库用户是否拥有足够的权限，比如是否允许从远程主机连接。</li><li>检查连接字符串：确保连接字符串中制定了正确的数据库名称、用户名、密码、主机名或ip地址以及端口号等信息。</li><li>检查客户端驱动程序：如果使用了客户端驱动程序，可以尝试重新安装驱动程序或者更新驱动程序版本。</li><li>检查日志文件：查看数据库服务器日志文件，了解是否有连接失败的相关信息。</li></ol><h3 id="本地如何ping虚拟机网络"><a href="#本地如何ping虚拟机网络" class="headerlink" title="本地如何ping虚拟机网络"></a>本地如何ping虚拟机网络</h3><p>本地计算机ping虚拟机的网络，需要知道虚拟机所在的ip地址，之后可执行：</p><ol><li>打开命令cmd命令窗口</li><li>输入ping 接虚拟机ip地址，如：</li></ol><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">ping 192.168.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol start="3"><li>按Enter，如果网络正常，可收到以下响应：</li></ol><p><img src="/../images/%E6%9C%AC%E5%9C%B0navcat%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E8%99%9A%E6%8B%9F%E6%9C%BAMariaDB%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230310111353505.png" alt="网络正确返回内容"></p><ol start="4"><li>如看到“请求超时”或“目标主机不可达”的响应，那么就是网络问题</li></ol><h3 id="我的问题"><a href="#我的问题" class="headerlink" title="我的问题"></a>我的问题</h3><p>Navicat错误代码1045表示连接被拒绝，同场是由于登录凭据（账号密码）不正确或者没有足够权限，而我的网络正常且连接字符串正确，连接返回一个access denied的错误信息，指出用户’root’无法冲IP地址为’192.168.0.54’的主句进行连接。需检查数据库服务器的访问控制列表（ACL）。</p><p>我所使用的是mysql（MariaDB）数据库服务器，检查mysql服务器用户权限表（mysql.user表)以及连接到服务器的主机名列表（mysqk.host表）。确保连接到数据库服务器的主机名或IP地址被正确添加到ACL中，并且用户具有足够的权限来连接到服务器。具体操作如下：</p><pre class="line-numbers language-mariadb" data-language="mariadb"><code class="language-mariadb">MariaDB [(none)]&gt; SELECT user, host FROM mysql.user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/../images/%E6%9C%AC%E5%9C%B0navcat%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E8%99%9A%E6%8B%9F%E6%9C%BAMariaDB%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230310112451730.png"></p><p>查询到连接权限是本地，永&amp;替换为所有ip都可以访问该用户</p><pre class="line-numbers language-mariadb" data-language="mariadb"><code class="language-mariadb">MariaDB [(none)]&gt; GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'xiyu152630' WITH GRANT OPTION;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>再次查询</p><p><img src="/../images/%E6%9C%AC%E5%9C%B0navcat%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E8%99%9A%E6%8B%9F%E6%9C%BAMariaDB%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230310112754515.png"></p><p>重新连接本地navcat，连接成功</p><p><img src="/../images/%E6%9C%AC%E5%9C%B0navcat%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E8%99%9A%E6%8B%9F%E6%9C%BAMariaDB%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/image-20230310112835270.png"></p><p>问题解决。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> MariaDB </tag>
+            
+            <tag> navicat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es启动报错问题解决（一）</title>
+      <link href="/2023/03/09/es-qi-dong-bao-cuo-wen-ti-jie-jue-yi/"/>
+      <url>/2023/03/09/es-qi-dong-bao-cuo-wen-ti-jie-jue-yi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>服务器宕机导致es无法重新启动，其中一个常见的错误：maybe these locations are not writable or multiple nodes were started without increasing [[node.max_local_storage_nodes] (was [1])</p><p>具体报错信息如下：</p><p><img src="/../images/es%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%88%E4%B8%80%EF%BC%89/image-20230309174314551.png" alt="报错日志"></p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>这个错误的原因是因为之前用root用户启动了es，之后切换用户运行就会报这个错误，解决这个错误只需要删除根目录下data目录中的nodes文件，然后用其它用户启动就能解决了。</p><p><img src="/../images/es%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%88%E4%B8%80%EF%BC%89/image-20230309174441331.png" alt="data目录"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> es </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IE11浏览器适配问题解决</title>
+      <link href="/2023/03/08/ie11-liu-lan-qi-gua-pei-wen-ti-jie-jue/"/>
+      <url>/2023/03/08/ie11-liu-lan-qi-gua-pei-wen-ti-jie-jue/</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>水平居中与自适应文本块边框属性在IE11浏览器失效。</p><h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>如果需要在 IE11 中居中一个块级元素，并且其宽度需要自适应其内容的宽度，可以尝试以下方法：</p><ol><li>使用 <code>text-align: center;</code> 属性将父元素的文本居中，同时在子元素中设置 <code>display: inline-block;</code> 属性以使其成为一个内联块元素，例如：</li></ol><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">{</span>  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">.child</span> <span class="token punctuation">{</span>  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li>使用 <code>display: flex;</code> 属性将父元素转换为弹性容器，然后使用 <code>justify-content: center;</code> 属性将其子元素水平居中，例如：</li></ol><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">{</span>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>这两种方法都可以在 IE11 中兼容，并且能够水平居中一个自适应内容宽度的块级元素。</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>{width：max-content}不兼容ie11浏览器，将div块级元素规定固定宽度</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IE11适配 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql插入中文数据乱码问题与解决</title>
       <link href="/2023/02/21/mysql-cha-ru-zhong-wen-shu-ju-luan-ma-wen-ti-yu-jie-jue/"/>
       <url>/2023/02/21/mysql-cha-ru-zhong-wen-shu-ju-luan-ma-wen-ti-yu-jie-jue/</url>
