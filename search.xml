@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>linux中cp -rf命令复制不覆盖文件问题</title>
+      <link href="/2023/03/21/linux-qiang-zhi-fu-gai-wen-jian-jia-shi-xiao/"/>
+      <url>/2023/03/21/linux-qiang-zhi-fu-gai-wen-jian-jia-shi-xiao/</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在linux中，当覆盖更新某文件夹中文件时，cp -rf 出现复制不覆盖文件问题，即覆盖失败。</p><h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>一般我们在linux系统使用命令cp -rf 复制并覆盖文件，会提示文件覆盖确认操作。覆盖失效时，可以输入输入<code>alias</code>命令，显示 cp=‘cp -i’， cp 命令被系统设置了别名，-i 参数是文件覆盖提示确认操作，可以看到别名 ，也就是当执行cp的时候，其实执行的是cp -i参数。</p><p><img src="/../images/linux%E5%BC%BA%E5%88%B6%E8%A6%86%E7%9B%96%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%B1%E6%95%88/image-20230321172554452.png"></p><h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>解决文件复制覆盖提示操作问题，以下四种方式：</p><h4 id="方法1：编写带cp的路径复制覆盖文件"><a href="#方法1：编写带cp的路径复制覆盖文件" class="headerlink" title="方法1：编写带cp的路径复制覆盖文件"></a>方法1：编写带cp的路径复制覆盖文件</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost ~]# /bin/cp -rf 源码文件 目标文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="方法2：在CP命令前面加一个斜杠-，实现强制覆盖文件"><a href="#方法2：在CP命令前面加一个斜杠-，实现强制覆盖文件" class="headerlink" title="方法2：在CP命令前面加一个斜杠\，实现强制覆盖文件"></a>方法2：在CP命令前面加一个斜杠\，实现强制覆盖文件</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost ~]# \cp -rf 源码文件 目标文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="方法3：取消cp命令别名，去掉-cp-命令的别名-这时你再用-cp-rf-复制文件时-就不会提示确认"><a href="#方法3：取消cp命令别名，去掉-cp-命令的别名-这时你再用-cp-rf-复制文件时-就不会提示确认" class="headerlink" title="方法3：取消cp命令别名，去掉 cp 命令的别名,这时你再用 cp -rf 复制文件时,就不会提示确认."></a>方法3：取消cp命令别名，去掉 cp 命令的别名,这时你再用 cp -rf 复制文件时,就不会提示确认.</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">#取消cp命令别名[root@localhost ~]# unalias cp[root@localhost ~]# cp -rf 源码文件 目标文件#复制完成后恢复别名[root@localhost ~]# alias cp='cp -i'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="方法4：编辑-x2F-bashrc文件注释掉cp的alias，在alias-cp-x3D-’cp-i’前加上”-”注释，修改后，重新登录即可实现复制不提示。一定要重新登录系统，不然不生效；"><a href="#方法4：编辑-x2F-bashrc文件注释掉cp的alias，在alias-cp-x3D-’cp-i’前加上”-”注释，修改后，重新登录即可实现复制不提示。一定要重新登录系统，不然不生效；" class="headerlink" title="方法4：编辑~/.bashrc文件注释掉cp的alias，在alias cp=’cp -i’前加上”#”注释，修改后，重新登录即可实现复制不提示。一定要重新登录系统，不然不生效；"></a>方法4：编辑~/.bashrc文件注释掉cp的alias，在alias cp=’cp -i’前加上”#”注释，修改后，重新登录即可实现复制不提示。一定要重新登录系统，不然不生效；</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost ~]# vi ~/.bashrc[root@localhost ~]# cp -rf 源码文件 目标文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 复制覆盖 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>trs培训随笔</title>
       <link href="/2023/03/17/trs-pei-xun-sui-bi/"/>
       <url>/2023/03/17/trs-pei-xun-sui-bi/</url>
