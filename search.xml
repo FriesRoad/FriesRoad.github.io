@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>关于端口占用问题的解决</title>
+      <link href="/2023/03/28/guan-yu-duan-kou-zhan-yong-wen-ti-de-jie-jue/"/>
+      <url>/2023/03/28/guan-yu-duan-kou-zhan-yong-wen-ti-de-jie-jue/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h3><p>启动WCM服务报错如下：</p><p><img src="/../images/%E5%85%B3%E4%BA%8E%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/image-20230328170610751.png" alt="报错内容"></p><p>但是查询端口占用情况之后发现是java.exe占用8080端口，然而，本次开机并没有启动有关java依赖的进程。</p><h3 id="二、解决思路"><a href="#二、解决思路" class="headerlink" title="二、解决思路"></a>二、解决思路</h3><p>这个错误是表示Tomcat无法绑定8080端口，可能是该端口被其他进程占用了，也有可能是权限不足。可以尝试修改Tomcat使用的端口号，或者检查是否有其他进程占用了该端口。另外，也可以使用管理员权限启动Tomcat。</p><h3 id="三、查看占用指定端口的应用"><a href="#三、查看占用指定端口的应用" class="headerlink" title="三、查看占用指定端口的应用"></a>三、查看占用指定端口的应用</h3><p>可以在命令行窗口中输入以下命令来查看端口号8080被哪个应用程序占用：</p><h4 id="Windows系统："><a href="#Windows系统：" class="headerlink" title="Windows系统："></a>Windows系统：</h4><ol><li><p>打开命令行窗口（Win+R，输入cmd，回车）。</p></li><li><p>输入命令：netstat -ano | findstr :8080</p><p><strong>注意：在:8080之前也有一个空格！</strong></p></li><li><p>系统会返回所有占用端口号8080的应用程序的PID，例如：</p></li></ol><p>​TCP 192.168.1.1:8080 0.0.0.0:0 LISTENING <strong>1234</strong></p><p>在最后一个数字1234就是占用8080端口的应用程序的PID。</p><ol start="4"><li>打开任务管理器（<strong>Ctrl+Shift+Esc</strong>），在<strong>详细信息</strong>选项卡中找到该PID对应的进程，就可以定位到占用8080端口的应用程序了。</li><li>右键占用程序，就可以找到该程序的路径。</li></ol><h4 id="Linux-x2F-Mac系统："><a href="#Linux-x2F-Mac系统：" class="headerlink" title="Linux/Mac系统："></a>Linux/Mac系统：</h4><ol><li><p>打开终端（Terminal）窗口。</p></li><li><p>输入命令：sudo lsof -i :8080</p></li><li><p>系统会返回所有占用端口号8080的应用程序的PID和进程名，例如：</p></li></ol><p>​COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME</p><p>​java <strong>1234</strong> user 0u IPv6 12345678 0t0 TCP *:8080 (LISTEN)</p><p>在第二列数字1234就是占用8080端口的应用程序的PID。</p><ol start="4"><li>输入命令：ps -ef | grep 1234</li></ol><p>在输出中找到对应的进程名即可确定占用8080端口的应用程序。</p><h3 id="四、问题解决"><a href="#四、问题解决" class="headerlink" title="四、问题解决"></a>四、问题解决</h3><p>最终确认了该应用程序是其他应用程序TRSWAS所自带的jdk依赖，可以尝试关闭该依赖程序，或者将其修改为使用其他空闲的端口。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 端口占用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux下后服务启动命令总结</title>
+      <link href="/2023/03/28/linux-xia-fu-wu-qi-dong-xiang-guan-wen-ti/"/>
+      <url>/2023/03/28/linux-xia-fu-wu-qi-dong-xiang-guan-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、查看当前服务"><a href="#一、查看当前服务" class="headerlink" title="一、查看当前服务"></a>一、查看当前服务</h4><ol><li><p>systemctl list-units –type=service</p><p>列出所有已启动的服务及其状态；</p></li><li><p>systemctl status [service]</p><p>查看指定服务的状态信息</p></li><li><p>service –status-all</p><p>列出系统中所有的服务及其状态</p></li><li><p>ps -ef|grep service</p><p>查看系统中所有正在运行的进程，并筛选出包含<code>service</code>关键字的进程</p></li></ol><h4 id="二、使用ps命令列出进程列表，其中属性意义如下"><a href="#二、使用ps命令列出进程列表，其中属性意义如下" class="headerlink" title="二、使用ps命令列出进程列表，其中属性意义如下"></a>二、使用ps命令列出进程列表，其中属性意义如下</h4><ul><li>UID：用户ID，表示该进程有哪个用户所创建的；</li><li>PID：进程ID，表示该进程的唯一标识；</li><li>PPID：父进程ID，表示该进程的父进程ID；</li><li>C：CPU占用率；</li><li>STIME：启动时间；</li><li>TTY：控制台类型，表示该进程所绑定的控制台类型；</li><li>TIME：CPU时间，你表示该进程已经使用的CPU时间；</li><li>CMD：命令，表示该进程所执行的命令。</li></ul><h4 id="三、后台启动服务的两种方式"><a href="#三、后台启动服务的两种方式" class="headerlink" title="三、后台启动服务的两种方式"></a>三、后台启动服务的两种方式</h4><ol><li><p>使用nohup可以在后台运行进程或命令，并不是终端退出的影响</p><p>例如：<code>nohup ./server.sh &amp;</code>，这会在后台运行一个名为server.sh的脚本，并将输出保存到一个名为”nohub.out“的文件中，&amp;符号表示让命令在后台运行。之后可以用<code>ps -ef|grep server.sh</code>查看该进程的PID，用<code>kill [PID]</code>命令杀死该进程。</p><p>如果提示：nohup：忽略输入并把输出追加到“nohup.out”则表示后台启动成功，意味着nohup命令成功将输出重定向到名为nohup.out的文件中，并不会被终端退出所影响，如需检查，可查看nohup.out文件，确认输出是否正确保存，命令为<code>cat nohup.out</code>。</p></li><li><p>另一种启动方式为，正常启动server.sh文件，运行后按Ctrl + Z暂停，再使用<code>bg</code>命令将其移到后台运行。</p></li></ol><h4 id="四、其他相关命令"><a href="#四、其他相关命令" class="headerlink" title="四、其他相关命令"></a>四、其他相关命令</h4><ul><li>查看日志文件名命令为<code>cat [文件名]</code>，要查看日志文件1.log的最后五百行，可以使用以下命令：<code>tail -n 500 1.log</code>。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 服务启动 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java线程的生命周期</title>
+      <link href="/2023/03/23/java-xian-cheng-de-sheng-ming-zhou-qi/"/>
+      <url>/2023/03/23/java-xian-cheng-de-sheng-ming-zhou-qi/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、线程的生命周期是指线程从创建到结束的整个过程，它也被称为线程状态模型。"><a href="#一、线程的生命周期是指线程从创建到结束的整个过程，它也被称为线程状态模型。" class="headerlink" title="一、线程的生命周期是指线程从创建到结束的整个过程，它也被称为线程状态模型。"></a>一、线程的生命周期是指线程从创建到结束的整个过程，它也被称为线程状态模型。</h4><p>Java中的线程生命周期可以划分为如下5个状态：</p><ol><li><p>新建状态（New）：当创建一个新的Thread对象时，该线程就进入新建状态。此时，线程尚未启动，还没有分配到系统资源。</p></li><li><p>就绪状态（Runnable）：一旦线程被start()方法启动，线程进入就绪状态。此时，线程已经被分配到系统资源，可以随时执行，但还没有被调度器选中运行。</p></li><li><p>运行状态（Running）：当线程被调度器选中运行时，线程进入运行状态。此时，线程开始执行run()方法中的相关代码。</p></li><li><p>阻塞状态（Blocked）：当线程因为一些原因无法继续执行时，例如等待输入、等待同步锁等情况，线程就会进入阻塞状态。在这个状态下，线程不会占用CPU的时间，也不会进入就绪状态，直到被唤醒。</p></li><li><p>终止状态（Terminated）：线程在run()方法结束后，进入终止状态。该线程不再占用系统资源，但线程对象仍然存在，可以查询线程的状态和执行结果。</p></li></ol><h4 id="二、下面是线程状态与转换示意图："><a href="#二、下面是线程状态与转换示意图：" class="headerlink" title="二、下面是线程状态与转换示意图："></a>二、下面是线程状态与转换示意图：</h4><p><img src="/../images/java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/1.png" alt="简单的线程状态图"></p><p><img src="/../images/java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2.png" alt="线程状态图"></p><h4 id="三、线程状态的转换如下："><a href="#三、线程状态的转换如下：" class="headerlink" title="三、线程状态的转换如下："></a>三、线程状态的转换如下：</h4><ol><li><p>新建状态 ———&gt; 就绪状态：当线程对象被创建后，start()方法被调用，线程就会进入就绪状态。</p></li><li><p>就绪状态 ———&gt; 运行状态：当调度器调度该线程时，线程就会从就绪状态进入运行状态。</p></li><li><p>运行状态 ———&gt; 阻塞状态：当线程等待输入、等待同步锁、等待网络数据等情况时，线程进入阻塞状态。</p></li><li><p>阻塞状态 ———&gt; 就绪状态：当等待的条件满足时，线程进入就绪状态，等待调度器再次调度。</p></li><li><p>运行状态 ———&gt; 终止状态：当run()方法执行完毕或者线程发生异常时，线程会进入终止状态。</p></li></ol><p>线程状态的转换是由Java虚拟机的线程调度器控制的，它会根据线程优先级和调度算法来决定哪个线程可以进入运行状态。了解线程的生命周期对于优化程序性能和避免多线程竞争的问题非常重要。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线程 </tag>
+            
+            <tag> 生命周期 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux中cp -rf命令复制不覆盖文件问题</title>
       <link href="/2023/03/21/linux-qiang-zhi-fu-gai-wen-jian-jia-shi-xiao/"/>
       <url>/2023/03/21/linux-qiang-zhi-fu-gai-wen-jian-jia-shi-xiao/</url>
