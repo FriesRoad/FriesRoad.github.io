@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>强制取消元素的样式</title>
+      <link href="/2023/04/11/qiang-zhi-qu-xiao-yuan-su-de-yang-shi/"/>
+      <url>/2023/04/11/qiang-zhi-qu-xiao-yuan-su-de-yang-shi/</url>
+      
+        <content type="html"><![CDATA[<p>1</p><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在当前页面强制取消父元素下除某一类子元素外其他子元素的一个外部样式。</p><h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><p>将.channels .mychannelUl下除了.hotTag以外的所有li元素的行高样式设置为”initial”，以取消之前的样式</p><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.channels .mychannelUl li:not(.hotTag)</span> <span class="token punctuation">{</span><span class="token property">line-height</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">.channels .morechannel li</span> <span class="token punctuation">{</span><span class="token property">line-height</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="unset-与-initial-的区别"><a href="#unset-与-initial-的区别" class="headerlink" title="unset 与 initial 的区别"></a>unset 与 initial 的区别</h3><p>line-height: unset;和line-height: initial;的异同在于：</p><ul><li>line-height: unset;会将元素的行高设置为默认值，即继承父元素的行高或浏览器默认的行高。如果没有父元素或父元素没有设置行高，则行高为normal，即浏览器默认的行高。</li><li>line-height: initial;会将元素的行高设置为初始值，即浏览器默认的行高。</li></ul><p>因此，如果想要将元素的行高设置为默认值，可以使用line-height: unset；如果想要将元素的行高设置为浏览器默认的行高，可以使用line-height: initial。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 难点问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信测试账号配置</title>
       <link href="/2023/04/07/wei-xin-ce-shi-zhang-hao-pei-zhi/"/>
       <url>/2023/04/07/wei-xin-ce-shi-zhang-hao-pei-zhi/</url>
