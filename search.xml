@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux中解决root@bogon问题</title>
+      <link href="/2023/05/23/linux-zhong-jie-jue-root-bogon-wen-ti/"/>
+      <url>/2023/05/23/linux-zhong-jie-jue-root-bogon-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p>1</p><h3 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h3><p>打开linux虚拟机之后，发现主机名变成了bogon，因为修改了网络连接为nat，就会出现<code>[root@bogon ~]</code>。</p><p><img src="/../images/Linux%E4%B8%AD%E8%A7%A3%E5%86%B3root-bogon%E9%97%AE%E9%A2%98/image-20230523174327841.png" alt="主机名变为bogon"></p><h3 id="二、解决思路"><a href="#二、解决思路" class="headerlink" title="二、解决思路"></a>二、解决思路</h3><h4 id="1、查看相关文件"><a href="#1、查看相关文件" class="headerlink" title="1、查看相关文件"></a>1、查看相关文件</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">vi /etc/sysconfig/networkvi /etc/hosts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>得到以下内容，如果没有，则手动输入。</p><p><img src="/../images/Linux%E4%B8%AD%E8%A7%A3%E5%86%B3root-bogon%E9%97%AE%E9%A2%98/image-20230523174718223.png" alt="相关文件network"></p><p><img src="/../images/Linux%E4%B8%AD%E8%A7%A3%E5%86%B3root-bogon%E9%97%AE%E9%A2%98/image-20230523174827137.png" alt="相关文件hosts"></p><p>network和hosts中的主机名都是localhost，则正常。</p><h4 id="2、解析本机IP"><a href="#2、解析本机IP" class="headerlink" title="2、解析本机IP"></a>2、解析本机IP</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">nslookup [本机ip]#在Linux或MacOS系统中，nslookup是一个用于查询DNS记录的命令。如果你在命令行中输入nslookup时出现了“未找到命令”的错误提示，可能是因为你的系统没有安装该命令。#在CentOS系统中，你可以通过以下命令安装nslookup：sudo yum install bind-utils在Ubuntu系统中，你可以通过以下命令安装nslookup：sudo apt-get install dnsutils<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>nslookup解析后获得如下内容：</p><p><img src="/../images/Linux%E4%B8%AD%E8%A7%A3%E5%86%B3root-bogon%E9%97%AE%E9%A2%98/image-20230523175155008.png" alt="解析结果"></p><p>主机名被解析为bogon。那么就让其解析时不经过dns，使用hosts文件，直接将本机的ip地址解析为localhost。</p><p>输入<code>vi /etc/hosts</code>编辑hosts文件，在最后加上<code>[ip] localhost</code>。</p><p><img src="/../images/Linux%E4%B8%AD%E8%A7%A3%E5%86%B3root-bogon%E9%97%AE%E9%A2%98/image-20230523175419791.png" alt="更改后的hosts"></p><p>最后输入<code>reboot</code>重启服务器，主机名恢复正常。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>强制取消元素的样式</title>
       <link href="/2023/04/11/qiang-zhi-qu-xiao-yuan-su-de-yang-shi/"/>
       <url>/2023/04/11/qiang-zhi-qu-xiao-yuan-su-de-yang-shi/</url>
