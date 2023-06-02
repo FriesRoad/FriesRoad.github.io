@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>海云部署步骤</title>
+      <link href="/2023/05/29/hai-yun-bu-shu-bu-zou-bi-ji/"/>
+      <url>/2023/05/29/hai-yun-bu-shu-bu-zou-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、获取安装介质"><a href="#一、获取安装介质" class="headerlink" title="一、获取安装介质"></a>一、获取安装介质</h2><p>基础环境应用，有网可用yum直接安装，没网可以自行配置本地yum环境进行安装。</p><h2 id="二、升级yum源并安装常用工具"><a href="#二、升级yum源并安装常用工具" class="headerlink" title="二、升级yum源并安装常用工具"></a>二、升级yum源并安装常用工具</h2><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">sudo yum updatesudo yum install unzipsudo yum install vimvim --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="三、复制多个虚拟机"><a href="#三、复制多个虚拟机" class="headerlink" title="三、复制多个虚拟机"></a>三、复制多个虚拟机</h2><h2 id="四、上传自动安装工具，完成检测与安装"><a href="#四、上传自动安装工具，完成检测与安装" class="headerlink" title="四、上传自动安装工具，完成检测与安装"></a>四、上传自动安装工具，完成检测与安装</h2><p>启动海云自动安装工具。</p><p><strong>说明：本工具在运行过程中会检测互联网的联通性（部分模块的安装需要使用YUM 方式），如果在本地搭建了本地YUM源，可以使用“-localyum”关闭检测功能</strong></p><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">python  AutoInstall_small.py  -localyum<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>成功启动显示以下内容：</p><p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4%E7%AC%94%E8%AE%B0/image-20230529153022911.png"></p><p>根据需求安装所需基础介质，本脚本仅提供安装，配置信息需根据文档依次修改配置。</p><p>nginx <a href="http://t.cn/REQVj8w">http://t.cn/REQVj8w</a></p><p>rebbitmq <a href="http://t.cn/REQVj8w">http://t.cn/REQVj8w</a></p><p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4%E7%AC%94%E8%AE%B0/image-20230602162816014.png" alt="自动脚本安装MariaDB数据库报错提示"></p><p>目前暂未有解决办法，在此使用手动方式完成MariaDB的安装。</p><h2 id="五、手动安装MariaDB数据库"><a href="#五、手动安装MariaDB数据库" class="headerlink" title="五、手动安装MariaDB数据库"></a>五、手动安装MariaDB数据库</h2><p>版本要求：10.4.x 的最新版</p><p>MariaDB是MySQL的一个分支，可以理解成增强版MySQL，在使用上基本上没有什么差异。</p><h4 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h4><p>注意：yum安装 和 二进制安装 二选一，建议二进制安装。</p><h4 id="2、二进制安装MariaDB数据库"><a href="#2、二进制安装MariaDB数据库" class="headerlink" title="2、二进制安装MariaDB数据库"></a>2、二进制安装MariaDB数据库</h4><p><em>详见海云文档101-01-5.9 MariaDB数据库二进制安装配置。</em></p><h4 id="3、创建MariaDB新的用户并授予外网登陆权限可用命令："><a href="#3、创建MariaDB新的用户并授予外网登陆权限可用命令：" class="headerlink" title="3、创建MariaDB新的用户并授予外网登陆权限可用命令："></a>3、创建MariaDB新的用户并授予外网登陆权限可用命令：</h4><p>mysql&gt;grant all privileges on <em>.</em> to username@’%’ identified by ‘password’;</p><h4 id="4、创建完成后使用自动部署工具进行设置检查"><a href="#4、创建完成后使用自动部署工具进行设置检查" class="headerlink" title="4、创建完成后使用自动部署工具进行设置检查"></a>4、创建完成后使用自动部署工具进行设置检查</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">python  AutoInstall_small.py  -localyum#目前Mysql最大连接数配置异常，暂未有解决办法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="六、完成基础环境应用的配置修改"><a href="#六、完成基础环境应用的配置修改" class="headerlink" title="六、完成基础环境应用的配置修改"></a>六、完成基础环境应用的配置修改</h2><p><em>详见海云文档101–01-5 基础环境部署安装配置。</em></p><p>1、系统基础配置调整</p><p>2、jdk安装</p><p>3、ImageMagick</p><p>4、ES</p><p>5、logstash</p><p>6、nginx</p><p>7、mariadb</p><p>8、redis</p><p>9、RabbitMQ</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux中解决root@bogon问题</title>
       <link href="/2023/05/23/linux-zhong-jie-jue-root-bogon-wen-ti/"/>
       <url>/2023/05/23/linux-zhong-jie-jue-root-bogon-wen-ti/</url>
