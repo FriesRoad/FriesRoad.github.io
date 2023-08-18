@@ -375,21 +375,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-31
+                    2023-08-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    12 分
                 </div>
                 
 
@@ -425,7 +425,7 @@ cd /TRS/APP/nginx/sbin
 ps aux|grep nginx
 
 #MariaDB
-systemctl start mariadb
+#systemctl start mariadb
 #可通过systemctl enable mariadb设置开机自启动
 systemctl status mysql
 
@@ -465,9 +465,30 @@ vim gov.conf
 #logstash
 cd /TRS/APP/logstash/bin
 vim logstash.conf
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3、单机部署注意中间件端口冲突问题"><a href="#3、单机部署注意中间件端口冲突问题" class="headerlink" title="3、单机部署注意中间件端口冲突问题"></a>3、单机部署注意中间件端口冲突问题</h4><h2 id="一、获取安装介质"><a href="#一、获取安装介质" class="headerlink" title="一、获取安装介质"></a>一、获取安装介质</h2><p>基础环境应用，有网可用yum直接安装，没网可以自行配置本地yum环境进行安装。</p>
+#profile
+vim /etc/profile
+source /etc/profile
+
+#IDS
+vim /TRS/DEPS/IDS/webapps/ids/WEB-INF/classes/trsids.properties
+
+#IIP 建议删除重装dev
+grep -rl "192.168.242.151" /TRS
+vim /TRS/HyCloud/IIP/webapps/gov/WEB-INF/classes/trsconfig/domain/config.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3、单机部署注意中间件端口冲突问题"><a href="#3、单机部署注意中间件端口冲突问题" class="headerlink" title="3、单机部署注意中间件端口冲突问题"></a>3、单机部署注意中间件端口冲突问题</h4><h4 id="4、重启MariaDB"><a href="#4、重启MariaDB" class="headerlink" title="4、重启MariaDB"></a>4、重启MariaDB</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># systemctl restart mysqld
+ 
+# 尝试登录mysql。
+# mysql -u root -proot
+ 
+若报如下错：
+ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’
+ 
+则使用以下语句：
+# ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock。 再重启mysql即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="一、获取安装介质"><a href="#一、获取安装介质" class="headerlink" title="一、获取安装介质"></a>一、获取安装介质</h2><p>基础环境应用，有网可用yum直接安装，没网可以自行配置本地yum环境进行安装。</p>
 <h2 id="二、升级yum源并安装常用工具"><a href="#二、升级yum源并安装常用工具" class="headerlink" title="二、升级yum源并安装常用工具"></a>二、升级yum源并安装常用工具</h2><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">sudo yum update
 sudo yum install unzip
 sudo yum install gcc
@@ -495,23 +516,24 @@ vim --version<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li><p>使用管理员权限登录到CentOS虚拟机。</p>
 </li>
 <li><p>打开网络配置文件，并编辑它。使用以下命令打开文件：</p>
-<pre class="line-numbers language-none"><code class="language-none">vi /etc/sysconfig/network-scripts/ifcfg-ens33<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">sudo vi /etc/sysconfig/network-scripts/ifcfg-ens33<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>注意：如果虚拟机不是使用ens33接口，请相应地更改接口名称。</p>
 </li>
-<li><p>在文件中，找到以<code>BOOTPROTO</code>开头的行，并将其更改为<code>BOOTPROTO=none</code>。</p>
+<li><p>在文件中，找到以<code>BOOTPROTO</code>开头的行，并将其更改为<code>BOOTPROTO="static"</code>。</p>
 </li>
 <li><p>添加以下行来指定虚拟机的静态IP地址、子网掩码和默认网关：</p>
-<pre class="line-numbers language-none"><code class="language-none">IPADDR=your_ip_address
-NETMASK=your_netmask
-GATEWAY=your_gateway<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>请将<code>your_ip_address</code>替换为想要设置的静态IP地址，<code>your_netmask</code>替换为子网掩码，<code>your_gateway</code>替换为默认网关。</p>
+<pre class="line-numbers language-none"><code class="language-none">BOOTPROTO="static"
+IPADDR=192.168.242.150
+NETMASK=255.255.255.0
+GATEWAY=&lt;网关地址，通过`ip route | grep default`获取&gt;
+DNS1=&lt;DNS服务器地址1，通过`cat /etc/resolv.conf`获取&gt;
+DNS2=&lt;DNS服务器地址2&gt;（可选）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>保存并关闭文件。</p>
 </li>
 <li><p>重启网络服务，以应用更改。使用以下命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">sudo systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>验证IP地址是否已成功固定。使用以下命令：</p>
 <pre class="line-numbers language-none"><code class="language-none">ip addr show ens33<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -640,7 +662,7 @@ yum install libXext.i686 libXtst.i686<span aria-hidden="true" class="line-number
 <h3 id="2、安装身份服务器"><a href="#2、安装身份服务器" class="headerlink" title="2、安装身份服务器"></a>2、安装身份服务器</h3><ul>
 <li>linux运行ids安装介质，请预先设置文件的可执行权限（使用 chmod 命令），如下：</li>
 </ul>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">chmod 777 TRSIDS_5.0.103646_20141105_linux.bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">chmod 777 TRSIDS_5.2_Build135515_20210802-1742_linux64JRE.bin <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>启动安装介质</li>
@@ -648,7 +670,7 @@ yum install libXext.i686 libXtst.i686<span aria-hidden="true" class="line-number
 <pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">./TRSIDS_5.2_Build135515_20210802-1742_linux64JRE.bin -i console<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="3、系统初始化"><a href="#3、系统初始化" class="headerlink" title="3、系统初始化"></a>3、系统初始化</h3><p>IDS 在安装完成，第一次启动以后，为了保证正常的使用，需要对数据库、存储类型、后台端口等一些参数进行配置初始化。</p>
-<p>访问 http://[<em>IDS</em> <em>域名或</em> <em>IP</em>]:<em>[<strong>端口</strong>]</em>/ids 地址，系统自动跳转到系统初始化页面，如下图：</p>
+<p>访问 http://[<em>IDS</em> <em>域名或</em> <em>IP</em>]:<em>[<strong>端口</strong>]</em>/ids 地址，别忘了开启IDS服务，系统自动跳转到系统初始化页面，如下图：</p>
 <p>记得先开启防火墙端口：</p>
 <pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">firewall-cmd --zone=public --add-port=8080/tcp --permanent
 systemctl restart firewalld
@@ -659,10 +681,13 @@ firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><spa
 <p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4%E7%AC%94%E8%AE%B0/image-20230620161533198.png" alt="其他初始化页面"></p>
 <p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4%E7%AC%94%E8%AE%B0/image-20230620162043026.png"></p>
 <p>至此，ids安装配置完成</p>
-<h3 id="4、将IDS原生的登录界面更改为海云的登录界面"><a href="#4、将IDS原生的登录界面更改为海云的登录界面" class="headerlink" title="4、将IDS原生的登录界面更改为海云的登录界面"></a>4、将IDS原生的登录界面更改为海云的登录界面</h3><p>略，修改.jsp失败</p>
-<h3 id="5、更新补丁"><a href="#5、更新补丁" class="headerlink" title="5、更新补丁"></a>5、更新补丁</h3><h3 id="6、设置用户的密码复杂度"><a href="#6、设置用户的密码复杂度" class="headerlink" title="6、设置用户的密码复杂度"></a>6、设置用户的密码复杂度</h3><p>未找到</p>
-<h3 id="7、设置email为非必填"><a href="#7、设置email为非必填" class="headerlink" title="7、设置email为非必填"></a>7、设置email为非必填</h3><h3 id="8、打开组织双向同步的开关"><a href="#8、打开组织双向同步的开关" class="headerlink" title="8、打开组织双向同步的开关"></a>8、打开组织双向同步的开关</h3><p>未添加应用</p>
-<h3 id="9、设置IDS-Session超时时间"><a href="#9、设置IDS-Session超时时间" class="headerlink" title="9、设置IDS Session超时时间"></a>9、设置IDS Session超时时间</h3><h3 id="10、TRS-IDS-互联网"><a href="#10、TRS-IDS-互联网" class="headerlink" title="10、TRS IDS (互联网)"></a>10、TRS IDS (互联网)</h3><h3 id="11、添加安全补丁"><a href="#11、添加安全补丁" class="headerlink" title="11、添加安全补丁"></a>11、添加安全补丁</h3><h3 id="12、添加必要的索引"><a href="#12、添加必要的索引" class="headerlink" title="12、添加必要的索引"></a>12、添加必要的索引</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql -hlocalhost -uroot -proot;
+<h3 id="4、将IDS原生的登录界面更改为海云的登录界面（可选）"><a href="#4、将IDS原生的登录界面更改为海云的登录界面（可选）" class="headerlink" title="4、将IDS原生的登录界面更改为海云的登录界面（可选）"></a>4、将IDS原生的登录界面更改为海云的登录界面（可选）</h3><p>略，修改.jsp失败</p>
+<h3 id="5、更新补丁（可选）"><a href="#5、更新补丁（可选）" class="headerlink" title="5、更新补丁（可选）"></a>5、更新补丁（可选）</h3><p>提高IDS用户同步到应用的速度</p>
+<h3 id="6、设置用户的密码复杂度（可选）"><a href="#6、设置用户的密码复杂度（可选）" class="headerlink" title="6、设置用户的密码复杂度（可选）"></a>6、设置用户的密码复杂度（可选）</h3><p>系统运维 - 系统 - 单点登录- 密码参数设置</p>
+<h3 id="7、设置email为非必填"><a href="#7、设置email为非必填" class="headerlink" title="7、设置email为非必填"></a>7、设置email为非必填</h3><p>系统运维 - 系统 - 单点登录 - 身份元数据</p>
+<h3 id="8、设置IDS-Session超时时间"><a href="#8、设置IDS-Session超时时间" class="headerlink" title="8、设置IDS Session超时时间"></a>8、设置IDS Session超时时间</h3><p>未找到</p>
+<h3 id="9、添加安全补丁（可选）"><a href="#9、添加安全补丁（可选）" class="headerlink" title="9、添加安全补丁（可选）"></a>9、添加安全补丁（可选）</h3><p>[V5.0 Build104395-补丁包.zip](<a target="_blank" rel="noopener" href="http://wiki.devdemo.trs.net.cn/download/attachments/4527010/V5.0">http://wiki.devdemo.trs.net.cn/download/attachments/4527010/V5.0</a> Build104395-补丁包.zip?version=1&amp;modificationDate=1536026206000&amp;api=v2)</p>
+<h3 id="10、添加必要的索引"><a href="#10、添加必要的索引" class="headerlink" title="10、添加必要的索引"></a>10、添加必要的索引</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql -hlocalhost -uroot -proot;
 use trsids2;
 ALTER TABLE idsgroup
     ADD INDEX `GRPDN` (`GRPDN`(255)),
@@ -701,7 +726,8 @@ ALTER TABLE idsuserattrmapping
 ALTER TABLE idsappaccesspermisson
     ADD INDEX `OPERATORNAME_OPERATORTYPE_ACTION` (`OPERATORNAME`, `OPERATORTYPE`, `ACTION`);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="十、安装IIP"><a href="#十、安装IIP" class="headerlink" title="十、安装IIP"></a>十、安装IIP</h2><h3 id="1、下载前后端介质"><a href="#1、下载前后端介质" class="headerlink" title="1、下载前后端介质"></a>1、下载前后端介质</h3><h3 id="2、执行数据库脚本（全新安装）"><a href="#2、执行数据库脚本（全新安装）" class="headerlink" title="2、执行数据库脚本（全新安装）"></a>2、执行数据库脚本（全新安装）</h3><h3 id="3、安装Tomcat9-x最新版"><a href="#3、安装Tomcat9-x最新版" class="headerlink" title="3、安装Tomcat9.x最新版"></a>3、安装Tomcat9.x最新版</h3><h3 id="4、部署IIP"><a href="#4、部署IIP" class="headerlink" title="4、部署IIP"></a>4、部署IIP</h3><ul>
+<p><strong>以下设置再添加协同应用后设置</strong></p>
+<h3 id="11、打开组织双向同步的开关"><a href="#11、打开组织双向同步的开关" class="headerlink" title="11、打开组织双向同步的开关"></a>11、打开组织双向同步的开关</h3><h2 id="十、安装IIP"><a href="#十、安装IIP" class="headerlink" title="十、安装IIP"></a>十、安装IIP</h2><h3 id="1、下载前后端介质"><a href="#1、下载前后端介质" class="headerlink" title="1、下载前后端介质"></a>1、下载前后端介质</h3><h3 id="2、执行数据库脚本（全新安装）"><a href="#2、执行数据库脚本（全新安装）" class="headerlink" title="2、执行数据库脚本（全新安装）"></a>2、执行数据库脚本（全新安装）</h3><h3 id="3、安装Tomcat9-x最新版"><a href="#3、安装Tomcat9-x最新版" class="headerlink" title="3、安装Tomcat9.x最新版"></a>3、安装Tomcat9.x最新版</h3><h3 id="4、部署IIP"><a href="#4、部署IIP" class="headerlink" title="4、部署IIP"></a>4、部署IIP</h3><ul>
 <li><p>IIP8.0.48.0及以上版本是通用介质，需要先设置环境变量，根据01海云云原生改造文档完成环境配置</p>
 </li>
 <li><p>刷新环境变量<code>source /etc/profile</code></p>
@@ -713,7 +739,18 @@ ALTER TABLE idsappaccesspermisson
 <li><p>验证<code>curl localhost:8080/gov/check.do</code></p>
 </li>
 </ul>
-<h3 id="5、添加IDS协作应用"><a href="#5、添加IDS协作应用" class="headerlink" title="5、添加IDS协作应用"></a>5、添加IDS协作应用</h3>
+<h3 id="5、添加IDS协作应用"><a href="#5、添加IDS协作应用" class="headerlink" title="5、添加IDS协作应用"></a>5、添加IDS协作应用</h3><h3 id="6、添加用户dev"><a href="#6、添加用户dev" class="headerlink" title="6、添加用户dev"></a>6、添加用户dev</h3><p>第一次登录之前从IDS中创建dev用户，之后只可在海云中修改用户信息。</p>
+<h3 id="7、验证登录"><a href="#7、验证登录" class="headerlink" title="7、验证登录"></a>7、验证登录</h3><h3 id="8、部署uirb-tran-app工具，隐藏不需要的功能"><a href="#8、部署uirb-tran-app工具，隐藏不需要的功能" class="headerlink" title="8、部署uirb-tran-app工具，隐藏不需要的功能"></a>8、部署uirb-tran-app工具，隐藏不需要的功能</h3><h2 id="十一、部署微信"><a href="#十一、部署微信" class="headerlink" title="十一、部署微信"></a>十一、部署微信</h2><p>注：微信不能与海云装在同一台服务器上</p>
+<h3 id="1、安装tomcat，将微信-war包放在webapp中"><a href="#1、安装tomcat，将微信-war包放在webapp中" class="headerlink" title="1、安装tomcat，将微信.war包放在webapp中"></a>1、安装tomcat，将微信.war包放在webapp中</h3><h3 id="2、配置环境变量"><a href="#2、配置环境变量" class="headerlink" title="2、配置环境变量"></a>2、配置环境变量</h3><h3 id="3、创建trs-wechat数据库"><a href="#3、创建trs-wechat数据库" class="headerlink" title="3、创建trs_wechat数据库"></a>3、创建trs_wechat数据库</h3><h3 id="4、启动中间件"><a href="#4、启动中间件" class="headerlink" title="4、启动中间件"></a>4、启动中间件</h3><h3 id="5、与IIP集成"><a href="#5、与IIP集成" class="headerlink" title="5、与IIP集成"></a>5、与IIP集成</h3><h2 id="附1-本地测试环境仍存在的问题"><a href="#附1-本地测试环境仍存在的问题" class="headerlink" title="附1 本地测试环境仍存在的问题"></a>附1 本地测试环境仍存在的问题</h2><h3 id="一、V8-0-66-0版本"><a href="#一、V8-0-66-0版本" class="headerlink" title="一、V8.0.66.0版本"></a>一、V8.0.66.0版本</h3><p>1、日志显示错误</p>
+<p>2、新建文章无法保存</p>
+<p>3、wcm_use升级部署</p>
+<p>4、CKM部署集成 未完成</p>
+<p>5、微信部署集成 未完成</p>
+<h3 id="二、V8-0-63-0版本"><a href="#二、V8-0-63-0版本" class="headerlink" title="二、V8.0.63.0版本"></a>二、V8.0.63.0版本</h3><p>1、可能IIP数据库报错</p>
+<p><strong>2、操作日志报错</strong></p>
+<p>3、微信部署集成</p>
+<p><strong>4、CKM部署集成</strong></p>
+
                 
             </div>
             <hr/>
@@ -1205,7 +1242,7 @@ ALTER TABLE idsappaccesspermisson
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">99.2k</span>
+                        class="white-color">100.9k</span>
             
             
             
