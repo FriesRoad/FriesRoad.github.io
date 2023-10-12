@@ -375,21 +375,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-18
+                    2023-10-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -438,10 +438,10 @@ systemctl status rabbitmq-server |grep Active|awk '{print $2}'
 
 #ids
 ps -ef |grep tomcat
-cd /TRS/DEPS/IDS/bin
+cd /TRS/DEPS/TRSIDS/bin
 ./startup.sh
 ps -ef |grep tomcat
-cd /TRS/DEPS/IDS/logs
+cd /TRS/DEPS/TRSIDS/logs
 tail -500f ./catalina.out
 
 #IIP
@@ -488,6 +488,27 @@ ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp
 则使用以下语句：
 # ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock。 再重启mysql即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="5、配置开机自启动"><a href="#5、配置开机自启动" class="headerlink" title="5、配置开机自启动"></a>5、配置开机自启动</h4><p>当要配置一个应用服务实现开机自启动时，有两种常见的方法：使用 Systemd 和使用 SysVinit。</p>
+<p><strong>使用 Systemd 的方法：</strong></p>
+<ol>
+<li>创建一个 <code>.service</code> 文件，通常放在 <code>/etc/systemd/system/</code> 目录下。这个文件定义了服务的启动行为、用户、依赖关系等。</li>
+<li>编辑 <code>.service</code> 文件，至少需要定义 <code>[Unit]</code> 和 <code>[Service]</code> 部分，根据服务的需要添加其他配置字段。</li>
+<li>在 <code>[Install]</code> 部分指定服务的启用方式，通常为 <code>WantedBy=multi-user.target</code>。</li>
+<li>使用 <code>systemctl enable</code> 命令为服务启用开机自启动，例如：<code>sudo systemctl enable myservice.service</code>。</li>
+<li>使用 <code>systemctl start</code> 命令手动启动服务，例如：<code>sudo systemctl start myservice.service</code>。</li>
+<li>使用 <code>systemctl status</code> 命令检查服务的状态和日志，例如：<code>sudo systemctl status myservice.service</code>。</li>
+<li>如果需要重新加载 Systemd 配置，可以运行 <code>sudo systemctl daemon-reload</code>。</li>
+</ol>
+<p><strong>使用 SysVinit 的方法：</strong></p>
+<ol>
+<li>创建一个 Shell 脚本文件（通常以 <code>.sh</code> 结尾），包含启动应用程序的命令。</li>
+<li>将脚本文件放在 <code>/etc/init.d/</code> 目录下，并确保文件有执行权限（使用 <code>chmod +x</code> 命令赋予执行权限）。</li>
+<li>使用 <code>chkconfig</code> 或 <code>update-rc.d</code> 命令，将脚本添加到启动级别中，以配置开机自启动。</li>
+<li>使用 <code>chkconfig</code> 或 <code>update-rc.d</code> 命令，启用或禁用服务的开机自启动。</li>
+<li>使用 <code>service</code> 命令手动启动或停止服务，例如：<code>sudo service myservice start</code>。</li>
+<li>使用 <code>service</code> 命令检查服务的状态，例如：<code>sudo service myservice status</code>。</li>
+</ol>
+<p>总结来说，使用 Systemd 更加现代化和强大，提供了更丰富的配置选项和依赖管理。SysVinit 是传统的方法，仍然在某些系统中使用，但不如 Systemd 强大和灵活。因此，建议优先考虑使用 Systemd 来配置开机自启动服务。</p>
 <h2 id="一、获取安装介质"><a href="#一、获取安装介质" class="headerlink" title="一、获取安装介质"></a>一、获取安装介质</h2><p>基础环境应用，有网可用yum直接安装，没网可以自行配置本地yum环境进行安装。</p>
 <h2 id="二、升级yum源并安装常用工具"><a href="#二、升级yum源并安装常用工具" class="headerlink" title="二、升级yum源并安装常用工具"></a>二、升级yum源并安装常用工具</h2><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">sudo yum update
 sudo yum install unzip
@@ -741,12 +762,12 @@ ALTER TABLE idsappaccesspermisson
 </ul>
 <h3 id="5、添加IDS协作应用"><a href="#5、添加IDS协作应用" class="headerlink" title="5、添加IDS协作应用"></a>5、添加IDS协作应用</h3><h3 id="6、添加用户dev"><a href="#6、添加用户dev" class="headerlink" title="6、添加用户dev"></a>6、添加用户dev</h3><p>第一次登录之前从IDS中创建dev用户，之后只可在海云中修改用户信息。</p>
 <h3 id="7、验证登录"><a href="#7、验证登录" class="headerlink" title="7、验证登录"></a>7、验证登录</h3><h3 id="8、部署uirb-tran-app工具，隐藏不需要的功能"><a href="#8、部署uirb-tran-app工具，隐藏不需要的功能" class="headerlink" title="8、部署uirb-tran-app工具，隐藏不需要的功能"></a>8、部署uirb-tran-app工具，隐藏不需要的功能</h3><h2 id="十一、部署微信"><a href="#十一、部署微信" class="headerlink" title="十一、部署微信"></a>十一、部署微信</h2><p>注：微信不能与海云装在同一台服务器上</p>
-<h3 id="1、安装tomcat，将微信-war包放在webapp中"><a href="#1、安装tomcat，将微信-war包放在webapp中" class="headerlink" title="1、安装tomcat，将微信.war包放在webapp中"></a>1、安装tomcat，将微信.war包放在webapp中</h3><h3 id="2、配置环境变量"><a href="#2、配置环境变量" class="headerlink" title="2、配置环境变量"></a>2、配置环境变量</h3><h3 id="3、创建trs-wechat数据库"><a href="#3、创建trs-wechat数据库" class="headerlink" title="3、创建trs_wechat数据库"></a>3、创建trs_wechat数据库</h3><h3 id="4、启动中间件"><a href="#4、启动中间件" class="headerlink" title="4、启动中间件"></a>4、启动中间件</h3><h3 id="5、与IIP集成"><a href="#5、与IIP集成" class="headerlink" title="5、与IIP集成"></a>5、与IIP集成</h3><h2 id="附1-本地测试环境仍存在的问题"><a href="#附1-本地测试环境仍存在的问题" class="headerlink" title="附1 本地测试环境仍存在的问题"></a>附1 本地测试环境仍存在的问题</h2><h3 id="一、V8-0-66-0版本"><a href="#一、V8-0-66-0版本" class="headerlink" title="一、V8.0.66.0版本"></a>一、V8.0.66.0版本</h3><p>1、日志显示错误</p>
+<h3 id="1、安装tomcat，将微信-war包放在webapp中"><a href="#1、安装tomcat，将微信-war包放在webapp中" class="headerlink" title="1、安装tomcat，将微信.war包放在webapp中"></a>1、安装tomcat，将微信.war包放在webapp中</h3><h3 id="2、配置环境变量"><a href="#2、配置环境变量" class="headerlink" title="2、配置环境变量"></a>2、配置环境变量</h3><h3 id="3、创建trs-wechat数据库"><a href="#3、创建trs-wechat数据库" class="headerlink" title="3、创建trs_wechat数据库"></a>3、创建trs_wechat数据库</h3><h3 id="4、启动中间件"><a href="#4、启动中间件" class="headerlink" title="4、启动中间件"></a>4、启动中间件</h3><h3 id="5、与IIP集成"><a href="#5、与IIP集成" class="headerlink" title="5、与IIP集成"></a>5、与IIP集成</h3><h2 id="附1-本地测试环境仍存在的问题"><a href="#附1-本地测试环境仍存在的问题" class="headerlink" title="附1 本地测试环境仍存在的问题"></a>附1 本地测试环境仍存在的问题</h2><h3 id="一、V8-0-66-0版本——传统部署"><a href="#一、V8-0-66-0版本——传统部署" class="headerlink" title="一、V8.0.66.0版本——传统部署"></a>一、V8.0.66.0版本——传统部署</h3><p>1、日志显示错误</p>
 <p>2、新建文章无法保存</p>
 <p>3、wcm_use升级部署</p>
 <p>4、CKM部署集成 未完成</p>
 <p>5、微信部署集成 未完成</p>
-<h3 id="二、V8-0-63-0版本"><a href="#二、V8-0-63-0版本" class="headerlink" title="二、V8.0.63.0版本"></a>二、V8.0.63.0版本</h3><p>1、可能IIP数据库报错</p>
+<h3 id="二、V8-0-63-0版本——传统部署"><a href="#二、V8-0-63-0版本——传统部署" class="headerlink" title="二、V8.0.63.0版本——传统部署"></a>二、V8.0.63.0版本——传统部署</h3><p>1、可能IIP数据库报错</p>
 <p><strong>2、操作日志报错</strong></p>
 <p>3、微信部署集成</p>
 <p><strong>4、CKM部署集成</strong></p>
@@ -1242,7 +1263,7 @@ ALTER TABLE idsappaccesspermisson
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">100.9k</span>
+                        class="white-color">102.8k</span>
             
             
             
