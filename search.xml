@@ -4,6 +4,706 @@
   
     
     <entry>
+      <title>adapter服务端启动找不到trscrypt</title>
+      <link href="/2024/10/08/adapter-fu-wu-duan-qi-dong-zhao-bu-dao-trscrypt/"/>
+      <url>/2024/10/08/adapter-fu-wu-duan-qi-dong-zhao-bu-dao-trscrypt/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一般为JDK中缺少libtrsbean-so、libtrscrypt-so或位置不对所导致"><a href="#一般为JDK中缺少libtrsbean-so、libtrscrypt-so或位置不对所导致" class="headerlink" title="一般为JDK中缺少libtrsbean.so、libtrscrypt.so或位置不对所导致"></a>一般为JDK中缺少libtrsbean.so、libtrscrypt.so或位置不对所导致</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>中间件启动失败bean未编译</title>
+      <link href="/2024/10/08/zhong-jian-jian-qi-dong-shi-bai-bean-wei-bian-yi/"/>
+      <url>/2024/10/08/zhong-jian-jian-qi-dong-shi-bai-bean-wei-bian-yi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一般为JDK中缺少libtrsbean-so、libtrscrypt-so或位置不对所导致"><a href="#一般为JDK中缺少libtrsbean-so、libtrscrypt-so或位置不对所导致" class="headerlink" title="一般为JDK中缺少libtrsbean.so、libtrscrypt.so或位置不对所导致"></a>一般为JDK中缺少libtrsbean.so、libtrscrypt.so或位置不对所导致</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DataExchange进行数据迁移</title>
+      <link href="/2024/10/08/dataexchange-jin-xing-shu-ju-qian-yi/"/>
+      <url>/2024/10/08/dataexchange-jin-xing-shu-ju-qian-yi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="略"><a href="#略" class="headerlink" title="略"></a>略</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos7系统升级内核详解</title>
+      <link href="/2024/10/08/centos7-xi-tong-sheng-ji-nei-he-xiang-jie/"/>
+      <url>/2024/10/08/centos7-xi-tong-sheng-ji-nei-he-xiang-jie/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、在线升级"><a href="#一、在线升级" class="headerlink" title="一、在线升级"></a>一、在线升级</h2><h4 id="1、导入ELRepo仓库的公共密钥"><a href="#1、导入ELRepo仓库的公共密钥" class="headerlink" title="1、导入ELRepo仓库的公共密钥"></a>1、导入ELRepo仓库的公共密钥</h4><p>rpm –import <a href="https://www.elrepo.org/RPM-GPG-KEY-elrepo.org">https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</a></p><h4 id="2、安装ELRepo仓库的yum源"><a href="#2、安装ELRepo仓库的yum源" class="headerlink" title="2、安装ELRepo仓库的yum源"></a>2、安装ELRepo仓库的yum源</h4><p>rpm -Uvh <a href="http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm">http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm</a></p><p>elrepo-release-7.0-8.el7.elrepo.noarch.rpm</p><p><em><strong>*补充：elrepo-kernel可能被禁用*</strong></em></p><p><em><strong>*查看是否被禁用：*</strong></em><em><strong>*yum repolist all*</strong></em></p><p><em><strong>*安装操作工具：yum install yum-utils -y*</strong></em></p><p><em><strong>*启用：yum-config-manager –enable elrepo-kernel*</strong></em></p><h4 id="3、查看可用的系统内核包（-lt表示长期支持版本，-ml表示最新版）"><a href="#3、查看可用的系统内核包（-lt表示长期支持版本，-ml表示最新版）" class="headerlink" title="3、查看可用的系统内核包（-lt表示长期支持版本，-ml表示最新版）"></a>3、查看可用的系统内核包（-lt表示长期支持版本，-ml表示最新版）</h4><p>yum –disablerepo=”*” –enablerepo=”elrepo-kernel” list available</p><h4 id="4、安装最新版内核"><a href="#4、安装最新版内核" class="headerlink" title="4、安装最新版内核"></a>4、安装最新版内核</h4><p>yum –enablerepo=elrepo-kernel install kernel-ml -y</p><h4 id="5、查看所有的内核版本"><a href="#5、查看所有的内核版本" class="headerlink" title="5、查看所有的内核版本"></a>5、查看所有的内核版本</h4><p>awk -F' ‘$1==”menuentry “ {print i++ “ : “ $2}’ /boot/grub2/grub.cfg</p><h4 id="6、修改内核的启动顺序"><a href="#6、修改内核的启动顺序" class="headerlink" title="6、修改内核的启动顺序"></a>6、修改内核的启动顺序</h4><p>cat /etc/default/grub</p><h4 id="7、设置GRUB-DEFAULT-x3D-0项为0"><a href="#7、设置GRUB-DEFAULT-x3D-0项为0" class="headerlink" title="7、设置GRUB_DEFAULT=0项为0"></a>7、设置GRUB_DEFAULT=0项为0</h4><p>grub2-set-default 0</p><h4 id="8、重新生成grub配置文件"><a href="#8、重新生成grub配置文件" class="headerlink" title="8、重新生成grub配置文件"></a>8、重新生成grub配置文件</h4><p>grub2-mkconfig -o /boot/grub2/grub.cfg</p><h4 id="9、重启验证内核"><a href="#9、重启验证内核" class="headerlink" title="9、重启验证内核"></a>9、重启验证内核</h4><p>reboot<br>uname -sr</p><h2 id="二、离线升级"><a href="#二、离线升级" class="headerlink" title="二、离线升级"></a>二、离线升级</h2><p>yum localinstall -y kernel-lt-5.4.269-1.el7.elrepo.x86_64.rpm</p><p>yum localinstall -y kernel-lt-devel-5.4.269-1.el7.elrepo.x86_64.rpm</p><p>#查看所有内核</p><p>sudo awk -F' ‘$1==”menuentry “ {print i++ “ : “ $2}’ /etc/grub2.cfg</p><p>#设置使用5.x版本的内核</p><p>grub2-set-default 0</p><p>#重启后生效</p><p>reboot</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>项目结项报告验收材料示例</title>
+      <link href="/2024/10/08/xiang-mu-jie-xiang-bao-gao-yan-shou-cai-liao-shi-li/"/>
+      <url>/2024/10/08/xiang-mu-jie-xiang-bao-gao-yan-shou-cai-liao-shi-li/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、项目立项文档"><a href="#一、项目立项文档" class="headerlink" title="一、项目立项文档"></a>一、项目立项文档</h3><h5 id="1-1-立项申请函-x2F-申请立项的请示-x2F-报批文件"><a href="#1-1-立项申请函-x2F-申请立项的请示-x2F-报批文件" class="headerlink" title="1.1 立项申请函/申请立项的请示/报批文件"></a>1.1 立项申请函/申请立项的请示/报批文件</h5><h5 id="1-2-立项申报书"><a href="#1-2-立项申报书" class="headerlink" title="1.2 立项申报书"></a>1.2 立项申报书</h5><h3 id="二、项目商务合同相关文档"><a href="#二、项目商务合同相关文档" class="headerlink" title="二、项目商务合同相关文档"></a>二、项目商务合同相关文档</h3><h5 id="2-1-商务报价"><a href="#2-1-商务报价" class="headerlink" title="2.1 商务报价"></a>2.1 商务报价</h5><h5 id="2-2-招标文件（公开招标、邀标）"><a href="#2-2-招标文件（公开招标、邀标）" class="headerlink" title="2.2 招标文件（公开招标、邀标）"></a>2.2 招标文件（公开招标、邀标）</h5><h5 id="2-3-投标文件（公开招标、邀标）"><a href="#2-3-投标文件（公开招标、邀标）" class="headerlink" title="2.3 投标文件（公开招标、邀标）"></a>2.3 投标文件（公开招标、邀标）</h5><h5 id="2-4-中标通知书（公开招标、邀标）"><a href="#2-4-中标通知书（公开招标、邀标）" class="headerlink" title="2.4 中标通知书（公开招标、邀标）"></a>2.4 中标通知书（公开招标、邀标）</h5><h5 id="2-5-合同谈判纪要"><a href="#2-5-合同谈判纪要" class="headerlink" title="2.5 合同谈判纪要"></a>2.5 合同谈判纪要</h5><h5 id="2-6-合同书"><a href="#2-6-合同书" class="headerlink" title="2.6 合同书"></a>2.6 合同书</h5><h5 id="2-7-竞争性谈判文件（竞谈、竞磋）"><a href="#2-7-竞争性谈判文件（竞谈、竞磋）" class="headerlink" title="2.7 竞争性谈判文件（竞谈、竞磋）"></a>2.7 竞争性谈判文件（竞谈、竞磋）</h5><h5 id="2-8-竞争性谈判评审意见（竞谈、竞磋）"><a href="#2-8-竞争性谈判评审意见（竞谈、竞磋）" class="headerlink" title="2.8 竞争性谈判评审意见（竞谈、竞磋）"></a>2.8 竞争性谈判评审意见（竞谈、竞磋）</h5><h5 id="2-9-需求文档-x2F-报价邀请（院内比选）"><a href="#2-9-需求文档-x2F-报价邀请（院内比选）" class="headerlink" title="2.9 需求文档/报价邀请（院内比选）"></a>2.9 需求文档/报价邀请（院内比选）</h5><h5 id="2-10-厂商响应文档-x2F-报价单（院内比选）"><a href="#2-10-厂商响应文档-x2F-报价单（院内比选）" class="headerlink" title="2.10 厂商响应文档/报价单（院内比选）"></a>2.10 厂商响应文档/报价单（院内比选）</h5><h5 id="2-11-比选评审意见（院内比选）"><a href="#2-11-比选评审意见（院内比选）" class="headerlink" title="2.11 比选评审意见（院内比选）"></a>2.11 比选评审意见（院内比选）</h5><h5 id="2-12-专家打分表（院内比选）"><a href="#2-12-专家打分表（院内比选）" class="headerlink" title="2.12 专家打分表（院内比选）"></a>2.12 专家打分表（院内比选）</h5><h5 id="2-13-采购协议（央采）"><a href="#2-13-采购协议（央采）" class="headerlink" title="2.13 采购协议（央采）"></a>2.13 采购协议（央采）</h5><h5 id="2-14电子验收单（央采）"><a href="#2-14电子验收单（央采）" class="headerlink" title="2.14电子验收单（央采）"></a>2.14电子验收单（央采）</h5><h3 id="三、项目实施文档（需求、设计、开发、测试、部署、运维、操作手册、培训、项目管理等文档）"><a href="#三、项目实施文档（需求、设计、开发、测试、部署、运维、操作手册、培训、项目管理等文档）" class="headerlink" title="三、项目实施文档（需求、设计、开发、测试、部署、运维、操作手册、培训、项目管理等文档）"></a>三、项目实施文档（需求、设计、开发、测试、部署、运维、操作手册、培训、项目管理等文档）</h3><h5 id="3-1-需求"><a href="#3-1-需求" class="headerlink" title="3.1 需求"></a>3.1 需求</h5><p>3.1.1 需求说明书</p><h5 id="3-2-设计"><a href="#3-2-设计" class="headerlink" title="3.2 设计"></a>3.2 设计</h5><p>3.2.1 建设方案书</p><p>3.2.2 项目设计评价、鉴定及审批</p><p>3.2.3 技术规格书（可选）</p><p>3.2.4 关键技术指标及产品选型报告（可选）</p><h5 id="3-3-开发"><a href="#3-3-开发" class="headerlink" title="3.3 开发"></a>3.3 开发</h5><p>3.3.1 按实际情况填写，如：功能要求、需求分析、技术分析、系统分析、概要设计、系统设计、详细设计、数据库文档、界面文档、编译文档、QA文档</p><h5 id="3-4-测试"><a href="#3-4-测试" class="headerlink" title="3.4 测试"></a>3.4 测试</h5><p>3.4.1 测试用力</p><p>3.4.2 测试报告</p><p>3.4.3 问题跟踪表（可选）</p><p>3.4.4 用户报告</p><h5 id="3-5-部署"><a href="#3-5-部署" class="headerlink" title="3.5 部署"></a>3.5 部署</h5><p>3.5.1 部署方案</p><p>3.5.2 上线工作安排</p><h5 id="3-6-运维"><a href="#3-6-运维" class="headerlink" title="3.6 运维"></a>3.6 运维</h5><p>3.6.1 系统运维手册（可选）</p><p>3.6.2 运维报告（可选）</p><p>3.6.3 系统使用情况统计（可选）</p><p>3.6.4 问题跟踪表（可选）</p><h5 id="3-7-培训、操作手册"><a href="#3-7-培训、操作手册" class="headerlink" title="3.7 培训、操作手册"></a>3.7 培训、操作手册</h5><p>3.7.1 用户手册/使用手册</p><p>3.7.2 培训材料（可选）</p><h5 id="3-8-项目管理"><a href="#3-8-项目管理" class="headerlink" title="3.8 项目管理"></a>3.8 项目管理</h5><p>3.8.1 项目实施计划书（可选）</p><p>3.8.2 项目启动会-会议纪要</p><p>3.8.3 项目沟通会-会议纪要</p><p>3.8.4 项目上线准备会-会议纪要</p><p>3.8.5 项目试用测评会-会议纪要</p><p>3.8.6 项目周报</p><p>3.8.7 项目阶段进度报告</p><h3 id="四、项目验收文档"><a href="#四、项目验收文档" class="headerlink" title="四、项目验收文档"></a>四、项目验收文档</h3><h5 id="4-1-结项报告"><a href="#4-1-结项报告" class="headerlink" title="4.1 结项报告"></a>4.1 结项报告</h5><h5 id="4-2-验收评审意见"><a href="#4-2-验收评审意见" class="headerlink" title="4.2 验收评审意见"></a>4.2 验收评审意见</h5><h5 id="4-3-结项PPT"><a href="#4-3-结项PPT" class="headerlink" title="4.3 结项PPT"></a>4.3 结项PPT</h5><h5 id="4-4-交付物清单"><a href="#4-4-交付物清单" class="headerlink" title="4.4 交付物清单"></a>4.4 交付物清单</h5><h3 id="五、相关软硬件产品"><a href="#五、相关软硬件产品" class="headerlink" title="五、相关软硬件产品"></a>五、相关软硬件产品</h3><h5 id="5-1-设备图纸、使用说明书、零部件目录"><a href="#5-1-设备图纸、使用说明书、零部件目录" class="headerlink" title="5.1 设备图纸、使用说明书、零部件目录"></a>5.1 设备图纸、使用说明书、零部件目录</h5><h5 id="5-2-设备安装调试、测定数据、性能鉴定"><a href="#5-2-设备安装调试、测定数据、性能鉴定" class="headerlink" title="5.2 设备安装调试、测定数据、性能鉴定"></a>5.2 设备安装调试、测定数据、性能鉴定</h5><h3 id="六、其他"><a href="#六、其他" class="headerlink" title="六、其他"></a>六、其他</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TongWeb性能调优方案</title>
+      <link href="/2024/10/08/tongweb-xing-neng-diao-you-fang-an/"/>
+      <url>/2024/10/08/tongweb-xing-neng-diao-you-fang-an/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-TongWeb性能调优方案"><a href="#1-TongWeb性能调优方案" class="headerlink" title="1. TongWeb性能调优方案"></a>1. <strong>TongWeb性能调优方案</strong></h1><h2 id="1-1-操作系统参数优化"><a href="#1-1-操作系统参数优化" class="headerlink" title="1.1. 操作系统参数优化"></a>1.1. <strong>操作系统参数优化</strong></h2><p><em><strong>*1）open files参数优化*</strong></em></p><p>  open files为Linux操作系统下进程允许打开的文件句柄数，若超过此值，则会报此异常。</p><p>不同系统可能修改方式不同，  linux将操作系统的open files值改为65535。比如：root用户修改/etc/security/limits.conf,在文件中加上如下两行，*代表所有用户，添加完重启服务器生效，使用ulimit  -a可以查看。</p><p>*  soft  nofile 65535 </p><p>*  hard  nofile 65535</p><p><em><strong>*2）TCP/IP参数优化*</strong></em></p><p>在/etc/sysctl.conf中加入</p><p>net.ipv4.tcp_syncookies=1</p><p>net.ipv4.tcp_tw_reuse=1</p><p>net.ipv4.tcp_fin_timeout=10</p><p>net.ipv4.tcp_keepalive_time = 30</p><p>说明：</p><p>net.ipv4.tcp_syncookies = 1 表示开启SYN Cookies。当出现SYN等待队列溢出时，启用cookies来处理，可防范少量SYN攻击，默认为0，表示关闭；</p><p>net.ipv4.tcp_tw_reuse = 1 表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</p><p>net.ipv4.tcp_fin_timeout  修改系統默认的TIMEOUT时间</p><p>修改完成后运行如下命令生效, 不同linux可能不同</p><p>sysctl -p /etc/sysctl.conf</p><h2 id="1-2-TongWeb参数优化"><a href="#1-2-TongWeb参数优化" class="headerlink" title="1.2. TongWeb参数优化"></a>1.2. <strong>TongWeb参数优化</strong></h2><p><em><strong>*1）JVM参数调整*</strong></em></p><p>(1).修改JVM内存，登陆管理控制台，进入启动参数设置页面，如下图：</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps2.jpg" alt="img"> </p><p>优化注意看GC情况，不是堆内存越大越好，也可以在启动文件里面直接调整，若安装的版本有bin/external.vmoptions文件，则在 bin/external.vmoptions中设置内存</p><p>(2).如果不使用IPv6，可将-Djava.net.preferIPv4Stack修改为true，如下图：</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps3.jpg" alt="img"> </p><p>注：启动参数项的设置，保存后需要重启TongWeb生效</p><p><em><strong>*2）关闭虚机访问日志*</strong></em></p><p>server虚拟主机中的”访问日志”不用就关了</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps4.jpg" alt="img"> </p><p><em><strong>*3）关闭热部署*</strong></em></p><p>服务中的“热部署”关了，否则web.xml，servlet class有动态更新，整个应用就要重部署。</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps5.jpg" alt="img"> </p><p><em><strong>*4）日志优化*</strong></em></p><p>(1).登陆管理控制台，日志服务-模块日志级别配置，可以修改日志输出的级别，当确认应用没有问题以后可以将System out 日志级别设置为WARNING，或者OFF。如图：</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps6.jpg" alt="img"> </p><p>(2).点击系统日志配置，进入系统日志编辑页面，可以日志轮转策略，路径等进行设置。如图：</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps7.jpg" alt="img"> </p><p>系统日志配置 “命令行输出” 关闭</p><p>生产系统nohup方式启动会使bin目录下nohup.out增大，个别应用日志输出很快，导致nohup.out占满服务器磁盘空间，建议关闭。</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps8.jpg" alt="img"> </p><p><em><strong>*5）集中管理工具不用可以卸载掉*</strong></em></p><p>企业版可以把heimdall应用卸载掉， 否则会有监控线程不停的跑。 删除conf/tongweb.xml中的&lt;web-app name=”heimdall” original-locat …… 这一行，如下图：</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps9.jpg" alt="img"> </p><p><em><strong>*6）http通道的压缩*</strong></em></p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps10.jpg" alt="img"> </p><p><em><strong>*7）*</strong></em><em><strong>*监视*</strong></em></p><p>若系统运行稳定，无需监视和快照的生成，可关闭监视，能提高性能 10%左右。</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps11.jpg" alt="img"> </p><p><em><strong>*8）JDBC连接池*</strong></em></p><p>如果应用使用tongweb的JDBC连接池，根据应用实际运行过程中最大连接数，最小连接数来进行设置。</p><p>最大连接数，初始化连接数设置，登陆管理控制台-JDBC配置，点击已经配置的连接池名称，进入连接池编辑页面，设置最大连接数及初始化连接数（设置前请确认数据库的最大连接数，原则上此处设置的“最大连接数”不能大于数据库已剩的“可用连接数”，若数据库连接数过小，则需要先调整数据库的连接数）</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps12.jpg" alt="img"> </p><p><em><strong>*9）HTTP通道线程池*</strong></em></p><p>根据应用线程数来设置，原则上以够用为标准。</p><p>登陆管理控制台，进入Web容器配置-HTTP通道管理页面，点击tong-http-listener，进入http通道编辑页面，根据实际访问情况修改最大线程数。</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps13.jpg" alt="img"> </p><p><em><strong>*10）JMS模块*</strong></em></p><p>如果不使用JMS，建议关闭。在conf/tongweb.xml中关闭。</p><p><img src="/../images/TongWeb%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E6%96%B9%E6%A1%88/wps14.jpg" alt="img"> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ecology——达梦数据库优化说明</title>
+      <link href="/2024/10/08/ecology-da-meng-shu-ju-ku-you-hua-shuo-ming/"/>
+      <url>/2024/10/08/ecology-da-meng-shu-ju-ku-you-hua-shuo-ming/</url>
+      
+        <content type="html"><![CDATA[<p>Ecology—达梦数据库优化说明</p><h1 id="一、ini配置参数调整"><a href="#一、ini配置参数调整" class="headerlink" title="一、ini配置参数调整"></a>一、ini配置参数调整</h1><p>注意:此文档是泛微OA使用达梦数据库的基础优化参考，后续优化在此基础上根据实际情况调整，参数说明一列中提到的参数值，如果实际配置文件中比这个值大，则忽略这个文档中的建议配置值，使用现场实际值</p><table><thead><tr><th>参数</th><th>配置值</th><th>说明</th></tr></thead><tbody><tr><td>MEMORY_POOL</td><td>1000</td><td>内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>BUFFER</td><td>10000</td><td>系统缓冲区大小，以兆为单位 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>MAX_BUFFER</td><td>10000</td><td>系统最大缓冲区大小，以兆为单位。（dm8下没有此参数，可以忽略）</td></tr><tr><td>BUFFER_POOLS</td><td>101</td><td>BUFFER 系统分区数，每个 BUFFER 分区的大小为 BUFFER/BUFFER_POOLS 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>KEEP</td><td>800</td><td>KEEP 缓冲区大小 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>RECYCLE</td><td>2000</td><td>RECYCLE 缓冲区大小 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>SORT_BUF_SIZE</td><td>20</td><td>排序缓存区最大值，以 M 为单位。 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>DICT_BUF_SIZE</td><td>20</td><td>字典缓冲区大小 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>IO_THR_GROUPS</td><td>8</td><td>IO线程个数 线程参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>TASK_THREADS</td><td>16</td><td>任务线程个数 线程参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>WORKER_THREADS</td><td>16</td><td>工作线程个数 线程参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>MULTI_PAGE_GET_NUM</td><td>1</td><td>缓冲区最多一次读取的页面数</td></tr><tr><td>HJ_BUF_GLOBAL_SIZE</td><td>5000</td><td>HASH 连接操作符的数据总缓存大小（&gt;= HJ_BUF_SIZE），系统级参数，以兆为单位。 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>HJ_BUF_SIZE</td><td>50</td><td>单个 HASH 连接操作符的数据总缓存大小，以兆为单位。 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>HAGR_BUF_GLOBAL_SIZE</td><td>2000</td><td>HAGR、DIST、集合操作、SPL2、NTTS2 以及HTAB 操作符的数据总缓存大小 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>HAGR_BUF_SIZE</td><td>50</td><td>单个 HAGR、DIST、集合操作、SPL2、NTTS2以及 HTAB 操作符的数据总缓存大小，以兆为单位。 内存参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>MAX_SESSIONS</td><td>2000</td><td>系统允许同时连接的最大数，同时还受到LICENSE 的限制，取二者中较小的值 会话参数值，实际配置文件中比这个值大则忽略这个</td></tr><tr><td>MAX_SESSION_STATEMENT</td><td>20000</td><td>单个会话上允许同时打开的语句句柄最大数</td></tr><tr><td>REFED_EXISTS_OPT_FLAG</td><td>0</td><td>是否把相关 EXISTS 优化为非相关 IN 查询</td></tr><tr><td>OPTIMIZER_OR_NBEXP</td><td>2</td><td>OR 表达式优先考虑整体处理方式</td></tr><tr><td>EXPR_N_LEVEL</td><td>500</td><td>表达式最大嵌套层数。 “动态参数”</td></tr><tr><td>N_PARSE_LEVEL</td><td>300</td><td>表示对象 PROC、 VIEW、 PKG、 CLASS 的最大解析层次，如果层次过深则报错返回。 “动态参数”</td></tr></tbody></table><h1 id="二、扩充REDO日志"><a href="#二、扩充REDO日志" class="headerlink" title="二、扩充REDO日志"></a>二、扩充REDO日志</h1><p>注意：</p><p>先通过此select语句查看RLOG_SIZE值如果大于512 ，以下alter扩日志命令不需要执行</p><p>Select file_id,path,client_path,rlog_size/1024/1024 as RLOG_SZIE from V$RLOGFILE;</p><p>  -此二语句必须在SYSDBA用户下执行 </p><p> alter database resize logfile ‘DMDB01.log’ to 512;</p><p> alter database resize logfile ‘DMDB02.log’ to 512;</p><h1 id="三、创建索引"><a href="#三、创建索引" class="headerlink" title="三、创建索引"></a>三、创建索引</h1><p>  -以下语句必须在ECOLOGY使用的数据库用户下执行 </p> <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">index</span> IDX_DOCDETAILLOG_3_20181016 <span class="token keyword">on</span> DOCDETAILLOG<span class="token punctuation">(</span>DOCID<span class="token punctuation">,</span>OPERATETYPE<span class="token punctuation">,</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_MAINID_20181011 <span class="token keyword">on</span> DATASHOWPARAM<span class="token punctuation">(</span>MAINID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> cluster <span class="token keyword">index</span> IDX_WORKFLOW_TYPE_ID_20181011 <span class="token keyword">on</span> WORKFLOW_TYPE<span class="token punctuation">(</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_NODEID_20181011 <span class="token keyword">on</span> WORKFLOW_NODELINK<span class="token punctuation">(</span>NODEID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_WFREQUESTID_20181011 <span class="token keyword">on</span> WORKFLOW_NODELINK<span class="token punctuation">(</span>WFREQUESTID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_CURRENTOPERATOR_NODEID_20181011 <span class="token keyword">on</span> WORKFLOW_CURRENTOPERATOR<span class="token punctuation">(</span>NODEID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_REQUESTID_20181011 <span class="token keyword">on</span> WORKFLOW_CURRENTOPERATOR<span class="token punctuation">(</span>REQUESTID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">drop</span> <span class="token keyword">index</span> USERANDREQUESTID<span class="token punctuation">;</span> <span class="token keyword">create</span> cluster <span class="token keyword">index</span> IDX_WORKFLOW_CURRENTOPERATOR_20181016 <span class="token keyword">on</span> WORKFLOW_CURRENTOPERATOR<span class="token punctuation">(</span>USERID<span class="token punctuation">,</span>REQUESTID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_SYSPOPPUPREMINDINFONEW_20181011 <span class="token keyword">on</span> SYSPOPPUPREMINDINFONEW<span class="token punctuation">(</span>USERID<span class="token punctuation">,</span>USERTYPE<span class="token punctuation">,</span> <span class="token keyword">TYPE</span> <span class="token punctuation">,</span>REQUESTID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> <span class="token keyword">index</span> IDX_WC_CREATETIME_20181011 <span class="token keyword">on</span> SCHEDULERUNLOG<span class="token punctuation">(</span>CREATETIME<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">create</span> cluster <span class="token keyword">index</span> IDX_ALL_20181011 <span class="token keyword">on</span> HTMLLABELINFO<span class="token punctuation">(</span>INDEXID<span class="token punctuation">,</span>LABELNAME<span class="token punctuation">,</span>LANGUAGEID<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p> 注意：二，三步骤直接从word粘贴可能存在格式问题，可以直接打开下面SQL文件，粘贴里面内容执行： </p><p><img src="/../images/ecology%E2%80%94%E2%80%94%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96%E8%AF%B4%E6%98%8E/wps1.png" alt="img"></p><h1 id="四、更新统计信息"><a href="#四、更新统计信息" class="headerlink" title="四、更新统计信息"></a>四、更新统计信息</h1><p>​通常重新导入数据，需要更新统计信息：</p><p> <code>CALL SP_DB_STAT_INIT(); </code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>统一认证平台单点登录流程说明</title>
+      <link href="/2024/10/08/tong-yi-ren-zheng-ping-tai-dan-dian-deng-lu-liu-cheng-shuo-ming/"/>
+      <url>/2024/10/08/tong-yi-ren-zheng-ping-tai-dan-dian-deng-lu-liu-cheng-shuo-ming/</url>
+      
+        <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#_Toc1501206263">1. 概述</a></p><p><a href="#_Toc2135777285">2. 应用接入</a></p><p><a href="#_Toc819669390">2.1 登录流程图</a></p><p><a href="#_Toc75842225">2.2 登录流程说明</a></p><p><a href="#_Toc1222472904">3. 接口说明</a></p><p><a href="#_Toc1126046679">3.1 单点登录接口</a></p><p><a href="#_Toc1840636589">3.2 刷新token接口</a></p><p><a href="#_Toc1077216288">3.3 单点登出接口</a></p><p><a href="#_Toc1487008206">3.4 用户鉴权接口</a></p><h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. <strong>概述</strong></h1><p>本文档详细说明应用服务对接统一认证平台登录的流程，包括登录流程，相关请求接口等。</p><h1 id="2-应用接入"><a href="#2-应用接入" class="headerlink" title="2. 应用接入"></a>2. <strong>应用接入</strong></h1><h2 id="2-1-登录流程图"><a href="#2-1-登录流程图" class="headerlink" title="2.1 登录流程图"></a>2.1 <strong>登录流程图</strong></h2><p><img src="/../images/%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B%E8%AF%B4%E6%98%8E/wps2.jpg" alt="img"> </p><h2 id="2-2-登录流程说明"><a href="#2-2-登录流程说明" class="headerlink" title="2.2 登录流程说明"></a>2.2 <strong>登录流程说明</strong></h2><p>应用需要登录时调用单点登录接口，并传入需要重定向的url。统一认证平台会从cookie判断当前用户时候处于登录状态，此时对两种情况进行说明：</p><p>（一）若当前用户已登录，则会重定向到传入的url页面，token以url参数形式拼接。应用需将此token保存。</p><p>（二）若当前用户未登录，则会重定向到登录页面。当用户在登录页面登录后，会重定向到传入的url页面，token以url参数形式拼接。应用需将此token保存。</p><p>token存在有效期，有效期为40分钟。在token失效之前，应用需要调用刷新token接口。</p><p>当用户希望退出登录时，需应用需要调用登出接口退出登录。</p><h1 id="3-接口说明"><a href="#3-接口说明" class="headerlink" title="3. 接口说明"></a>3. <strong>接口说明</strong></h1><h2 id="3-1-单点登录接口"><a href="#3-1-单点登录接口" class="headerlink" title="3.1 单点登录接口"></a>3.1 <strong>单点登录接口</strong></h2><p>接口说明：当应用需要登录时，请求此接口。此接口的调用方式为浏览器跳转地址。在网页中打开该请求地址，例如js代码调用方式为window.location.href=“http(s)://【服务地址】/api/authcenter/ssoLogin?redirectUrl=<a href="http://xxx.xx/xx%E2%80%9D">http://xxx.xx/xx”</a></p><p>请求地址：http(s)://【服务地址】/api/authcenter/ssoLogin</p><p>请求方式：GET</p><p>请求参数：redirectUrl</p><p>请求示例：http(s)://【服务地址】/api/authcenter/ssoLogin?redirectUrl=<a href="http://xxx.xx/xx">http://xxx.xx/xx</a></p><p>请求成功后重定向url示例：<a href="http://xxx.xx/xx?token=123456">http://xxx.xx/xx?token=123456</a></p><h2 id="3-2-刷新token接口"><a href="#3-2-刷新token接口" class="headerlink" title="3.2 刷新token接口"></a>3.2 <strong>刷新token接口</strong></h2><p>接口说明：由于token存在有效期，所以需要定期更新token。此接口需要在前端页面使用JavaScript请求，建议使用JSONP的方式。</p><p>请求地址：http(s)://【服务地址】/api/authcenter/refreshToken</p><p>请求类型：GET</p><p>请求参数：token</p><p>响应说明：若传入的token有效，则生成新的token并返回字符串“token:123456”。若传入的token无效或已过期，将返回字符串“token:error”。</p><h2 id="3-3-单点登出接口"><a href="#3-3-单点登出接口" class="headerlink" title="3.3 单点登出接口"></a>3.3 <strong>单点登出接口</strong></h2><p>接口说明：此接口需要在前端页面使用JavaScript请求，建议使用JSONP的方式。</p><p>请求地址：http(s)://【服务地址】/api/authcenter/ssoLogout</p><p>请求类型：GET</p><p>请求参数：无</p><p>响应说明：登出成功返回字符串“logout:success”。登出失败返回字符串“logout:error”。</p><h2 id="3-4-用户鉴权接口"><a href="#3-4-用户鉴权接口" class="headerlink" title="3.4 用户鉴权接口"></a>3.4 <strong>用户鉴权接口</strong></h2><p>接口说明：在单点登陆成功后，使用登录返回的token和当前应用的appId请求用户鉴权接口，获得用户id和用户类型</p><p>请求地址：http(s)://【服务地址】/api/authcenter/checkUserInfo</p><p>请求类型：POST</p><p>请求参数示例：</p><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">{  "request_id":"000001",  "request_time":"1668069612000",  "params": {​    "token": "eyJUeXBlIjoiSnd0IiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySW5mbyI6eyJpZCI6MjQsInVzZXJUeXBlIjoiMSJ9LCJleHAiOjE2Njg2NTUwMzZ9.IRZifJOL1_QzSZJ-0h65SOAfJDCoYEHaGIJk-hovbBo",​    "appId": "001"  }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>响应示例：</p><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">{  "code": 200,  "msg": null,  "data": {​    "id": 24,​    "userType": "1"  }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>响应说明：当token携带的用户信息有app权限时，将返回用户id和用户类型。</p><h1 id="4-附件"><a href="#4-附件" class="headerlink" title="4. 附件"></a>4. <strong>附件</strong></h1><p>单点登录前端演示件 jsonp.zip</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WCM视频库无法使用</title>
+      <link href="/2024/10/08/wcm-shi-pin-ku-wu-fa-shi-yong/"/>
+      <url>/2024/10/08/wcm-shi-pin-ku-wu-fa-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="略"><a href="#略" class="headerlink" title="略"></a>略</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>trsbean信创环境rpm打包</title>
+      <link href="/2024/10/08/trsbean-xin-chuang-huan-jing-rpm-da-bao/"/>
+      <url>/2024/10/08/trsbean-xin-chuang-huan-jing-rpm-da-bao/</url>
+      
+        <content type="html"><![CDATA[<h2 id="以AAS产品打包为例"><a href="#以AAS产品打包为例" class="headerlink" title="以AAS产品打包为例"></a>以AAS产品打包为例</h2><h3 id="1-认识rpm和dpkg"><a href="#1-认识rpm和dpkg" class="headerlink" title="1. 认识rpm和dpkg"></a>1. 认识rpm和dpkg</h3><p>目前在Linux 界软体安装方式最常见的有两种，分别是：</p><p><strong>dpkg</strong> ：<br>这个机制最早是由Debian Linux 社群所开发出来的，透过dpkg 的机制， Debian 提供的软体就能够简单的安装起来，同时还能提供安装后的软体资讯，实在非常不错。 只要是衍生于Debian 的其他Linux distributions 大多使用dpkg 这个机制来管理软体的， 包括B2D, Ubuntu 等等。</p><p><strong>RPM ：</strong><br>这个机制最早是由Red Hat 这家公司开发出来的，后来实在很好用，因此很多distributions 就使用这个机制来作为软体安装的管理方式。 包括Fedora, CentOS, SuSE 等等知名的开发商都是用它。</p><h3 id="2-准备"><a href="#2-准备" class="headerlink" title="2. 准备"></a>2. 准备</h3><p>1）一个Linux环境，比如CentOS</p><p>2）RPM打包使用的是rpmbuild命令，这个命令来自rpm-build包，这个是必装的。</p><p>$ yum install rpm-build</p><p>3）AAS产品压缩包，比如AAS-V9.0.tar.gz </p><h3 id="3-查看linux系统架构类型（后面打包要用）"><a href="#3-查看linux系统架构类型（后面打包要用）" class="headerlink" title="3. 查看linux系统架构类型（后面打包要用）"></a>3. 查看linux系统架构类型（后面打包要用）</h3><p>执行命令：arch</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps1.jpg" alt="img"> </p><h3 id="4-创建“工作空间”"><a href="#4-创建“工作空间”" class="headerlink" title="4. 创建“工作空间”"></a>4. 创建“工作空间”</h3><p>执行命令：mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} 在主目录（root）下生成一个名为rpmbuild的文件夹，里面内容如下：</p><p>rpmbuild</p><p>├── BUILD  //源码包被解压至此，并在该目录的子目录完成编译</p><p>├── RPMS   //生成/保存二进制 RPM 包</p><p>├── SOURCES //保存源码包（如 .tar 包）和所有 patch 补丁</p><p>├── SPECS  //保存 RPM 包配置（.spec）文件</p><p>└── SRPMS  //生成/保存源码 RPM 包(SRPM)</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps2.jpg" alt="img"> </p><h3 id="5-放置产品包"><a href="#5-放置产品包" class="headerlink" title="5. 放置产品包"></a>5. 放置产品包</h3><p> 将AAS-9.0SP5.tar.gz产品包(注意解压出来的产品名称需为AAS-9.0SP5，即名称要对应) 放置在SOURCES目录下面</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps3.jpg" alt="img"> </p><p>​    </p><h3 id="6-编辑spec文件"><a href="#6-编辑spec文件" class="headerlink" title="6. 编辑spec文件"></a>6. 编辑spec文件</h3><p>在SPECS目录下，创建AAS.spec名称的文件，内容如下(这里截取了一部分)显示：</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps4.jpg" alt="img"> </p><p>具体看附件（双击可下载）：</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps5.png" alt="img"></p><p>注意：该文件中Source标签的构成为: %（name）-%（version）.tar.gz  ，所以要注意若Name和Version标签的值改变，相应的压缩包的名称也要修改（这里可以先解压原来的压缩包，修改了名称后再打包，这里和第4步的提示是对应的）</p><p>完整目录结构如下所示：</p><p>root</p><p>├── rpmbuild</p><p>│  ├── BUILD </p><p>│  ├── RPMS   </p><p>│  ├── SOURCES </p><p>│   ├──AAS-9.0SP5.tar.gz</p><p>│  ├── SPECS  </p><p>├──AAS.spec</p><p>│  ├── SRPMS </p><p>​</p><h3 id="7-打包"><a href="#7-打包" class="headerlink" title="7. 打包"></a>7. 打包</h3><p>进入/root/SPECS目录下，执行命令：</p><p>rpmbuild –bb  –target=X86_64  AAS.spec  (bb前面是一根横杠，target前面是两根, tartget这个参数是用来指定系统架构的，这个值根据查询到的设定，和第3步对应。如果机器本身架构就是x86_64，target参数也可以不加,打包的时候自动会有x86_64的标识，)</p><p>如下为执行打包命令和打包完成状态(信息较多，截取部分信息，打包后的rpm包在/root/RPMS目录下，其中AAS-9.0SP5-20190113.x86_64.rpm是我们需要的包，另外一个不用管)：</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps6.jpg" alt="img"> </p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps7.jpg" alt="img"> </p><p>提示：BUILDROOT目录是打包过程中生成的，保存 %install 阶段安装的文件。</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps8.jpg" alt="img"> </p><h3 id="8-安装软件包"><a href="#8-安装软件包" class="headerlink" title="8. 安装软件包"></a>8. 安装软件包</h3><p>执行命令：rpm –ivh AAS-9.0SP5-20190113.x86_64.rpm,安装产品包，安装位置在/opt目录下，名称是AAS。（安装的位置和AAS.sepc文件里BuildRoot标签设置相对应）</p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps9.jpg" alt="img"> </p><p><img src="/../images/trsbean%E4%BF%A1%E5%88%9B%E7%8E%AF%E5%A2%83rpm%E6%89%93%E5%8C%85/wps10.jpg" alt="img"> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>整改报告模板</title>
+      <link href="/2024/10/08/zheng-gai-bao-gao-mo-ban/"/>
+      <url>/2024/10/08/zheng-gai-bao-gao-mo-ban/</url>
+      
+        <content type="html"><![CDATA[<p><strong>XXXXXXX整改报告</strong></p><p><strong>XXXXXXX</strong>办公室：</p><p>​ X月X日接到贵单位的渗透测试问题整改通知书后，对整改通知书中的安全问题第一时间进行了处置，对网站信息系统安全隐患进行了全面的排查，就排查中发现的问题进行了全面整改。具体情况如下：</p><p>问题一描述：问题描述</p><p>处理结果：openssl升级到最新版本；</p><p>问题二描述：问题描述</p><p>处理结果：修改nginx配置，禁止使用DES加密算法；</p><p>特此报告！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>显示当前目录下800M以上文件夹</title>
+      <link href="/2024/10/08/xian-shi-dang-qian-mu-lu-xia-800m-yi-shang-wen-jian-jia/"/>
+      <url>/2024/10/08/xian-shi-dang-qian-mu-lu-xia-800m-yi-shang-wen-jian-jia/</url>
+      
+        <content type="html"><![CDATA[<p><code>du -sh ./* | awk '{if($1 ~ /G/ || ($1 ~ /M/ &amp;&amp; $1+0 &gt;= 800)) print}'</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>实例系统上线方案</title>
+      <link href="/2024/10/08/shi-li-xi-tong-shang-xian-fang-an/"/>
+      <url>/2024/10/08/shi-li-xi-tong-shang-xian-fang-an/</url>
+      
+        <content type="html"><![CDATA[<h2 id="GAB门户网站国产化迁移适配项目系统上线方案"><a href="#GAB门户网站国产化迁移适配项目系统上线方案" class="headerlink" title="GAB门户网站国产化迁移适配项目系统上线方案"></a>GAB门户网站国产化迁移适配项目系统上线方案</h2><p><strong>2023</strong>年4月</p><h3 id="目-录"><a href="#目-录" class="headerlink" title="目  录"></a>目  录</h3><p><a href="#_Toc2108067322"><em><strong>*1*</strong></em> <em><strong>*总则*</strong></em></a></p><p><a href="#_Toc1102272648">1.1 编制目的</a></p><p><a href="#_Toc1702455914">1.2 工作原则</a></p><p><a href="#_Toc104433970">1.3 适用范围</a></p><p><a href="#_Toc727594191">1.4 上线时间</a></p><p><a href="#_Toc903682119">1.5 人员安排</a></p><p><a href="#_Toc1181022449">1.6 上线前需完成工作</a></p><p><a href="#_Toc252951122">1.7 上线切换</a></p><p><a href="#_Toc1479370041">1.8 应急回退</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>通过置标获取时间</title>
+      <link href="/2024/10/08/tong-guo-zhi-biao-huo-qu-shi-jian/"/>
+      <url>/2024/10/08/tong-guo-zhi-biao-huo-qu-shi-jian/</url>
+      
+        <content type="html"><![CDATA[<h3 id="取发布时间固定写法"><a href="#取发布时间固定写法" class="headerlink" title="取发布时间固定写法"></a>取发布时间固定写法</h3><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TRS_DATETIME</span><span class="token punctuation">&gt;</span></span>时间<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TRS_DATETIME</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="取撰写时间"><a href="#取撰写时间" class="headerlink" title="取撰写时间"></a>取撰写时间</h3><p>源自于 <code>wcmdocument</code> 表，取字段如下：</p><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>trs_document</span> <span class="token attr-name">field</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>docreltime<span class="token punctuation">"</span></span> <span class="token attr-name">dateformat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yyyy-MM-dd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>trs_document</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TRS_CHANNEL</span>     <span class="token attr-name">[ID</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>父栏目名<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[CHILDINDEX</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>子栏目序号<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">FIELD</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>字段名<span class="token punctuation">"</span></span>     <span class="token attr-name">[NUM</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>最大长度<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[DATEFORMAT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>日期格式<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[AUTOFORMAT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>自动格式化<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[AUTOFORMATTYPE</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>格式化方式<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[AUTOLINK</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>是否自动产生链接<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[EXTRA</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 元素上扩展的 HTML 内容<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[TARGET</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>窗口目标<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[LINKALT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>链接是否显示提示<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[LINKALTTEXT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>链接提示内容<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[TRUNCATEDFLAG</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>栏目名称被截断后显示内容<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[LINKTEXT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>链接表面文字<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[TemplateName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>模板名<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[FromSite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>是否来自站点<span class="token punctuation">"</span></span><span class="token attr-name">]</span>     <span class="token attr-name">[countwhere</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>额外查询条件<span class="token punctuation">"</span></span><span class="token attr-name">]</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>column_block</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TRS_CHANNEL</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sky应用问题排查</title>
+      <link href="/2024/10/08/sky-ying-yong-wen-ti-pai-cha/"/>
+      <url>/2024/10/08/sky-ying-yong-wen-ti-pai-cha/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-WCM启动操作："><a href="#1-WCM启动操作：" class="headerlink" title="1. WCM启动操作："></a>1. WCM启动操作：</h3><p>在*.*.*.5服务器进入/data/TRS/TRSWCMV7/Tomcat/bin目录下，执行startup.sh脚本</p><h3 id="WCM问题描述："><a href="#WCM问题描述：" class="headerlink" title="WCM问题描述："></a>WCM问题描述：</h3><p>经排查发现，由于WCM所在目录挂载磁盘故障，因而无法读取WCM应用，在恢复磁盘挂载之后，查询WCM配置文件得知，WCM目录由/data/TRS目录修改为/data/TRS_real目录，因此WCM在重启之前无法读取应用位置，从而无法启动服务，备份并修改TRS_real文件夹为TRS文件夹后启动WCM，通过WCM启动日志得知，WCM连接的位于*.*.*.4上的数据库连接失败，排查发现，由于服务器非正常强制关闭，导致mysql数据库丢失文件，从而无法启动mysql服务，新建丢失文件，启动mysql服务，重启WCM服务，解决WCM启动失败的问题。</p><h3 id="2-WAS启动操作："><a href="#2-WAS启动操作：" class="headerlink" title="2. WAS启动操作："></a>2. WAS启动操作：</h3><p>在*.*.*.6服务器进入/TRS/TRSWAS5.1/Tomcat/bin目录下，执行startup.sh脚本</p><h3 id="WAS问题描述"><a href="#WAS问题描述" class="headerlink" title="WAS问题描述:"></a>WAS问题描述:</h3><p>经排查发现，由于WAS所在目录挂载磁盘故障，因而无法读取WAS应用，在恢复磁盘挂载之后，启动WAS服务，并且启动WAS所连接的TRSserver数据库，同时启动GATEWAY服务恢复定时任务，解决WAS启动问题。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>检索答疑</title>
+      <link href="/2024/10/08/jian-suo-da-yi/"/>
+      <url>/2024/10/08/jian-suo-da-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="检索对接技术方案"><a href="#检索对接技术方案" class="headerlink" title="检索对接技术方案"></a><strong>检索对接技术方案</strong></h1><p>本文档主要介绍全文检索实施过程中的流程和疑问解答，具体产品功能需技术人员翻阅产品用户手册。</p><h4 id="1、数据流"><a href="#1、数据流" class="headerlink" title="1、数据流"></a>1、数据流</h4><p><img src="/../images/%E6%A3%80%E7%B4%A2%E7%AD%94%E7%96%91/wps7.jpg" alt="img"> </p><h4 id="2、疑问解答"><a href="#2、疑问解答" class="headerlink" title="2、疑问解答"></a>2、疑问解答</h4><p>（1）was中有检索热词功能：<img src="/../images/%E6%A3%80%E7%B4%A2%E7%AD%94%E7%96%91/wps8.jpg" alt="img"></p><p>（2）可以通过检索模版发布json，前端获取json数据解析。可参考：<a href="https://www.cdstm.cn/gallery/zhuanti/">https://www.cdstm.cn/gallery/zhuanti/</a></p><p> <img src="/../images/%E6%A3%80%E7%B4%A2%E7%AD%94%E7%96%91/wps9.jpg" alt="img"> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>海云限制视频上传大小</title>
+      <link href="/2024/10/08/hai-yun-xian-zhi-shi-pin-shang-chuan-da-xiao/"/>
+      <url>/2024/10/08/hai-yun-xian-zhi-shi-pin-shang-chuan-da-xiao/</url>
+      
+        <content type="html"><![CDATA[<h4 id="海云-限制视频上传大小"><a href="#海云-限制视频上传大小" class="headerlink" title="海云-限制视频上传大小"></a><strong>海云-限制视频上传大小</strong></h4><p>在海云中上传视频的机制有三种，分别为在正文中插入视频、在【相关视频】中上传、在【相关附件】中上传，在正文中插入视频的场景，针对于上传很小的视频，遇到上传大视频就会出现瓶颈。后面两种方式支持上传大视频，但是视频文件不能无限大，如何限制海云上传视频大小呢？下面分别介绍下。</p><h5 id="一-相关视频上传"><a href="#一-相关视频上传" class="headerlink" title="一. 相关视频上传"></a>一. <strong>相关视频上传</strong></h5><p>通过这种方式上传大视频，以首都之窗为例，需要下面几个地方的配置：</p><ol><li>登录到政务外网nginx服务器(192.141.7.18),找到gov.conf文件，找到这段配置：</li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%99%90%E5%88%B6%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F/wps5.jpg" alt="img"> </p><p>将划线的地方设置为合适的大小。</p><ol start="2"><li><p>登录到海云，切换到【管理中心】，在左侧的列表中找到【其他配置】，在右侧的列表中搜索“DEFAULT_VIDEO_UPLOAD_SIZE_LIMIT”，根据项目的实际情况修改成合适的值。</p></li><li><p>登录到mas后台，修改下图的配置：</p></li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E9%99%90%E5%88%B6%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F/wps6.jpg" alt="img"> </p><ol start="4"><li>如果上述三点还是解决不了，可以参考修改的地方是tomcat的配置。</li></ol><h5 id="二-相关附件上传"><a href="#二-相关附件上传" class="headerlink" title="二. 相关附件上传"></a>二. <strong>相关附件上传</strong></h5><p>登录海云，切换到【管理中心】，点击左侧菜单的【其他配置】，在右侧的配置项列表搜索“DEFAULT_VIDEO_UPLOAD_SIZE_LIMIT”这个配置项，根据实际需要修改一个合适的值。以【首都之窗】为例，目前此属性设置的值为307200。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>海云绑定微信测试账号</title>
+      <link href="/2024/10/08/hai-yun-bang-ding-wei-xin-ce-shi-zhang-hao/"/>
+      <url>/2024/10/08/hai-yun-bang-ding-wei-xin-ce-shi-zhang-hao/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>微信渠道测试，需要用到微信公众号账号，可以向微信公众号平台申请公众平台测试账号。</p><h4 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h4><ol><li><p>进入微信公众号平台：<a href="https://mp.weixin.qq.com/">微信公众平台</a></p></li><li><p>进入 开发者工具——公众平台测试账号</p></li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E7%BB%91%E5%AE%9A%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7/wps1.jpg" alt="img"> </p><ol start="3"><li>查看测试账号的appID、appsecret等信息</li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E7%BB%91%E5%AE%9A%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7/wps2.jpg" alt="img"> </p><ol start="4"><li>进入海云系统，渠道管理下的微信渠道，绑定新账号，填入测试账号的appID、appsecret等信息即可。</li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E7%BB%91%E5%AE%9A%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7/wps3.jpg" alt="img"> </p><ol start="5"><li>记得配置白名单</li></ol><p><img src="/../images/%E6%B5%B7%E4%BA%91%E7%BB%91%E5%AE%9A%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7/wps4.jpg" alt="img"> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>构建rpm包退出状态不好</title>
+      <link href="/2024/10/08/gou-jian-rpm-bao-tui-chu-zhuang-tai-bu-hao/"/>
+      <url>/2024/10/08/gou-jian-rpm-bao-tui-chu-zhuang-tai-bu-hao/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><h3 id="用rpmbuild打包rpmbuild-bp-nginx-spec时提示："><a href="#用rpmbuild打包rpmbuild-bp-nginx-spec时提示：" class="headerlink" title="用rpmbuild打包rpmbuild -bp nginx.spec时提示："></a>用rpmbuild打包rpmbuild -bp nginx.spec时提示：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/var/tmp/rpm-tmp.UnlH9g: line <span class="token number">37</span>: <span class="token string">$'<span class="token entity" title="\r">\r</span>'</span><span class="token builtin class-name">:</span> <span class="token builtin class-name">command</span> not founderror: Bad <span class="token builtin class-name">exit</span> status from /var/tmp/rpm-tmp.UnlH9g <span class="token punctuation">(</span>%prep<span class="token punctuation">)</span>  RPM build errors: Bad <span class="token builtin class-name">exit</span> status from /var/tmp/rpm-tmp.UnlH9g <span class="token punctuation">(</span>%prep<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h4><p>1、查看<code>rpmbuild -bp nginx.spec</code> 配置正常，运行依然报错。</p><p>2、用file查询格式：</p><p><code>file nginx.spec</code></p><p>返回：<code>ASCII text, with CRLF line terminators</code></p><p>3、<code>dos2unix nginx.spec</code>对该文件进行格式化。</p><p>4、再用file查看格式：</p><p><code>file nginx.spec</code></p><p>返回：<code>ASCII text</code></p><p>5、再次<code>rpmbuild -bp nginx.spec</code> 正常。</p><h4 id="根因"><a href="#根因" class="headerlink" title="根因"></a>根因</h4><p>因为nginx.spec文件在windows下编辑</p><p>所以文件格式不是ASCII text</p><p>格式化之后正常，才可进行操作。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在windows下编写的脚本或者配置文件时，</p><p>需要注意文件格式及符号格式</p><p>若格式不对，需进行相应格式化才能继续操作。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>实战数据迁移方案</title>
+      <link href="/2024/10/08/shi-zhan-shu-ju-qian-yi-fang-an/"/>
+      <url>/2024/10/08/shi-zhan-shu-ju-qian-yi-fang-an/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GAB数据库迁移方案-v1-1"><a href="#GAB数据库迁移方案-v1-1" class="headerlink" title="GAB数据库迁移方案 v1.1"></a>GAB数据库迁移方案 v1.1</h1><p><strong>日期</strong>：2023/5/9</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1.1-%E8%83%8C%E6%99%AF">背景</a>  </li><li><a href="#1.2-%E8%BF%81%E7%A7%BB%E5%87%86%E5%A4%87">迁移准备</a>  <ol><li><a href="#1.2.1-%E8%B5%84%E6%BA%90%E7%A1%AE%E8%AE%A4">资源确认</a>  </li><li><a href="#1.2.2-%E5%85%B3%E9%94%AE%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD">关键数据备份</a>  </li><li><a href="#1.2.3-%E9%AA%8C%E8%AF%81%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B">验证迁移过程</a></li></ol></li><li><a href="#1.3-%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB">数据迁移</a>  </li><li><a href="#1.4-%E8%BF%81%E7%A7%BB%E9%AA%8C%E8%AF%81">迁移验证</a>  <ol><li><a href="#1.4.1-%E8%A1%A8%E6%95%B0%E9%87%8F%E4%B8%80%E8%87%B4%E6%80%A7%E6%A3%80%E6%9F%A5">表数量一致性检查</a>  </li><li><a href="#1.4.2-%E4%B8%BB%E8%A6%81%E8%A1%A8%E6%95%B0%E6%8D%AE%E9%87%8F%E4%B8%80%E8%87%B4%E6%80%A7%E6%A3%80%E6%9F%A5">主要表数据量一致性检查</a></li></ol></li><li><a href="#1.5-%E4%B8%9A%E5%8A%A1%E5%88%87%E6%8D%A2">业务切换</a>  </li><li><a href="#1.6-%E4%B8%9A%E5%8A%A1%E9%AA%8C%E8%AF%81">业务验证</a>  <ol><li><a href="#1.6.1-%E5%B9%B3%E5%8F%B0%E8%87%AA%E6%A3%80">平台自检</a>  </li><li><a href="#1.6.2-%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81">用户验证</a></li></ol></li><li><a href="#1.7-%E4%B8%8A%E7%BA%BF%E4%BF%9D%E9%9A%9C">上线保障</a>  </li><li><a href="#1.8-%E5%9B%9E%E9%80%80%E8%AE%A1%E5%88%92">回退计划</a></li></ol><h2 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h2><h2 id="1-2-迁移准备"><a href="#1-2-迁移准备" class="headerlink" title="1.2 迁移准备"></a>1.2 迁移准备</h2><h3 id="1-2-1-资源确认"><a href="#1-2-1-资源确认" class="headerlink" title="1.2.1 资源确认"></a>1.2.1 资源确认</h3><h3 id="1-2-2-关键数据备份"><a href="#1-2-2-关键数据备份" class="headerlink" title="1.2.2 关键数据备份"></a>1.2.2 关键数据备份</h3><h3 id="1-2-3-验证迁移过程"><a href="#1-2-3-验证迁移过程" class="headerlink" title="1.2.3 验证迁移过程"></a>1.2.3 验证迁移过程</h3><h2 id="1-3-数据迁移"><a href="#1-3-数据迁移" class="headerlink" title="1.3 数据迁移"></a>1.3 数据迁移</h2><h2 id="1-4-迁移验证"><a href="#1-4-迁移验证" class="headerlink" title="1.4 迁移验证"></a>1.4 迁移验证</h2><h3 id="1-4-1-表数量一致性检查"><a href="#1-4-1-表数量一致性检查" class="headerlink" title="1.4.1 表数量一致性检查"></a>1.4.1 表数量一致性检查</h3><h3 id="1-4-2-主要表数据量一致性检查"><a href="#1-4-2-主要表数据量一致性检查" class="headerlink" title="1.4.2 主要表数据量一致性检查"></a>1.4.2 主要表数据量一致性检查</h3><h2 id="1-5-业务切换"><a href="#1-5-业务切换" class="headerlink" title="1.5 业务切换"></a>1.5 业务切换</h2><h2 id="1-6-业务验证"><a href="#1-6-业务验证" class="headerlink" title="1.6 业务验证"></a>1.6 业务验证</h2><h3 id="1-6-1-平台自检"><a href="#1-6-1-平台自检" class="headerlink" title="1.6.1 平台自检"></a>1.6.1 平台自检</h3><h3 id="1-6-2-用户验证"><a href="#1-6-2-用户验证" class="headerlink" title="1.6.2 用户验证"></a>1.6.2 用户验证</h3><h2 id="1-7-上线保障"><a href="#1-7-上线保障" class="headerlink" title="1.7 上线保障"></a>1.7 上线保障</h2><h2 id="1-8-回退计划"><a href="#1-8-回退计划" class="headerlink" title="1.8 回退计划"></a>1.8 回退计划</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>实战SSL终止</title>
+      <link href="/2024/10/08/shi-zhan-ssl-zhong-zhi/"/>
+      <url>/2024/10/08/shi-zhan-ssl-zhong-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><h2 id="一、回退10、11服务器应用为HTTP"><a href="#一、回退10、11服务器应用为HTTP" class="headerlink" title="一、回退10、11服务器应用为HTTP"></a>一、回退10、11服务器应用为HTTP</h2><ol><li>撤销应用证书</li><li>重启应用</li><li>修改 <code>gov.conf</code> 文件</li><li>重启 Nginx</li><li>验证 HTTP 通道访问海云是否成功</li></ol><h2 id="二、配置代理13服务器应用为HTTPS"><a href="#二、配置代理13服务器应用为HTTPS" class="headerlink" title="二、配置代理13服务器应用为HTTPS"></a>二、配置代理13服务器应用为HTTPS</h2><ol><li>安装 OpenSSL 插件</li><li>安装带 SSL 模组的 Nginx</li><li>导入证书到 Nginx 目录</li><li>配置 <code>nginx.conf</code> 文件</li><li>启动 Nginx</li></ol><h2 id="三、访问13服务器-Nginx"><a href="#三、访问13服务器-Nginx" class="headerlink" title="三、访问13服务器 Nginx"></a>三、访问13服务器 Nginx</h2><ul><li>通过新域名访问海云</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>达梦数据库主备以及读写分离集群启停</title>
+      <link href="/2024/10/08/da-meng-shu-ju-ku-zhu-bei-yi-ji-du-xie-fen-chi-ji-qun-qi-ting/"/>
+      <url>/2024/10/08/da-meng-shu-ju-ku-zhu-bei-yi-ji-du-xie-fen-chi-ji-qun-qi-ting/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、数据库停止"><a href="#一、数据库停止" class="headerlink" title="一、数据库停止"></a><strong>一、数据库停止</strong></h2><p>一、通过ssh登录到数据库服务器</p><p>连接用户：root 切换dmdba用户[root@YDAQDB01 ~]# su – dmdba</p><p>四、主备集群关闭数据库服务</p><p><strong>1、</strong>如果达梦安装目录与示例不同，通过ps -ef |grep ini 查询相关进程，通过进程信息识别数据库执行文件所在目录，如下图：–如果监视器先停监视器（如没有跳过）cd /home/dmdba/dmdbms/bin   –（路径已实际为准）./DmMonitorDMOA  stop<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps1.jpg" alt="img"> <img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps2.jpg" alt="img"> 2、停备watcher服务 [dmdba@0001 bin]./DmWatcherService stop3、停主库watcher[dmdba@0001 bin]./DmWatcherService stop4、停主库实例[dmdba@0001 bin]$ ./disql SYSDBA/SYSDBA:5236服务器[LOCALHOST:5236]:处于主库打开状态登录使用时间 : 1.372(ms)disql V8SQL&gt; shutdown immediate;SQL&gt; exit;前台执行完成后，查看后台日志是否正常启动 cat ../log/dm_ServiceRT01_停库月份.log | grep shutdown | grep 停库日期例：dmdba@debian:<del>bin$ cat ../log/dm_ServiceRT01_202301.log | grep shutdown | grep 2023-01-13<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps3.jpg" alt="img"> 5、停备库无先后顺序，多个备库均要停止 [dmdba@0001 bin]$ ./disql SYSDBA/SYSDBA:5236服务器[LOCALHOST:5236]:处于备库打开状态登录使用时间 : 1.372(ms)disql V8SQL&gt; shutdown immediate;SQL&gt; exit;前台执行完成后，查看后台日志是否正常启动 cat ../log/dm_ServiceRT01_停库月份.log | grep shutdown | grep 停库日期例：dmdba@debian:</del>bin$ cat ../log/dm_ServiceRT01_202301.log | grep shutdown | grep 2023-01-13<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps4.jpg" alt="img"> </p><h2 id="二、数据库启动"><a href="#二、数据库启动" class="headerlink" title="二、数据库启动"></a><strong>二、数据库启动</strong></h2><p>登录到数据库dmdba用户</p><p>连接用户：root 切换dmdba用户[root@ ~]# su – dmdba</p><p><em><strong>*1.2 主备以及读写分离集群启动数据库服务*</strong></em></p><p>1、分别进入到主备节点的数据库软件部署目录[dmdba@YDAQDB01 ~]$ cd /home/dmdba/dmdbms/bin1、启动主库服务 [dmdba@YDAQDB01 bin]$ ./DmServiceRT01 start前台显示ok后 通过日志查看是否正常启动 cat ../log/dm_ServiceRT01_起库日期.log | grep SYSTEM例：[dmdba@YDAQDB01 bin]$ cat ../log/dm_ServiceRT01_202301.log | grep SYSTEM<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps5.jpg" alt="img"> 测试登录是否正常：[dmdba@YDAQDB01 ~]$ cd /dmdata/dmdbms/bin[dmdba@YDAQDB01 bin]$ ./disql SYSDBA/”’密码’”:端口2、启动备库服务 [dmdba@YDAQDB01 bin]$ ./DmServiceRT02 start前台显示ok后 通过日志查看是否正常启动cat ../log/dm_ServiceRT02_起库日期.log | grep SYSTEM[dmdba@YDAQDB01 bin]$ cat ../log/dm_ServiceRT02_202301.log | grep SYSTEM例：<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps6.jpg" alt="img"> 测试登录是否正常：[dmdba@YDAQDB01 ~]$ cd /dmdata/dmdbms/bin[dmdba@YDAQDB01 bin]$ ./disql SYSDBA/”’密码’”:端口3、启动主库守护[dmdba@YDAQDB01 bin]$ ./DmWatcherService start4、启动备库守护[dmdba@YDAQDB01 bin]$ ./DmWatcherService start2、登录监视器查看集群是否正常[dmdba@YDAQDB01 bin]$ ./dmmonitor /data/dmdata/SPAQ_RT/DAMENG/dmmonitor.ini <img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps7.jpg" alt="img"> –启动确认监视器（如没有跳过）./DmMonitorDMOA  start 3、登录主备数据库测试集群是否登录正常[dmdba@YDAQDB01 bin]$ ./disql SYSDBA/’”密码”’:端口<img src="/../images/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E5%A4%87%E4%BB%A5%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%9B%86%E7%BE%A4%E5%90%AF%E5%81%9C/wps8.jpg" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>测试计划</title>
+      <link href="/2024/10/08/ce-shi-ji-hua/"/>
+      <url>/2024/10/08/ce-shi-ji-hua/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GAB门户网站国产化迁移适配项目测试计划"><a href="#GAB门户网站国产化迁移适配项目测试计划" class="headerlink" title="GAB门户网站国产化迁移适配项目测试计划"></a>GAB门户网站国产化迁移适配项目测试计划</h1><p>2023年3月</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="第1章-引言"><a href="#第1章-引言" class="headerlink" title="第1章 引言"></a>第1章 引言</h3><h4 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h4><h4 id="1-2-适应范围"><a href="#1-2-适应范围" class="headerlink" title="1.2 适应范围"></a>1.2 适应范围</h4><h3 id="第2章-产品测试概述"><a href="#第2章-产品测试概述" class="headerlink" title="第2章 产品测试概述"></a>第2章 产品测试概述</h3><h4 id="2-1-测试类型说明"><a href="#2-1-测试类型说明" class="headerlink" title="2.1 测试类型说明"></a>2.1 测试类型说明</h4><h4 id="2-2-产品名称及版本"><a href="#2-2-产品名称及版本" class="headerlink" title="2.2 产品名称及版本"></a>2.2 产品名称及版本</h4><h4 id="2-3-角色与职责"><a href="#2-3-角色与职责" class="headerlink" title="2.3 角色与职责"></a>2.3 角色与职责</h4><h5 id="2-3-1-测试负责人"><a href="#2-3-1-测试负责人" class="headerlink" title="2.3.1 测试负责人"></a>2.3.1 测试负责人</h5><h5 id="2-3-2-测试人员"><a href="#2-3-2-测试人员" class="headerlink" title="2.3.2 测试人员"></a>2.3.2 测试人员</h5><h4 id="2-4-测试目标"><a href="#2-4-测试目标" class="headerlink" title="2.4 测试目标"></a>2.4 测试目标</h4><h4 id="2-5-测试环境"><a href="#2-5-测试环境" class="headerlink" title="2.5 测试环境"></a>2.5 测试环境</h4><h5 id="2-5-1-资源部署"><a href="#2-5-1-资源部署" class="headerlink" title="2.5.1 资源部署"></a>2.5.1 资源部署</h5><h5 id="2-5-2-网络环境"><a href="#2-5-2-网络环境" class="headerlink" title="2.5.2 网络环境"></a>2.5.2 网络环境</h5><h4 id="2-6-相关工具"><a href="#2-6-相关工具" class="headerlink" title="2.6 相关工具"></a>2.6 相关工具</h4><h3 id="第3章-测试范围"><a href="#第3章-测试范围" class="headerlink" title="第3章 测试范围"></a>第3章 测试范围</h3><h4 id="3-1-测试范围及用例"><a href="#3-1-测试范围及用例" class="headerlink" title="3.1 测试范围及用例"></a>3.1 测试范围及用例</h4><h5 id="3-1-1-测试范围"><a href="#3-1-1-测试范围" class="headerlink" title="3.1.1 测试范围"></a>3.1.1 测试范围</h5><h5 id="3-1-2-测试用例"><a href="#3-1-2-测试用例" class="headerlink" title="3.1.2 测试用例"></a>3.1.2 测试用例</h5><h4 id="3-2-问题跟踪"><a href="#3-2-问题跟踪" class="headerlink" title="3.2 问题跟踪"></a>3.2 问题跟踪</h4><h4 id="3-3-测试完成准则"><a href="#3-3-测试完成准则" class="headerlink" title="3.3 测试完成准则"></a>3.3 测试完成准则</h4><h3 id="第4章-计划安排"><a href="#第4章-计划安排" class="headerlink" title="第4章 计划安排"></a>第4章 计划安排</h3><h3 id="第5章-风险分析"><a href="#第5章-风险分析" class="headerlink" title="第5章 风险分析"></a>第5章 风险分析</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MAS部署实施FAQ</title>
+      <link href="/2024/10/08/mas-bu-shu-shi-shi-faq/"/>
+      <url>/2024/10/08/mas-bu-shu-shi-shi-faq/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MAS部署实施FAQ"><a href="#MAS部署实施FAQ" class="headerlink" title="MAS部署实施FAQ"></a>MAS部署实施FAQ</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#openapi%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98">openapi接口安全问题</a></li><li><a href="#%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0mas%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">如何更新MAS？有哪些注意事项？</a></li><li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98faq">常见问题FAQ</a></li></ol><hr><h2 id="openapi接口安全问题"><a href="#openapi接口安全问题" class="headerlink" title="openapi接口安全问题"></a>openapi接口安全问题</h2><h2 id="如何更新MAS？有哪些注意事项？"><a href="#如何更新MAS？有哪些注意事项？" class="headerlink" title="如何更新MAS？有哪些注意事项？"></a>如何更新MAS？有哪些注意事项？</h2><h2 id="常见问题FAQ"><a href="#常见问题FAQ" class="headerlink" title="常见问题FAQ"></a>常见问题FAQ</h2><h3 id="01-初始化时，页面有乱码是怎么回事？"><a href="#01-初始化时，页面有乱码是怎么回事？" class="headerlink" title="01. 初始化时，页面有乱码是怎么回事？"></a>01. 初始化时，页面有乱码是怎么回事？</h3><h3 id="02-如何更改MAS的仓库路径？（只需七步完成）"><a href="#02-如何更改MAS的仓库路径？（只需七步完成）" class="headerlink" title="02. 如何更改MAS的仓库路径？（只需七步完成）"></a>02. 如何更改MAS的仓库路径？（只需七步完成）</h3><h3 id="03-缩略图显示不出来（IE-下为红-X），怎么办？"><a href="#03-缩略图显示不出来（IE-下为红-X），怎么办？" class="headerlink" title="03. 缩略图显示不出来（IE 下为红 X），怎么办？"></a>03. 缩略图显示不出来（IE 下为红 X），怎么办？</h3><h3 id="04-启动-TRS-MAS-时出现端口冲突怎么办？"><a href="#04-启动-TRS-MAS-时出现端口冲突怎么办？" class="headerlink" title="04. 启动 TRS MAS 时出现端口冲突怎么办？"></a>04. 启动 TRS MAS 时出现端口冲突怎么办？</h3><h3 id="05-如果用-nginx-作缩略图浏览和-HTTP-播放，如何配置？"><a href="#05-如果用-nginx-作缩略图浏览和-HTTP-播放，如何配置？" class="headerlink" title="05. 如果用 nginx 作缩略图浏览和 HTTP 播放，如何配置？"></a>05. 如果用 nginx 作缩略图浏览和 HTTP 播放，如何配置？</h3><h3 id="06-illegal-view-错误"><a href="#06-illegal-view-错误" class="headerlink" title="06. illegal view 错误"></a>06. illegal view 错误</h3><h3 id="07-用户密码使用国密sm3加密配置"><a href="#07-用户密码使用国密sm3加密配置" class="headerlink" title="07. 用户密码使用国密sm3加密配置"></a>07. 用户密码使用国密sm3加密配置</h3><h3 id="08-视频加工失败问题排查"><a href="#08-视频加工失败问题排查" class="headerlink" title="08. 视频加工失败问题排查"></a>08. 视频加工失败问题排查</h3><h3 id="09-使用HTTPS协议业务系统里上传视频不成功，也无法播放视频，如何处理？"><a href="#09-使用HTTPS协议业务系统里上传视频不成功，也无法播放视频，如何处理？" class="headerlink" title="09. 使用HTTPS协议业务系统里上传视频不成功，也无法播放视频，如何处理？"></a>09. 使用HTTPS协议业务系统里上传视频不成功，也无法播放视频，如何处理？</h3><h3 id="10-海云采编系统MAS上传有问题怎么办？"><a href="#10-海云采编系统MAS上传有问题怎么办？" class="headerlink" title="10. 海云采编系统MAS上传有问题怎么办？"></a>10. 海云采编系统MAS上传有问题怎么办？</h3><h3 id="11-通过MAS上传地址任意上传视频文件如何规避？"><a href="#11-通过MAS上传地址任意上传视频文件如何规避？" class="headerlink" title="11. 通过MAS上传地址任意上传视频文件如何规避？"></a>11. 通过MAS上传地址任意上传视频文件如何规避？</h3><h3 id="12-第三方系统上传视频转成多路码流视频及各路码流配置"><a href="#12-第三方系统上传视频转成多路码流视频及各路码流配置" class="headerlink" title="12. 第三方系统上传视频转成多路码流视频及各路码流配置"></a>12. 第三方系统上传视频转成多路码流视频及各路码流配置</h3><h3 id="13-站外播放页exPlay（video标签）视频无法播放问题"><a href="#13-站外播放页exPlay（video标签）视频无法播放问题" class="headerlink" title="13. 站外播放页exPlay（video标签）视频无法播放问题"></a>13. 站外播放页exPlay（video标签）视频无法播放问题</h3><h3 id="14-更新MAS后视频码流接口数据解析不到视频地址怎么处理？"><a href="#14-更新MAS后视频码流接口数据解析不到视频地址怎么处理？" class="headerlink" title="14. 更新MAS后视频码流接口数据解析不到视频地址怎么处理？"></a>14. 更新MAS后视频码流接口数据解析不到视频地址怎么处理？</h3><h3 id="15-视频加工太慢"><a href="#15-视频加工太慢" class="headerlink" title="15. 视频加工太慢"></a>15. 视频加工太慢</h3><h3 id="16-回退到更新前版本"><a href="#16-回退到更新前版本" class="headerlink" title="16. 回退到更新前版本"></a>16. 回退到更新前版本</h3><h3 id="17-容器版部署启动失败：Could-not-get-a-resource-from-the-pool"><a href="#17-容器版部署启动失败：Could-not-get-a-resource-from-the-pool" class="headerlink" title="17. 容器版部署启动失败：Could not get a resource from the pool"></a>17. 容器版部署启动失败：Could not get a resource from the pool</h3><h3 id="18-视频加工失败：NoSuchMethodError"><a href="#18-视频加工失败：NoSuchMethodError" class="headerlink" title="18. 视频加工失败：NoSuchMethodError"></a>18. 视频加工失败：NoSuchMethodError</h3><h3 id="19-协作应用没有正确集成-agent-getServletAppActor"><a href="#19-协作应用没有正确集成-agent-getServletAppActor" class="headerlink" title="19. 协作应用没有正确集成 agent.getServletAppActor"></a>19. 协作应用没有正确集成 agent.getServletAppActor</h3><h3 id="20-WCM视频库报错"><a href="#20-WCM视频库报错" class="headerlink" title="20. WCM视频库报错"></a>20. WCM视频库报错</h3><h3 id="21-如何查看MAS注册码过期时间？"><a href="#21-如何查看MAS注册码过期时间？" class="headerlink" title="21. 如何查看MAS注册码过期时间？"></a>21. 如何查看MAS注册码过期时间？</h3><h3 id="22-调用-x2F-service-x2F-makeThumb接口对m3u8获取缩略图不准确"><a href="#22-调用-x2F-service-x2F-makeThumb接口对m3u8获取缩略图不准确" class="headerlink" title="22. 调用/service/makeThumb接口对m3u8获取缩略图不准确"></a>22. 调用/service/makeThumb接口对m3u8获取缩略图不准确</h3><h3 id="23-MAS转码加工任务堆积过多如何清理？"><a href="#23-MAS转码加工任务堆积过多如何清理？" class="headerlink" title="23. MAS转码加工任务堆积过多如何清理？"></a>23. MAS转码加工任务堆积过多如何清理？</h3><h3 id="24-一图学会MAS转码过程中原画、帧率、码率、宽高配置"><a href="#24-一图学会MAS转码过程中原画、帧率、码率、宽高配置" class="headerlink" title="24. 一图学会MAS转码过程中原画、帧率、码率、宽高配置"></a>24. 一图学会MAS转码过程中原画、帧率、码率、宽高配置</h3><h3 id="25-修改MASVOD预览地址"><a href="#25-修改MASVOD预览地址" class="headerlink" title="25. 修改MASVOD预览地址"></a>25. 修改MASVOD预览地址</h3><h3 id="26-上传转码获取元数据失败-上传被拒绝"><a href="#26-上传转码获取元数据失败-上传被拒绝" class="headerlink" title="26. 上传转码获取元数据失败 - 上传被拒绝"></a>26. 上传转码获取元数据失败 - 上传被拒绝</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ie不兼容样式</title>
+      <link href="/2024/10/08/ie-bu-jian-rong-yang-shi/"/>
+      <url>/2024/10/08/ie-bu-jian-rong-yang-shi/</url>
+      
+        <content type="html"><![CDATA[<p>在 IE11 中居中一个块级元素，并且其宽度需要自适应其内容的宽度，可以尝试以下方法：</p><h2 id="方法-1：使用-text-align-和-inline-block"><a href="#方法-1：使用-text-align-和-inline-block" class="headerlink" title="方法 1：使用 text-align 和 inline-block"></a>方法 1：使用 <code>text-align</code> 和 <code>inline-block</code></h2><ol><li><p>使用 <code>text-align: center;</code> 属性将父元素的文本居中，同时在子元素中设置 <code>display: inline-block;</code> 属性以使其成为一个内联块元素，例如：</p><pre class="line-numbers language-none"><code class="language-none">css复制代码.parent {  text-align: center;}.child {  display: inline-block;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h2 id="方法-2：使用-Flexbox"><a href="#方法-2：使用-Flexbox" class="headerlink" title="方法 2：使用 Flexbox"></a>方法 2：使用 Flexbox</h2><ol><li><p>使用 <code>display: flex;</code> 属性将父元素转换为弹性容器，然后使用 <code>justify-content: center;</code> 属性将其子元素水平居中，例如：</p><pre class="line-numbers language-none"><code class="language-none">css复制代码.parent {  display: flex;  justify-content: center;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li></ol><p>这两种方法都可以在 IE11 中兼容，并且能够水平居中一个自适应内容宽度的块级元素。</p><h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>由于 <code>{width: max-content}</code> 不兼容 IE11 浏览器，建议将 <code>div</code> 块级元素规定为固定宽度。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES追踪指定方法的调用路径和耗时</title>
+      <link href="/2024/10/08/es-zhui-zong-zhi-ding-fang-fa-de-diao-yong-lu-jing-he-hao-shi/"/>
+      <url>/2024/10/08/es-zhui-zong-zhi-ding-fang-fa-de-diao-yong-lu-jing-he-hao-shi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用-Arthas-进行方法追踪"><a href="#使用-Arthas-进行方法追踪" class="headerlink" title="使用 Arthas 进行方法追踪"></a>使用 Arthas 进行方法追踪</h1><ol><li>进入 IRS 容器，路径为 <code>/TRS/APP/</code>。</li><li>运行命令：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">   <span class="token function">java</span> <span class="token parameter variable">-jar</span> arthas-boot.jar<span class="token number">3</span>. 选择进程。<span class="token number">4</span>. 执行以下命令进行方法追踪：   ```bash    trace com.trs.irs.search.service.impl.SearchServiceImpl indexDocument <span class="token parameter variable">-n</span> <span class="token number">5</span> <span class="token parameter variable">--skipJDKMethod</span> <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><ul><li><strong>trace</strong>: 追踪指定方法的调用路径和耗时。</li><li><strong>com.trs.irs.search.service.impl.SearchServiceImpl</strong>: 这是你要监控的类的全限定名。</li><li><strong>indexDocument</strong>: 这是你要监控的方法名。</li><li><strong>-n 5</strong>: 只展示最近的 5 次调用的跟踪结果。</li><li><strong>–skipJDKMethod false</strong>: 指定是否跳过 JDK 内部的方法调用。<code>false</code> 表示不跳过，即显示完整的调用链，包括 JDK 内部的方法。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>arthas查irs-es同步性能</title>
+      <link href="/2024/10/08/arthas-cha-irs-es-tong-bu-xing-neng/"/>
+      <url>/2024/10/08/arthas-cha-irs-es-tong-bu-xing-neng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用-Arthas-进行-Java-进程分析"><a href="#使用-Arthas-进行-Java-进程分析" class="headerlink" title="使用 Arthas 进行 Java 进程分析"></a>使用 Arthas 进行 Java 进程分析</h1><ol><li><p>进入 <code>irs</code> 的 Pod。</p></li><li><p>进入 <code>/TRS/APP/arthas-3.2.0</code> 目录。</p></li><li><p>运行命令：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">   <span class="token function">java</span> <span class="token parameter variable">-jar</span> arthas-boot.jar<span class="token number">4</span>. 按 <span class="token variable"><span class="token variable">`</span><span class="token number">1</span><span class="token variable">`</span></span> 选择 <span class="token variable"><span class="token variable">`</span>irs<span class="token variable">`</span></span> 进程。<span class="token number">5</span>. 执行以下命令进行方法追踪：   ```bash   trace com.trs.irs.search.service.impl.SearchServiceImpl indexDocument <span class="token parameter variable">-n</span> <span class="token number">5</span> <span class="token parameter variable">--skipJDKMethod</span> <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>北斗卫星导航系统网站部署方案</title>
+      <link href="/2024/10/08/bei-dou-wei-xing-dao-hang-xi-tong-wang-zhan-bu-shu-fang-an/"/>
+      <url>/2024/10/08/bei-dou-wei-xing-dao-hang-xi-tong-wang-zhan-bu-shu-fang-an/</url>
+      
+        <content type="html"><![CDATA[<h1 id="XX信息技术股份有限公司"><a href="#XX信息技术股份有限公司" class="headerlink" title="XX信息技术股份有限公司"></a>XX信息技术股份有限公司</h1><h2 id="2017年11月"><a href="#2017年11月" class="headerlink" title="2017年11月"></a>2017年11月</h2><h3 id="文档修订记录"><a href="#文档修订记录" class="headerlink" title="文档修订记录"></a>文档修订记录</h3><table><thead><tr><th>编号</th><th>版本号</th><th>修订时间</th><th>修订内容</th><th>修订人</th><th>审核人</th></tr></thead><tbody><tr><td>1</td><td>V1.0</td><td>2017.11</td><td>初始创建</td><td>XX</td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ol><li><a href="#1%E5%BC%95%E8%A8%80">引言</a><br>1.1 <a href="#11%E7%BC%96%E5%86%99%E7%9B%AE%E7%9A%84">编写目的</a><br>1.2 <a href="#12%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">适用范围</a><br>1.3 <a href="#13%E8%AF%BB%E8%80%85%E5%AF%B9%E8%B1%A1">读者对象</a><br>1.4 <a href="#14%E6%9C%AF%E8%AF%AD%E4%B8%8E%E8%A7%A3%E9%87%8A">术语与解释</a><br>1.5 <a href="#15%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a>  </li><li><a href="#2%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88">部署方案</a><br>2.1 <a href="#21%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">网络环境准备</a><br>2.2 <a href="#22%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87">硬件准备</a><br>2.3 <a href="#23%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87">软件准备</a></li></ol><h3 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h3><h4 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h4><p>通过编写《实施部署方案》，规划网络环境准备、硬件准备、软件准备，阐述网络环境的划分，网络分区；硬件服务器的部署需求，软件所需列表。</p><h4 id="1-2-适用范围"><a href="#1-2-适用范围" class="headerlink" title="1.2 适用范围"></a>1.2 适用范围</h4><p>适用系统：北斗卫星导航系统网站</p><h4 id="…"><a href="#…" class="headerlink" title="…"></a>…</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 默认分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>编译安装nginx带http_ssl_module模块</title>
       <link href="/2023/10/12/bian-yi-an-zhuang-nginx-dai-http-ssl-module-mo-kuai/"/>
       <url>/2023/10/12/bian-yi-an-zhuang-nginx-dai-http-ssl-module-mo-kuai/</url>
